@@ -1,0 +1,861 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CameraScript : MonoBehaviour {
+
+    public Transform target; //the target (player car) for the camera to follow 
+    readonly float smoothnessP = 0.1f;  //smoothness variable for position smoothening 
+    readonly float smoothnessR = 0.07f;  //smoothness variable for rotation smoothening
+    public Vector3 offset;  //for offseting the camera w.r.t the player
+
+    public Transform cameraTransform;
+
+    public void FixedUpdate()
+    {
+        #region
+        Vector3 desiredPosition = target.transform.position + offset;
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothnessP);
+        transform.position = smoothedPosition;
+        #endregion  //lerping the position of the camera holder 
+
+        //TODO: the rotation is not syncing with the player rotation
+        #region
+        Quaternion desiredRotation = target.transform.rotation;
+        Quaternion smoothedRotation = Quaternion.Lerp(transform.rotation, desiredRotation, smoothnessR);
+        transform.rotation = smoothedRotation;
+        #endregion  //lerping the rotation of the camera holder 
+
+        cameraTransform.LookAt(target);
+    }
+
+    public IEnumerator Shake(float duration, float magnitude)
+    {
+        Vector3 orginalPos = cameraTransform.transform.localPosition;
+        float elaplsed = 0.0f;
+
+        while (elaplsed < duration)
+        {
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+
+            cameraTransform.transform.localPosition = new Vector3(x, y, orginalPos.z);
+            elaplsed += Time.deltaTime;
+            yield return null;
+        }
+
+        cameraTransform.transform.localPosition = orginalPos;
+    }
+}
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CarController : MonoBehaviour {
+    
+    public static bool isMoving;
+    public static bool movingRight;
+    public static bool movingLeft;
+    bool movingForward;
+
+    public static float acceleration = 0.05f;
+    public static float deceleration = 0.01f;
+
+    readonly Vector3 rotationAxis = new Vector3(0, 1, 0);
+    float driftSpeed = 5f;
+    float ordinaryRotationSpeed = 5f;
+    public static float rotationSpeed;
+    float driftTreshold = 35f;
+
+    public static float speed;
+    readonly float maxSpeed = 0.5f;
+    readonly float minSpeed = 0;
+    Vector3 velocity = new Vector3();
+
+    float fuel;
+    readonly float maxFuelCapacity = 100;
+    readonly float reFuelAmount = 10;
+
+    new Transform transform;
+
+    public Transform frontWheels;
+    public Transform backWheels;
+    public float wheelRotationSpeed;
+
+    public CameraScript camera;
+
+    void Awake ()
+    {
+        Screen.orientation = ScreenOrientation.Portrait;
+        transform = GetComponent<Transform>();
+        speed = minSpeed;
+    }
+	
+	void FixedUpdate ()
+    {
+        Move();
+        if (Input.GetAxis("Jump") > 0)
+        {
+            Crashed();
+        }
+    }
+
+    void Move()
+    {
+        transform.position += velocity;
+        velocity = speed * transform.right;
+        if(isMoving)
+        { 
+            if (Player.fuel > 0)
+            {
+                Player.fuel -= Time.deltaTime * 1 / Player.milage * 50;
+            }
+            else
+                Player.fuel = 0;
+        }
+        
+        if (speed > 0)
+            isMoving = true;
+        else
+            isMoving = false;
+
+        if ((TouchInput.touched || Input.GetAxis("Vertical") > 0 ) && !Player.game_over && !Player.game_won && Player.fuel > 0)
+        {
+            if (speed < maxSpeed)
+            {
+               speed += acceleration;
+            }
+        }
+        else
+        {
+            if (speed > minSpeed)
+                speed -= deceleration;
+            else
+            {
+                speed = minSpeed;
+            }
+        }
+        if (Application.platform == RuntimePlatform.Android)  //condition to check if system == android
+        {
+            if (TouchInput.direction > 0 && isMoving)   //right check
+            {
+                float dSpeed = driftSpeed * Mathf.Abs((TouchInput.direction) / Screen.width);
+                if (dSpeed > driftTreshold)
+                {
+                    rotationSpeed = driftSpeed;
+                }
+                else
+                {
+                    rotationSpeed = dSpeed;
+                }
+                transform.Rotate(rotationAxis * rotationSpeed);
+                movingRight = true;
+            }
+            else
+            {
+                movingRight = false;
+                rotationSpeed = rotationSpeed * speed;
+            }
+            if (TouchInput.direction < 0 && isMoving)   //left check
+            {
+                float dSpeed = driftSpeed * Mathf.Abs((TouchInput.direction) / Screen.width);
+
+                if (dSpeed > driftTreshold)
+                {
+                    rotationSpeed = -driftSpeed;
+                }
+                else
+                {
+                    rotationSpeed = -dSpeed;
+                }
+                transform.Rotate(rotationAxis * rotationSpeed);
+                movingLeft = true;
+            }
+            else
+            {
+                movingLeft = false;
+                rotationSpeed = rotationSpeed * speed;
+            }
+        }
+        if (Application.platform == RuntimePlatform.WindowsEditor) //condition to check if system == PC
+        {
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                if (Mathf.Abs(Input.GetAxis("Horizontal") * speed) > driftTreshold)
+                {
+                    rotationSpeed = driftSpeed;
+                }
+                else
+                {
+                    rotationSpeed = ordinaryRotationSpeed * speed;
+                }
+                transform.Rotate(rotationAxis * rotationSpeed);
+                movingRight = true;
+            }
+            else
+            {
+                movingRight = false;
+                rotationSpeed = rotationSpeed * speed;
+
+            }
+
+            if (Input.GetAxis("Horizontal") < 0)
+            {
+                if (Mathf.Abs(Input.GetAxis("Horizontal") * speed) > driftTreshold)
+                {
+                    rotationSpeed = -driftSpeed;
+                }
+                else
+                    rotationSpeed = -ordinaryRotationSpeed * speed;
+
+                transform.Rotate(rotationAxis * rotationSpeed);
+                movingRight = true;
+            }
+            else
+            {
+                movingLeft = false;
+                rotationSpeed = rotationSpeed * speed;
+
+            }
+        }
+
+
+
+    }           //this funtion is used move the player car
+
+    public void Re_fuel()
+    {
+        fuel += reFuelAmount;
+    }   //when the car passes through the gas station this funtion is called 
+    public void Crashed()
+    {
+        StartCoroutine(camera.Shake(.15f, 40f));
+    }   //when the car is hit
+}
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CarPhysicsScript : MonoBehaviour {
+
+
+    public Transform frontWheel;
+    public Transform backWheel;
+    public Transform frontWheel_l;
+    public Transform frontWheel_r;
+
+    public Transform carBody;
+
+    float speed;
+    public float wheelRotationSpeed;
+    float rotationAngle;
+    public float maxRotationAngle;
+
+    public void FixedUpdate()
+    {
+        RunWheel();
+        TurnFrontWheel();
+    }
+
+    void RunWheel()
+    {
+        frontWheel.Rotate(0, 0, -CarController.speed * wheelRotationSpeed);
+        backWheel.Rotate(0, 0, -CarController.speed * wheelRotationSpeed);
+    }
+    void TurnFrontWheel()
+    {
+        frontWheel_l.eulerAngles = maxRotationAngle * CarController.rotationSpeed * new Vector3(0, 1, 0) + new Vector3(0, 0, 0) + frontWheel.eulerAngles;
+        frontWheel_r.eulerAngles = maxRotationAngle * CarController.rotationSpeed * new Vector3(0, 1, 0) + new Vector3(0, -180, 0) + frontWheel.eulerAngles;
+    }
+
+    public static void FrontCollision()
+    {
+        //if (CarController.speed > 0)
+        //    CarController.speed -= CarController.deceleration;
+        //else
+        //    CarController.speed = 0;
+
+    }
+
+}
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class coin : MonoBehaviour {
+
+    bool followPlayer = false;
+    Transform player;
+    float smoothness = .2f;
+    float offset = 3f;
+    private void FixedUpdate()
+    {
+        if(followPlayer)
+        {
+            FollowPlayer();
+        }
+        
+    }
+    public void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            player = collision.transform;
+            followPlayer = true;
+        }
+    }
+    void FollowPlayer()
+    {
+        if ((transform.position - player.position).magnitude > offset)
+            transform.position = Vector3.Lerp(transform.position, player.position, smoothness);
+        else
+        {
+            Destroy(gameObject);
+            Player.CoinCollected();
+            createCoin.n_coins--;
+        }
+    }
+}
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+
+public class createCoin : MonoBehaviour {
+
+    public GameObject coinPrefab;
+    Vector3 offset = new Vector3(0, 1f, 0);
+    public Transform parent;
+
+    int max_coins = 200;
+    public static int n_coins = 0;
+    private void FixedUpdate()
+    {
+        if (n_coins < max_coins)
+        {
+            n_coins++;
+            Create();
+        }
+    }
+    public void Create()
+    {
+        Vector3 coinPos = GetRandomLocation();
+        
+        Instantiate(coinPrefab, coinPos + offset, Quaternion.identity, parent);
+    }
+    Vector3 GetRandomLocation()
+    {
+        float range = 140f;
+        Vector3 result = Vector3.zero;
+        while(true)
+        {
+            Vector3 randomPoint = Random.insideUnitSphere * range;
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+            {
+                result = hit.position;
+                return result;
+            }
+        };
+    }
+}
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+
+public class followCar : MonoBehaviour {
+    public Transform goal;
+    NavMeshAgent agent;
+    private void Start()
+    {
+        agent = GetComponent<NavMeshAgent>();
+    }
+    void FixedUpdate()
+    {
+        if(!Player.game_over && !Player.game_won)
+            agent.destination = goal.position - goal.right * 5;
+        else
+        {
+            agent.isStopped = true;
+        }
+    }
+
+}
+using UnityEngine;
+
+public class FrontColliderScript : MonoBehaviour
+{
+    public void FixedUpdate()
+    {
+        
+    }
+    public void OnTriggerStay(Collider collision)
+    {
+
+        if (collision.tag != "Player" && collision.tag != "coin")
+        {
+            CarPhysicsScript.FrontCollision();
+        }
+    }
+
+}using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GasStation : MonoBehaviour {
+
+    float refill_speed = 10;
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "Player" && !Player.is_dead)
+        {
+            if (Player.fuel < Player.max_fuel)
+                Player.fuel += Time.deltaTime * refill_speed;
+            else
+                Player.fuel = Player.max_fuel;
+        }
+    }
+}using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MessageLog : MonoBehaviour {
+
+    
+}using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Player : MonoBehaviour {
+
+    public static int points = 0;
+    float max_health = 1000;
+    public static float health;
+    public static float fuel;
+    public static float max_fuel = 100;
+	public static float milage = 15;
+    public static bool is_dead;
+    public static float time_left;
+    public static int points_goal;
+    public static bool game_won;
+    public static bool game_over;
+    public Image healthBar;
+    public Image fuelBar;
+
+    public static string gameStatus;
+    // Use this for initialization
+	void Start () {
+        health = max_health;
+        points = 0;
+        fuel = max_fuel;
+        is_dead = false;
+        time_left = 100;
+        points_goal = 100;
+	}
+	
+	// Update is called once per frame
+	void FixedUpdate () {
+
+        healthBar.fillAmount = health / max_health;
+        fuelBar.fillAmount = fuel / max_fuel;
+
+        if (game_over)
+            gameStatus = "GAME OVER";
+        if (game_won)
+            gameStatus = "YOU WON";
+
+        if (time_left > 0)
+            time_left -= Time.deltaTime;
+        else
+            time_left = 0;
+        if (health < 0)
+        {
+            Debug.Log("DEAD MEAT");
+            is_dead = true;
+            game_over = true;
+            health = 0;
+        }
+        if(fuel < 0 && !CarController.isMoving)
+        {
+            is_dead = true;
+            game_over = true;
+        }
+        if(time_left < 0 && points < points_goal)
+        {
+            is_dead = true;
+            game_over = true;
+        }
+        if(points >= points_goal)
+        {
+            game_won = true;
+        }
+
+    }
+
+    public static void CoinCollected()
+    {
+        points++;
+    }
+
+}
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerAttack : MonoBehaviour
+{
+    public static float weapon_bullets;
+    public static float weapon_max_bullets = 20;
+
+    public float damage = 2f;
+    public float attackRange = 60f;
+    Vector3 offset = new Vector3(0, 1, 0);
+
+    bool isAttacking;
+    public float attack_time;
+    public float attack_time_lapsed;
+    
+    public Transform weapon_head;
+
+    public GameObject bullet_prefab;
+    GameObject bullet;
+
+    bool bullet_flag;
+    float bulletSpeed = 0.4f;
+    float bulletHitOffset = 1;
+    Vector3 bullet_origin_offset = new Vector3(0, 2, 0);
+    Transform target;
+
+    public int numberOfZombies = 2;
+    public static List<GameObject> allZombies = new List<GameObject>();
+
+    private void Awake()
+    {
+        weapon_head.gameObject.SetActive(false);
+        bullet_flag = false;
+    }
+    private void LateUpdate()
+    {
+        if(allZombies.Count < numberOfZombies)
+        {
+            FindObjectOfType<ZombieSpawn>().SpawnZombie();
+        }
+        if(weapon_bullets > 0)
+        {
+            weapon_head.gameObject.SetActive(true);
+        }
+        else
+        {
+            weapon_head.gameObject.SetActive(false);
+            if(bullet != null)
+                Destroy(bullet);
+        }
+        if (weapon_head != null && weapon_head.gameObject.activeSelf)
+        {
+
+            RaycastHit hit;
+            isAttacking = false;
+
+            float min_target_disp = 10000;
+
+            if (allZombies.Count > 0)
+            {
+                target = null;
+                foreach (var tempTarget in allZombies)
+                {
+                    if ((transform.position - tempTarget.transform.position).magnitude < min_target_disp)
+                    {
+                        target = tempTarget.transform;
+                        min_target_disp = (transform.position - tempTarget.transform.position).magnitude;
+                    }
+                }
+
+                weapon_head.LookAt(target);
+                #region
+                if (Physics.Raycast(weapon_head.position + offset, weapon_head.TransformDirection(Vector3.forward), out hit, attackRange))
+                {
+                    if (hit.collider.tag == "Zombie")
+                    {
+                        Debug.DrawRay(weapon_head.position + offset, weapon_head.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+                        isAttacking = true;
+                    }
+                    else
+                    {
+                        Debug.DrawRay(weapon_head.position + offset, weapon_head.TransformDirection(Vector3.forward) * attackRange, Color.white);
+                    }
+                }
+                else
+                {
+                    Debug.DrawRay(weapon_head.position + offset, weapon_head.TransformDirection(Vector3.forward) * attackRange, Color.white);
+                }
+                #endregion
+
+
+                if (isAttacking && (!Player.game_over && !Player.game_won))
+                {
+                    attack_time_lapsed += Time.deltaTime;
+                }
+                else
+                {
+                    attack_time_lapsed = 0;
+                }
+
+                if (attack_time_lapsed > attack_time)
+                {
+                    Attack(target.gameObject);
+                    attack_time_lapsed = 0;
+                }
+
+                if (bullet_flag)
+                {
+                    bullet.transform.position = Vector3.Lerp(bullet.transform.position, target.position, bulletSpeed);
+                    if ((bullet.transform.position - target.position).magnitude < bulletHitOffset)
+                    {
+                        if (bullet != null)
+                            Destroy(bullet);
+                        bullet_flag = false;
+                    }
+                }
+            }
+            else
+            {
+                if (bullet != null)
+                    Destroy(bullet);
+            }
+        }
+    }
+    public void Attack(GameObject zombie)
+    {
+        zombie.GetComponent<Zombie>().health -= damage;
+        FireBullet();
+    }
+    public void FireBullet()
+    {
+        bullet = Instantiate(bullet_prefab, weapon_head.position + bullet_origin_offset, Quaternion.identity);
+        bullet_flag = true;
+        weapon_bullets--;
+    }
+}using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class PlayUI : MonoBehaviour {
+
+    public Text pointsText;
+    public Text Time_leftText;
+    public Text GameMessageText;
+
+	void Start () {
+        pointsText.text = "0";		
+        Time_leftText.text = "0";		
+	}
+	
+	void Update () {
+        //        if (Player.points >= Player.points_goal)
+
+        pointsText.text = Player.points.ToString() + " / " + Player.points_goal.ToString();
+        Time_leftText.text = ((int)Player.time_left).ToString();
+        GameMessageText.text = Player.gameStatus;
+    }
+}
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TouchInput : MonoBehaviour {
+
+    public static float direction;  //used for car rotation controls 
+    public static bool touched; //used for car acceleration controls 
+    Vector3 TouchPosition;  
+
+    private void Start()
+    {
+        direction = 0f;
+    }
+
+    void Update()
+    {
+        if (Input.touchCount == 1) // user is touching the screen with a single touch
+        {
+            direction = 0f;
+            Touch touch = Input.GetTouch(0); // get the touch
+
+            TouchPosition = touch.position;
+            touched = true;
+            if (TouchPosition.y < Screen.height / 2)    //checking if the touch is below 
+            {
+               direction = Screen.width / 2 - TouchPosition.x;
+            }
+        }
+        else
+        {
+            touched = false;
+            direction = 0f;
+        }
+    }
+}
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class weaponTake : MonoBehaviour {
+
+    public void Update()
+    {
+        transform.Rotate(0, 100 * Time.deltaTime, 0);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            PlayerAttack.weapon_bullets +=  PlayerAttack.weapon_max_bullets;
+            Destroy(gameObject);
+        }
+    }
+}
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Zombie : MonoBehaviour {
+
+    float maxHealth = 100;
+    public float health;
+    public Image healthBar;
+    private void Awake()
+    {
+        health = maxHealth;
+    }
+
+    private void Update()
+    {
+        healthBar.fillAmount = health / maxHealth;
+        if(health < 0)
+        {
+            if (gameObject.GetComponent<ZombieAttack>().bullet != null)
+                Destroy(gameObject.GetComponent<ZombieAttack>().bullet);
+            PlayerAttack.allZombies.Remove(gameObject);
+            Destroy(gameObject);
+        }
+    }
+}
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ZombieAttack : MonoBehaviour {
+
+    public float damage = 2f;
+    public float attackRange = 60f;
+    Vector3 offset = new Vector3(0, 1, 0);
+
+    bool isAttacking;
+    public float attack_time;
+    public float attack_time_lapsed;
+
+    public Transform target;
+    public Transform weapon_head;
+
+    public GameObject bullet_prefab;
+    public GameObject bullet;
+    bool bullet_flag;
+    float bulletSpeed = 0.4f;
+    float bulletHitOffset = 1;
+    Vector3 bullet_origin_offset = new Vector3(0, 2, 0);
+
+    private void Start()
+    {
+        bullet_flag = false;
+        PlayerAttack.allZombies.Add(gameObject);
+    }
+    private void Update()
+    {
+        RaycastHit hit;
+        isAttacking = false;
+
+        //forward rayCast 
+        if (weapon_head != null)
+        {
+            weapon_head.LookAt(target);
+
+            #region
+            if (Physics.Raycast(weapon_head.position + offset, weapon_head.TransformDirection(Vector3.forward), out hit, attackRange))
+            {
+                if (hit.collider.tag == "Player")
+                {
+                    Debug.DrawRay(weapon_head.position + offset, weapon_head.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+                    isAttacking = true;
+                }
+                else
+                {
+                    Debug.DrawRay(weapon_head.position + offset, weapon_head.TransformDirection(Vector3.forward) * attackRange, Color.white);
+                }
+            }
+            else
+            {
+                Debug.DrawRay(weapon_head.position + offset, weapon_head.TransformDirection(Vector3.forward) * attackRange, Color.white);
+            }
+            #endregion
+        }
+        Debug.Log("attacking -> " + isAttacking);
+        if (isAttacking && (!Player.game_over && !Player.game_won))
+        {
+            attack_time_lapsed += Time.deltaTime;
+        }
+        else
+        {
+            attack_time_lapsed = 0;
+        }
+
+        if (attack_time_lapsed > attack_time)
+        {
+            Attack();
+            attack_time_lapsed = 0;
+        }
+
+        if(bullet_flag)
+        {
+            bullet.transform.position = Vector3.Lerp(bullet.transform.position, target.position, bulletSpeed);
+            if((bullet.transform.position - target.position).magnitude < bulletHitOffset)
+            {
+                if (bullet != null)
+                {
+                    Destroy(bullet);
+                    bullet_flag = false;
+                }
+            }
+        }
+
+    }
+    public void Attack()
+    {
+        Player.health -= damage;
+        FireBullet();
+    }
+    public void FireBullet()
+    { 
+        bullet = Instantiate(bullet_prefab, weapon_head.position + bullet_origin_offset, Quaternion.identity);
+        bullet_flag = true;
+    }
+}
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ZombieSpawn : MonoBehaviour {
+
+    public GameObject zombiePrefab;
+    public Transform player;
+    public void SpawnZombie()
+    {
+        GameObject zombie = Instantiate(zombiePrefab, transform.position, Quaternion.identity, transform);
+        FindObjectOfType<followCar>().goal = player;
+        FindObjectOfType<ZombieAttack>().target = player;
+    }
+}
