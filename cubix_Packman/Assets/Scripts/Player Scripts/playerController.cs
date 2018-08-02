@@ -8,6 +8,7 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
 
+    public bool game_level_loaded = false;
     public GameObject player;
     //all the variables used to controll the external scripts 
     public bool playerCameraIsRotating = false;
@@ -138,54 +139,60 @@ public class playerController : MonoBehaviour
 	
 	private void FixedUpdate ()
     {
-        WallCollisionCheck();
-        EdgeDetection();
-        JunctionDetection();
-        localForward = transform.parent.InverseTransformDirection(transform.forward);
-        localRight = transform.parent.InverseTransformDirection(transform.right);
-        localLeft = localRight * -1;
-        localBack = localForward * -1;
-        localDown = transform.parent.InverseTransformDirection(transform.up) * -1;
+        if (game_level_loaded)
+        {
+            WallCollisionCheck();
+            EdgeDetection();
+            JunctionDetection();
+            localForward = transform.parent.InverseTransformDirection(transform.forward);
+            localRight = transform.parent.InverseTransformDirection(transform.right);
+            localLeft = localRight * -1;
+            localBack = localForward * -1;
+            localDown = transform.parent.InverseTransformDirection(transform.up) * -1;
 
 
-        if (animEdgeFlag && mazeRotation.rotate)
-        {
-            anim.animationStop = true;
-        }
-        else if(animEdgeFlag && !mazeRotation.rotate)
-        {
-            switch (movementDireciton)
+            if (animEdgeFlag && mazeRotation.rotate)
             {
-                case Direction.Right:
-                    anim.right = true;
-                    break;
-                case Direction.Left:
-                    anim.left = true;
-                    break;
-                case Direction.Forward:
-                    anim.forward = true;
-                    break;
-                case Direction.Back:
-                    anim.back = true;
-                    break;
+                anim.animationStop = true;
             }
-            animEdgeFlag = false;
+            else if (animEdgeFlag && !mazeRotation.rotate)
+            {
+                switch (movementDireciton)
+                {
+                    case Direction.Right:
+                        anim.right = true;
+                        break;
+                    case Direction.Left:
+                        anim.left = true;
+                        break;
+                    case Direction.Forward:
+                        anim.forward = true;
+                        break;
+                    case Direction.Back:
+                        anim.back = true;
+                        break;
+                }
+
+                animEdgeFlag = false;
+            }
+
+            if (inJunction)
+            {
+                anim.animationStop = true;
+
+            }
+
+            if (!atEdge)
+            {
+                Move();
+            }
+
+            if (atEdge)
+            {
+                animEdgeFlag = true;
+                ChangePlane();
+            }
         }
-        if (inJunction)
-        {
-            anim.animationStop = true;
-            
-        }
-        if (!atEdge)
-        {
-            Move();
-        }
-        if(atEdge)
-        {
-            animEdgeFlag = true;
-            ChangePlane();
-        }
-               
     }
     void JunctionDetection()
     {
@@ -481,7 +488,7 @@ public class playerController : MonoBehaviour
     }
     public int Load()
     {
-        PlayerPrefs.SetString("current_level", "level_2");
+        PlayerPrefs.SetString("current_level", "level_1");
         LevelManager.NextLevel();
         SaveManager.levelName = LevelManager.GetCurrentLevel();
         state = sm.Load();
@@ -535,6 +542,7 @@ public class playerController : MonoBehaviour
         else
             transform.localPosition = new Vector3(1.0f, SaveManager.levelSize/2, 1.0f);
         destination = transform.localPosition;
+        game_level_loaded = true;
         return 1;
     }
 }
