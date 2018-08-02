@@ -528,7 +528,10 @@ public class playerController : MonoBehaviour
         noOfParts = state.node.Count;
         maze_body.transform.localScale = new Vector3(SaveManager.levelSize, SaveManager.levelSize, SaveManager.levelSize);
         mainCamera.orthographicSize = SaveManager.levelSize + 7;
-        transform.localPosition = new Vector3(1.0f, SaveManager.levelSize/2, 1.0f);
+        if(MazeSize%2 == 0)
+            transform.localPosition = new Vector3(1.5f, SaveManager.levelSize/2, 1.5f);
+        else
+            transform.localPosition = new Vector3(1.0f, SaveManager.levelSize/2, 1.0f);
         destination = transform.localPosition;
         return 1;
     }
