@@ -61,4 +61,12 @@ void Start()
             }
         }
     }
+
+    public void Reset()
+    {
+        Right = false;
+        Left = false;
+        Forward = false;
+        Back = false;
+    }
 }
