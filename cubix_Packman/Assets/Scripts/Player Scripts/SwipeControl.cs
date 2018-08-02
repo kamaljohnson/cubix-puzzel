@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SwipeControl : MonoBehaviour {
     private Vector3 fp;   //First touch position
@@ -11,8 +12,6 @@ public class SwipeControl : MonoBehaviour {
     public bool Forward;
     public bool Back;
 
-
-
 void Start()
     {
         dragDistance = Screen.height * 5 / 100; //dragDistance is 15% height of the screen
@@ -20,6 +19,7 @@ void Start()
 
     void Update()
     {
+        
         if (Input.touchCount == 1) // user is touching the screen with a single touch
         {
             Touch touch = Input.GetTouch(0); // get the touch
@@ -57,14 +57,16 @@ void Start()
                         Right = true;
                     }
                 }
-                else
-                {   //It's a tap as the drag distance is less than 20% of the screen height
-                    Right = false;
-                    Left = false;
-                    Forward = false;
-                    Back = false;
-                }
+
             }
         }
+    }
+
+    public void Reset()
+    {
+        Right = false;
+        Left = false;
+        Forward = false;
+        Back = false;
     }
 }
