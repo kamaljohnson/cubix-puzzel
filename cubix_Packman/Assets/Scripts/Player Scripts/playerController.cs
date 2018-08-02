@@ -481,7 +481,9 @@ public class playerController : MonoBehaviour
     }
     public int Load()
     {
-        SaveManager.levelName = "Level01";
+        PlayerPrefs.SetString("current_level", "level_0");
+        LevelManager.NextLevel();
+        SaveManager.levelName = LevelManager.GetCurrentLevel();
         state = sm.Load();
         nodes = new List<Node>();
         PartsTypes = new List<PrefabType>();
