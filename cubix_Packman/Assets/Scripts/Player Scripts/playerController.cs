@@ -492,7 +492,7 @@ public class playerController : MonoBehaviour
         }
         MazeSize = state.levelSize;
         MazeOffset = MazeSize / 2;
-        DownStep = MazeOffset / 4;
+        DownStep = MazeOffset / MazeSize;
         SaveManager.levelSize = state.levelSize;
         for (int i = 0; i < state.node.Count; i++)
         {
