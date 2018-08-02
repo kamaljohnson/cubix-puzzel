@@ -5,11 +5,13 @@ using UnityEngine;
  * 2. move the camera to the next position by using the direction of movement of the player and the current position of the camera  
  */
 
-public class playerController : MonoBehaviour {
+public class playerController : MonoBehaviour
+{
 
+    public GameObject player;
     //all the variables used to controll the external scripts 
     public bool playerCameraIsRotating = false;
-    float MazeSize = 4; //store the size of the maze (the dimention of the maze)
+    float MazeSize = 5; //store the size of the maze (the dimention of the maze)
     /* TODO : make the script get the size of the maze from code
      */
     private float MazeOffset;
@@ -30,6 +32,7 @@ public class playerController : MonoBehaviour {
 
     SwipeControl swipeInput;
 
+    public GameObject maze_body;
     public GameObject MazeBody;
     MazeBodyRotation mazeRotation;
 
@@ -125,13 +128,12 @@ public class playerController : MonoBehaviour {
         rotateFlag = false;
         atEdge = false;
         destinationFlag = true;
-        destination = transform.localPosition;
+        //destination = transform.localPosition;
 
-        MazeOffset = MazeSize / 2;
-        DownStep = MazeOffset / 4;
         mazeRotation = MazeBody.GetComponent<MazeBodyRotation>();
 
         Load();
+
     }
 	
 	private void FixedUpdate ()
@@ -148,7 +150,6 @@ public class playerController : MonoBehaviour {
 
         if (animEdgeFlag && mazeRotation.rotate)
         {
-            Debug.Log("animation stoped");
             anim.animationStop = true;
         }
         else if(animEdgeFlag && !mazeRotation.rotate)
@@ -285,7 +286,6 @@ public class playerController : MonoBehaviour {
         
         if (transform.localPosition == destination)
         {
-            Debug.Log("Reached Destination");
             transform.localPosition = destination;
 
             destinationFlag = true;
@@ -374,9 +374,9 @@ public class playerController : MonoBehaviour {
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, -MazeOffset);
         }*/
 
-        Debug.Log(downRay.hittingWall);
         if(!downRay.hittingWall)
         {
+            Debug.Log("moving down");
             atEdge = true;
         }
         
@@ -395,7 +395,6 @@ public class playerController : MonoBehaviour {
         transform.localPosition = Vector3.MoveTowards(transform.localPosition, destination, Time.deltaTime * playerSpeed * animationSpeed);
         if (transform.localPosition == destination)
         {
-            Debug.Log("Rotation destination reached");
             transform.localPosition = destination;
             rotateFlag = false;
             atEdge = false;
@@ -492,6 +491,8 @@ public class playerController : MonoBehaviour {
             nodes.Add(state.node[i].ConvertToNode());
         }
         MazeSize = state.levelSize;
+        MazeOffset = MazeSize / 2;
+        DownStep = MazeOffset / 4;
         SaveManager.levelSize = state.levelSize;
         for (int i = 0; i < state.node.Count; i++)
         {
@@ -525,7 +526,10 @@ public class playerController : MonoBehaviour {
 
         }
         noOfParts = state.node.Count;
+        maze_body.transform.localScale = new Vector3(SaveManager.levelSize, SaveManager.levelSize, SaveManager.levelSize);
         mainCamera.orthographicSize = SaveManager.levelSize + 7;
+        transform.localPosition = new Vector3(1.0f, SaveManager.levelSize/2, 1.0f);
+        destination = transform.localPosition;
         return 1;
     }
 }

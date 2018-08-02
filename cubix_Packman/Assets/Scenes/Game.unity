@@ -1103,7 +1103,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2068765025}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 2, z: 0.5}
+  m_LocalPosition: {x: 0.5, y: 2, z: -0.5}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1317987134}
@@ -1127,12 +1127,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c40a97654be12b4fbabd8727a64884b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 2068765025}
   playerCameraIsRotating: 0
   Right: {fileID: 1388285670}
   Left: {fileID: 670968609}
   Forward: {fileID: 763567819}
   Back: {fileID: 1207663302}
   Down: {fileID: 575996165}
+  maze_body: {fileID: 1136616302}
   MazeBody: {fileID: 671544344}
   cubeMesh: {fileID: 1317987133}
   Maze: {fileID: 56177141}
