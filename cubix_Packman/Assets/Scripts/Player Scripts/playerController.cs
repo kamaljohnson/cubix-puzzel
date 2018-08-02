@@ -174,6 +174,7 @@ public class playerController : MonoBehaviour
         if (inJunction)
         {
             anim.animationStop = true;
+            
         }
         if (!atEdge)
         {
@@ -221,12 +222,12 @@ public class playerController : MonoBehaviour
     {
         if (((Input.GetAxis("Horizontal") > 0  || swipeInput.Right)&& !mazeRotation.rotate)|| tempDirection == Direction.Right)
         {
-            swipeInput.Right = false;
             if (canMoveRight)
             {
                 tempDirection = Direction.Right;
                 if (destinationFlag)
                 {
+                    swipeInput.Right = false;
                     isMoving = true;
                     destinationFlag = false;
                     movementDireciton = Direction.Right;
@@ -237,12 +238,12 @@ public class playerController : MonoBehaviour
         }
         if(((Input.GetAxis("Horizontal") < 0 || swipeInput.Left) && !mazeRotation.rotate) || tempDirection == Direction.Left)
         {
-            swipeInput.Left = false;
             if (canMoveLeft)
             {
                 tempDirection = Direction.Left;
                 if (destinationFlag)
                 {
+                    swipeInput.Left = false;
                     isMoving = true;
                     destinationFlag = false;
                     movementDireciton = Direction.Left;
@@ -253,12 +254,12 @@ public class playerController : MonoBehaviour
         }
         if(((Input.GetAxis("Vertical") > 0 || swipeInput.Forward) && !mazeRotation.rotate) || tempDirection == Direction.Forward)
         {
-            swipeInput.Forward = false;
             if (canMoveForward)
             {
                 tempDirection = Direction.Forward;
                 if (destinationFlag)
                 {
+                    swipeInput.Forward = false;
                     isMoving = true;
                     destinationFlag = false;
                     movementDireciton = Direction.Forward;
@@ -269,12 +270,12 @@ public class playerController : MonoBehaviour
         }
         if(((Input.GetAxis("Vertical") < 0 || swipeInput.Back)&& !mazeRotation.rotate) || tempDirection == Direction.Back)
         {
-            swipeInput.Back = false;
             if (canMoveBack)
             {
                 tempDirection = Direction.Back;
                 if (destinationFlag)
                 {
+                    swipeInput.Back = false;
                     isMoving = true;
                     destinationFlag = false;
                     movementDireciton = Direction.Back;
@@ -376,7 +377,6 @@ public class playerController : MonoBehaviour
 
         if(!downRay.hittingWall)
         {
-            Debug.Log("moving down");
             atEdge = true;
         }
         
