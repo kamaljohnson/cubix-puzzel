@@ -227,7 +227,7 @@ public class playerController : MonoBehaviour
                 tempDirection = Direction.Right;
                 if (destinationFlag)
                 {
-                    swipeInput.Reset();
+                    swipeInput.Right = false;
                     isMoving = true;
                     destinationFlag = false;
                     movementDireciton = Direction.Right;
@@ -243,7 +243,7 @@ public class playerController : MonoBehaviour
                 tempDirection = Direction.Left;
                 if (destinationFlag)
                 {
-                    swipeInput.Reset();
+                    swipeInput.Left = false;
                     isMoving = true;
                     destinationFlag = false;
                     movementDireciton = Direction.Left;
@@ -259,7 +259,7 @@ public class playerController : MonoBehaviour
                 tempDirection = Direction.Forward;
                 if (destinationFlag)
                 {
-                    swipeInput.Reset();
+                    swipeInput.Forward = false;
                     isMoving = true;
                     destinationFlag = false;
                     movementDireciton = Direction.Forward;
@@ -275,7 +275,7 @@ public class playerController : MonoBehaviour
                 tempDirection = Direction.Back;
                 if (destinationFlag)
                 {
-                    swipeInput.Reset();
+                    swipeInput.Back = false;
                     isMoving = true;
                     destinationFlag = false;
                     movementDireciton = Direction.Back;

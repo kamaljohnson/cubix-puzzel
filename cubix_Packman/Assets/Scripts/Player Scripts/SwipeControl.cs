@@ -42,18 +42,22 @@ void Start()
                  //check if the drag is vertical or horizontal
                     if (lp.x - fp.x > 0 && lp.y - fp.y > 0)
                     {   //If the horizontal movement is greater than the vertical movement...
+                        Reset();
                         Forward = true;
                     }
                     if (lp.x - fp.x < 0 && lp.y - fp.y < 0)
                     {   //If the horizontal movement is greater than the vertical movement...
+                        Reset();
                         Back = true;
                     }
                     if (lp.x - fp.x < 0 && lp.y - fp.y > 0)
                     {   //If the horizontal movement is greater than the vertical movement...
+                        Reset();
                         Left = true;
                     }
                     if (lp.x - fp.x > 0 && lp.y - fp.y < 0)
                     {   //If the horizontal movement is greater than the vertical movement...
+                        Reset();
                         Right = true;
                     }
                 }
