@@ -488,7 +488,7 @@ public class playerController : MonoBehaviour
     }
     public int Load()
     {
-        PlayerPrefs.SetString("current_level", "level_1");
+        PlayerPrefs.SetString("current_level", "level_2");
         LevelManager.NextLevel();
         SaveManager.levelName = LevelManager.GetCurrentLevel();
         state = sm.Load();
