@@ -11,6 +11,8 @@ public enum PrefabType  // all the prefabs that goes into the game level is adde
     Part03,
     Part04,
     Part05,
+    Start,
+    End,
 }
 public class LevelEditor : MonoBehaviour {
 
@@ -427,9 +429,9 @@ public class LevelEditor : MonoBehaviour {
             }
             for (float i = startingXpos; i >= -startingXpos; i -= 1)
             {
-                for (float j = startingYpos; j >= -startingYpos; j -= 1)
+                for (float j = startingYpos; j >= -startingYpos; j -= 1)     
                 {
-                    tilePosition.position = new Vector3(i, -heightOffset, j);
+                    tilePosition.position = new Vector3(i, -heightOffset, j);  
                     Tiles.Add(Instantiate(Tile, tilePosition.position, Quaternion.identity, Maze.transform));
                     Tiles[index].AddComponent<TileOnClick>();
                     index++;
