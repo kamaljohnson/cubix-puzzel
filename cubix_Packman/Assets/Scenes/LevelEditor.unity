@@ -1231,8 +1231,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 104.649994, y: 57.05771}
-  m_SizeDelta: {x: 169.3, y: 91}
+  m_AnchoredPosition: {x: 104.649994, y: 71.71}
+  m_SizeDelta: {x: 169.3, y: 120.31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &691276709
 MonoBehaviour:
@@ -1267,7 +1267,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "CONTROLS\nSAVE(S)        UNDO(Z)\nLEFT CLICK(ROTATE) \nRIGHT CLICK(BUILD)\nSCROLL
-    (SELECTION)"
+    (SELECTION)\nSTART POINT(B)\nEND POINT(E)"
 --- !u!222 &691276710
 CanvasRenderer:
   m_ObjectHideFlags: 0
