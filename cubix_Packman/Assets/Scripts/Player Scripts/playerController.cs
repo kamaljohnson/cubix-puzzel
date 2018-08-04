@@ -489,7 +489,7 @@ public class playerController : MonoBehaviour
     }
     public int Load()
     {
-        PlayerPrefs.SetString("current_level", "level_0");
+        PlayerPrefs.SetString("current_level", "level_4");
         LevelManager.NextLevel();
         SaveManager.levelName = LevelManager.GetCurrentLevel();
         state = sm.Load();
@@ -505,8 +505,9 @@ public class playerController : MonoBehaviour
         DownStep = MazeOffset / MazeSize;
         SaveManager.levelSize = state.levelSize;
         var start_end_flag = false;
-        for (int i = 0; i < state.node.Count; i++)
+        for (var i = 0; i < state.node.Count; i++)
         {
+            start_end_flag = false;
             GameObject tempObj = new GameObject();
             switch (nodes[i].Type)
             {
@@ -542,19 +543,13 @@ public class playerController : MonoBehaviour
                     throw new ArgumentOutOfRangeException();
             }
 
-            if (!start_end_flag)
-            {
-                tempObj.GetComponent<Renderer>().material = onMaze;
-                Parts.Add(tempObj);
-            }
+            if (start_end_flag) continue;
+            tempObj.GetComponent<Renderer>().material = onMaze;
+            Parts.Add(tempObj);
         }
         noOfParts = state.node.Count;
         maze_body.transform.localScale = new Vector3(SaveManager.levelSize, SaveManager.levelSize, SaveManager.levelSize);
         mainCamera.orthographicSize = SaveManager.levelSize + 7;
-/*        if(MazeSize%2 == 0)
-            transform.localPosition = new Vector3(1.5f, SaveManager.levelSize/2, 1.5f);
-        else
-            transform.localPosition = new Vector3(1.0f, SaveManager.levelSize/2, 1.0f);*/
         destination = transform.localPosition;
         game_level_loaded = true;
         return 1;
