@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 /*
  * 1. script to direct the camara to move (HINT make the camara move over to the corners of am imaginary cube over the main maze cube)
@@ -488,7 +489,7 @@ public class playerController : MonoBehaviour
     }
     public int Load()
     {
-        PlayerPrefs.SetString("current_level", "level_2");
+        PlayerPrefs.SetString("current_level", "level_0");
         LevelManager.NextLevel();
         SaveManager.levelName = LevelManager.GetCurrentLevel();
         state = sm.Load();
@@ -503,6 +504,7 @@ public class playerController : MonoBehaviour
         MazeOffset = MazeSize / 2;
         DownStep = MazeOffset / MazeSize;
         SaveManager.levelSize = state.levelSize;
+        var start_end_flag = false;
         for (int i = 0; i < state.node.Count; i++)
         {
             GameObject tempObj = new GameObject();
@@ -529,18 +531,30 @@ public class playerController : MonoBehaviour
                     tempObj = Instantiate(Part05, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Part05);
                     break;
+                case PrefabType.Start:
+                    start_end_flag = true;
+                    transform.localPosition = nodes[i].transform.position;
+                    break;
+                case PrefabType.End:
+                    start_end_flag = true;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
-            tempObj.GetComponent<Renderer>().material = onMaze;
-            Parts.Add(tempObj);
 
+            if (!start_end_flag)
+            {
+                tempObj.GetComponent<Renderer>().material = onMaze;
+                Parts.Add(tempObj);
+            }
         }
         noOfParts = state.node.Count;
         maze_body.transform.localScale = new Vector3(SaveManager.levelSize, SaveManager.levelSize, SaveManager.levelSize);
         mainCamera.orthographicSize = SaveManager.levelSize + 7;
-        if(MazeSize%2 == 0)
+/*        if(MazeSize%2 == 0)
             transform.localPosition = new Vector3(1.5f, SaveManager.levelSize/2, 1.5f);
         else
-            transform.localPosition = new Vector3(1.0f, SaveManager.levelSize/2, 1.0f);
+            transform.localPosition = new Vector3(1.0f, SaveManager.levelSize/2, 1.0f);*/
         destination = transform.localPosition;
         game_level_loaded = true;
         return 1;
