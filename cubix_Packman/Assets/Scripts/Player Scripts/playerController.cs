@@ -9,7 +9,6 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
 
-    public bool game_level_loaded = false;
     public GameObject player;
     //all the variables used to controll the external scripts 
     public bool playerCameraIsRotating = false;
@@ -140,20 +139,6 @@ public class playerController : MonoBehaviour
 	
 	private void FixedUpdate ()
     {
-        if (GameManager.IsLevelCompleted)
-        {
-            game_level_loaded = false;
-            Load();
-            GameManager.IsLevelCompleted = false;
-            GameManager.IsStart = true;
-        }
-        if (GameManager.IsStart)
-        {
-            transform.localPosition = GameManager.StartPosition;
-            GameManager.IsStart = false;
-            GameManager.IsPlaying = true;
-            destination = transform.localPosition;
-        }
         if (GameManager.IsPlaying)
         {
             WallCollisionCheck();
@@ -311,9 +296,7 @@ public class playerController : MonoBehaviour
         {
             if (GameManager.EndPosition == transform.localPosition)
             {
-                GameManager.IsLevelCompleted = true;
-                GameManager.IsPlaying = false;
-                transform.localPosition = destination;
+                GameManager.GameWon();
             }
             destinationFlag = true;
             if (inJunction)
@@ -508,6 +491,11 @@ public class playerController : MonoBehaviour
     public int Load()
     {
         SaveManager.levelName = GameManager.CurrentLevel;
+        
+        for(int i = 0; i < Parts.Count; i++)
+        {
+            Destroy(Parts[i]);
+        }
         state = sm.Load();
         nodes = new List<Node>();
         PartsTypes = new List<PrefabType>();
@@ -567,8 +555,8 @@ public class playerController : MonoBehaviour
         noOfParts = state.node.Count;
         maze_body.transform.localScale = new Vector3(SaveManager.levelSize, SaveManager.levelSize, SaveManager.levelSize);
         mainCamera.orthographicSize = SaveManager.levelSize + 7;
-        /*destination = transform.localPosition;*/
-        game_level_loaded = true;
+        transform.localPosition = GameManager.StartPosition;
+        destination = transform.localPosition;
         return 1;
     }
 }

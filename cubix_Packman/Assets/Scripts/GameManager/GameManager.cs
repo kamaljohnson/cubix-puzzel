@@ -20,7 +20,8 @@ public class GameManager : MonoBehaviour
     
     private void Start()
     {
-       IsLevelCompleted = true;
+        PlayerPrefs.SetString("current_level", "level_0");
+        Play();
     }
 
     public static void GameOver()
@@ -36,11 +37,30 @@ public class GameManager : MonoBehaviour
     public static void Play()
     {
         CurrentLevel = LevelManager.GetCurrentLevel();
+        FindObjectOfType<playerController>().Load();
+        IsPlaying = true;
     }
 
     public static void GameWon()
     {
         LevelManager.NextLevel();
+        IsPlaying = false;
+        Play();
     }
+    
+    /*if (GameManager.IsLevelCompleted)
+    {
+        game_level_loaded = false;
+        Load();
+        GameManager.IsLevelCompleted = false;
+        GameManager.IsStart = true;
+    }
+    if (GameManager.IsStart)
+    {
+        transform.localPosition = GameManager.StartPosition;
+        GameManager.IsStart = false;
+        GameManager.IsPlaying = true;
+        destination = transform.localPosition;
+    }*/
     
 }
