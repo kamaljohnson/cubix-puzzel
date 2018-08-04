@@ -140,7 +140,21 @@ public class playerController : MonoBehaviour
 	
 	private void FixedUpdate ()
     {
-        if (game_level_loaded)
+        if (GameManager.IsLevelCompleted)
+        {
+            game_level_loaded = false;
+            Load();
+            GameManager.IsLevelCompleted = false;
+            GameManager.IsStart = true;
+        }
+        if (GameManager.IsStart)
+        {
+            transform.localPosition = GameManager.StartPosition;
+            GameManager.IsStart = false;
+            GameManager.IsPlaying = true;
+            destination = transform.localPosition;
+        }
+        if (GameManager.IsPlaying)
         {
             WallCollisionCheck();
             EdgeDetection();
@@ -295,8 +309,12 @@ public class playerController : MonoBehaviour
         
         if (transform.localPosition == destination)
         {
-            transform.localPosition = destination;
-
+            if (GameManager.EndPosition == transform.localPosition)
+            {
+                GameManager.IsLevelCompleted = true;
+                GameManager.IsPlaying = false;
+                transform.localPosition = destination;
+            }
             destinationFlag = true;
             if (inJunction)
             {
@@ -489,9 +507,7 @@ public class playerController : MonoBehaviour
     }
     public int Load()
     {
-        PlayerPrefs.SetString("current_level", "level_4");
-        LevelManager.NextLevel();
-        SaveManager.levelName = LevelManager.GetCurrentLevel();
+        SaveManager.levelName = GameManager.CurrentLevel;
         state = sm.Load();
         nodes = new List<Node>();
         PartsTypes = new List<PrefabType>();
@@ -534,10 +550,11 @@ public class playerController : MonoBehaviour
                     break;
                 case PrefabType.Start:
                     start_end_flag = true;
-                    transform.localPosition = nodes[i].transform.position;
+                    GameManager.StartPosition = nodes[i].transform.position;
                     break;
                 case PrefabType.End:
                     start_end_flag = true;
+                    GameManager.EndPosition = nodes[i].transform.position;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -550,7 +567,7 @@ public class playerController : MonoBehaviour
         noOfParts = state.node.Count;
         maze_body.transform.localScale = new Vector3(SaveManager.levelSize, SaveManager.levelSize, SaveManager.levelSize);
         mainCamera.orthographicSize = SaveManager.levelSize + 7;
-        destination = transform.localPosition;
+        /*destination = transform.localPosition;*/
         game_level_loaded = true;
         return 1;
     }
