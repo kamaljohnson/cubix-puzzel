@@ -11,6 +11,8 @@ public enum PrefabType  // all the prefabs that goes into the game level is adde
     Part03,
     Part04,
     Part05,
+    Start,
+    End,
 }
 public class LevelEditor : MonoBehaviour {
 
@@ -48,12 +50,16 @@ public class LevelEditor : MonoBehaviour {
     public bool firstTime = true;
     List<Node> NodeList = new List<Node>(); // the list of all the node in a level
     Node currentNode;   //the current node which is being manipulated 
+    
     public GameObject Part01;
     public GameObject Part02;
     public GameObject Part03;
     public GameObject Part04;
     public GameObject Part05;
 
+    public GameObject PartStart;
+    public GameObject PartEnd;
+    
     public GameObject MazeCube;
 
     public GameObject Tile;
@@ -74,7 +80,13 @@ public class LevelEditor : MonoBehaviour {
     int toDeleteIndex;
     public bool isSaving;
     SaveManager sm = new SaveManager();
-
+    
+    // variables used for specifying start and end of the maze
+    public bool IsStart = false;
+    public bool IsEnd = false;
+    public Transform StartTransform;
+    public Transform EndTransform;
+    
     private void Start()
     {
 
@@ -217,8 +229,19 @@ public class LevelEditor : MonoBehaviour {
                 noOfParts--;
             }
         }
+        else if (Input.GetKeyDown("b"))
+        {
+            IsStart = true;
+            currentPrefab = PrefabType.Start;
+        }
+        else if (Input.GetKeyDown("e"))
+        {
+            IsEnd = true;
+            currentPrefab = PrefabType.End;
+        }
     }
-    public void ChangePart()
+
+    private void ChangePart()
     {
         switch (currentPrefab)
         {
@@ -237,6 +260,14 @@ public class LevelEditor : MonoBehaviour {
             case PrefabType.Part05:
                 currentPart = Part05;
                 break;
+            case PrefabType.Start:
+                currentPart = PartStart;
+                break;
+            case PrefabType.End:
+                currentPart = PartEnd;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
         for (int i = 0; i < index; i++)
         {
@@ -247,12 +278,7 @@ public class LevelEditor : MonoBehaviour {
                 Destroy(tempObject);
                 tempObject = Instantiate(currentPart, tilePosition.position, tilePosition.rotation, Maze.transform);
 
-                if (angleSet)
-                {
-                    tempObject.transform.rotation = orientation;
-                }
-                else
-                    tempObject.transform.rotation = angRef.transform.rotation;
+                tempObject.transform.rotation = angleSet ? orientation : angRef.transform.rotation;
 
                 tempObject.GetComponent<Renderer>().material = preview;
             }
@@ -287,6 +313,16 @@ public class LevelEditor : MonoBehaviour {
                     tempNode.Type = PrefabType.Part05;
                     tempNode.transform = Parts[i].transform;
                     break;
+                case PrefabType.Start:
+                    tempNode.Type = PrefabType.Start;
+                    tempNode.transform = Parts[i].transform;
+                    break;
+                case PrefabType.End:
+                    tempNode.Type = PrefabType.End;
+                    tempNode.transform = Parts[i].transform;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
             nodes.Add(tempNode);
         }
@@ -347,7 +383,17 @@ public class LevelEditor : MonoBehaviour {
                     tempObj = Instantiate(Part05, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Part05);
                     break;
-                }
+                case PrefabType.Start:
+                    tempObj = Instantiate(PartStart, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    PartsTypes.Add(PrefabType.Start);
+                    break;
+                case PrefabType.End:
+                    tempObj = Instantiate(PartEnd, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    PartsTypes.Add(PrefabType.End);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
             
             tempObj.GetComponent<Renderer>().material = onMaze;
             Parts.Add(tempObj);
@@ -427,9 +473,9 @@ public class LevelEditor : MonoBehaviour {
             }
             for (float i = startingXpos; i >= -startingXpos; i -= 1)
             {
-                for (float j = startingYpos; j >= -startingYpos; j -= 1)
+                for (float j = startingYpos; j >= -startingYpos; j -= 1)     
                 {
-                    tilePosition.position = new Vector3(i, -heightOffset, j);
+                    tilePosition.position = new Vector3(i, -heightOffset, j);  
                     Tiles.Add(Instantiate(Tile, tilePosition.position, Quaternion.identity, Maze.transform));
                     Tiles[index].AddComponent<TileOnClick>();
                     index++;
