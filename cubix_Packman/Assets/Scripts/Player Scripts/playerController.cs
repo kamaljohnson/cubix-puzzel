@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 /*
  * 1. script to direct the camara to move (HINT make the camara move over to the corners of am imaginary cube over the main maze cube)
@@ -94,12 +95,15 @@ public class playerController : MonoBehaviour
     List<Node> nodes = new List<Node>();
     List<GameObject> Parts = new List<GameObject>();
     List<PrefabType> PartsTypes = new List<PrefabType>();
+    
     public GameObject Maze;
     public GameObject Part01;
     public GameObject Part02;
     public GameObject Part03;
     public GameObject Part04;
     public GameObject Part05;
+    public GameObject PartEnd;
+    
     public Material onMaze;
     public Camera mainCamera;
 
@@ -291,13 +295,13 @@ public class playerController : MonoBehaviour
                 }
             }
         }
-        
+        if (Vector3.Distance(GameManager.EndPosition, transform.position) <= 0.1f)
+        {
+            GameManager.GameWon();
+            Debug.Log("reached the end!!");
+        }
         if (transform.localPosition == destination)
         {
-            if (GameManager.EndPosition == transform.localPosition)
-            {
-                GameManager.GameWon();
-            }
             destinationFlag = true;
             if (inJunction)
             {
@@ -541,7 +545,7 @@ public class playerController : MonoBehaviour
                     GameManager.StartPosition = nodes[i].transform.position;
                     break;
                 case PrefabType.End:
-                    start_end_flag = true;
+                    tempObj = Instantiate(PartEnd, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     GameManager.EndPosition = nodes[i].transform.position;
                     break;
                 default:

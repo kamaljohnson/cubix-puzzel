@@ -16,11 +16,11 @@ public class GameManager : MonoBehaviour
     public GameObject GameOverUi;
     public GameObject LevelSelectionUi;*/
     
-    public static string CurrentLevel = "level_0";
+    public static string CurrentLevel;
     
     private void Start()
     {
-        PlayerPrefs.SetString("current_level", "level_0");
+        PlayerPrefs.SetString("current_level", "level_2");
         Play();
     }
 
@@ -45,6 +45,9 @@ public class GameManager : MonoBehaviour
     {
         LevelManager.NextLevel();
         IsPlaying = false;
+        while(true)
+            if (!FindObjectOfType<MazeBodyRotation>().rotate)
+                break;
         Play();
     }
     
