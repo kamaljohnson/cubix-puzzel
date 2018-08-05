@@ -808,6 +808,8 @@ MonoBehaviour:
   left: 0
   forward: 0
   back: 0
+  levelEntry: 0
+  levelExit: 0
   animationStop: 0
 --- !u!1 &1388285670
 GameObject:
