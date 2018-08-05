@@ -20,7 +20,8 @@ public class GameManager : MonoBehaviour
     
     private void Start()
     {
-        PlayerPrefs.SetString("current_level", "level_2");
+        PlayerPrefs.SetString("current_level", "level_0");
+        CurrentLevel = LevelManager.GetCurrentLevel();
         Play();
     }
 
@@ -36,7 +37,8 @@ public class GameManager : MonoBehaviour
 
     public static void Play()
     {
-        CurrentLevel = LevelManager.GetCurrentLevel();
+        FindObjectOfType<SwipeControl>().Reset();
+        FindObjectOfType<playerController>().Reset();
         FindObjectOfType<playerController>().Load();
         IsPlaying = true;
     }
@@ -44,26 +46,7 @@ public class GameManager : MonoBehaviour
     public static void GameWon()
     {
         LevelManager.NextLevel();
-        IsPlaying = false;
-        while(true)
-            if (!FindObjectOfType<MazeBodyRotation>().rotate)
-                break;
+        CurrentLevel = LevelManager.GetCurrentLevel();
         Play();
     }
-    
-    /*if (GameManager.IsLevelCompleted)
-    {
-        game_level_loaded = false;
-        Load();
-        GameManager.IsLevelCompleted = false;
-        GameManager.IsStart = true;
-    }
-    if (GameManager.IsStart)
-    {
-        transform.localPosition = GameManager.StartPosition;
-        GameManager.IsStart = false;
-        GameManager.IsPlaying = true;
-        destination = transform.localPosition;
-    }*/
-    
 }

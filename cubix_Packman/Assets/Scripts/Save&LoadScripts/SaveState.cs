@@ -38,11 +38,33 @@ public class SaveavleNode
     {
         this.Type = type;
 
+        float temp_posx = transform.position.x;
+        float temp_posy = transform.position.y;
+        float temp_posz = transform.position.z;
+        float truncatedx = (float)(Math.Truncate((double)temp_posx*100.0) / 100.0);
+        float truncatedy = (float)(Math.Truncate((double)temp_posx*100.0) / 100.0);
+        float truncatedz = (float)(Math.Truncate((double)temp_posx*100.0) / 100.0);
+        this.posx  = (float)(Math.Round((double)temp_posx, 2));
+        this.posy  = (float)(Math.Round((double)temp_posy, 2));
+        this.posz  = (float)(Math.Round((double)temp_posz, 2));
+
         this.posx = transform.position.x;
         this.posy = transform.position.y;
         this.posz = transform.position.z;
 
         Vector3 rot = transform.eulerAngles;
+        
+/*
+        float temp_rotx = rot.x;
+        float temp_roty = rot.y;
+        float temp_rotz = rot.z;
+        float truncatedrotx = (float)(Math.Truncate((double)temp_rotx*100.0) / 100.0);
+        float truncatedroty = (float)(Math.Truncate((double)temp_roty*100.0) / 100.0);
+        float truncatedrotz = (float)(Math.Truncate((double)temp_rotz*100.0) / 100.0);
+        this.posx  = (float)(Math.Round((double)temp_posx, 2));
+        this.posy  = (float)(Math.Round((double)temp_posy, 2));
+        this.posz  = (float)(Math.Round((double)temp_posz, 2));
+*/
         
         this.rotx = rot.x;
         this.roty = rot.y;
