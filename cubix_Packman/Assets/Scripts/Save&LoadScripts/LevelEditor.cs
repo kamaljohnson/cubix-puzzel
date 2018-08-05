@@ -344,8 +344,6 @@ public class LevelEditor : MonoBehaviour {
     }
     public int Load()
     {
-        //if()
-    {
         state = sm.Load();
         nodes = new List<Node>();
         PartsTypes = new List<PrefabType>();
@@ -401,10 +399,7 @@ public class LevelEditor : MonoBehaviour {
         }
         noOfParts = state.node.Count;
         mainCamera.orthographicSize = SaveManager.levelSize + 1;
-        return 1;
-        }
-        //else
-        
+        return 1;   
     }
     public void ChangeMazeSize()
     {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 /*
  * 1. script to direct the camara to move (HINT make the camara move over to the corners of am imaginary cube over the main maze cube)
@@ -9,7 +10,6 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
 
-    public bool game_level_loaded = false;
     public GameObject player;
     //all the variables used to controll the external scripts 
     public bool playerCameraIsRotating = false;
@@ -17,7 +17,7 @@ public class playerController : MonoBehaviour
     /* TODO : make the script get the size of the maze from code
      */
     private float MazeOffset;
-
+    
     //components for the player rotaration (the ground trigger items)
     //all the colliders are set to isTrigger
     public GameObject Right;
@@ -95,52 +95,63 @@ public class playerController : MonoBehaviour
     List<Node> nodes = new List<Node>();
     List<GameObject> Parts = new List<GameObject>();
     List<PrefabType> PartsTypes = new List<PrefabType>();
+    
     public GameObject Maze;
     public GameObject Part01;
     public GameObject Part02;
     public GameObject Part03;
     public GameObject Part04;
     public GameObject Part05;
+    public GameObject PartEnd;
+    
     public Material onMaze;
     public Camera mainCamera;
 
     int noOfParts = 0;
 
-    private void Start () {
+    public static Transform EndPosition;
+    public static Transform StartPosition;
+    
+    private void Awake() {
 
         Screen.orientation = ScreenOrientation.Portrait;
         swipeInput = GetComponent<SwipeControl>();
-
-        anim = cubeMesh.GetComponent<AnimationScript>();
-        animEdgeFlag = false;
-        isMoving = false;
         
+        anim = cubeMesh.GetComponent<AnimationScript>();
+
         rightRay = Right.GetComponent<RayCastScript>();
         leftRay = Left.GetComponent<RayCastScript>();
         forwardRay = Forward.GetComponent<RayCastScript>();
         backRay = Back.GetComponent<RayCastScript>();
         downRay = Down.GetComponent<RayCastScript>();
 
+                
         RightRotation = Vector3.back;
         LeftRotation = Vector3.forward;
         ForwardRotation = Vector3.right;
         BackRotation = Vector3.left;
+        
+        //destination = transform.localPosition;
+        mazeRotation = MazeBody.GetComponent<MazeBodyRotation>();
+
+    }
+
+    public void Reset()
+    {
+        MazeBody.transform.eulerAngles = Vector3.zero;
+        mazeRotation.rotate = false;
+        animEdgeFlag = false;
+        isMoving = false;
 
         trigFlag = false;
         rotateFlag = false;
         atEdge = false;
         destinationFlag = true;
-        //destination = transform.localPosition;
-
-        mazeRotation = MazeBody.GetComponent<MazeBodyRotation>();
-
-        Load();
-
+        inJunction = true;
     }
-	
 	private void FixedUpdate ()
     {
-        if (game_level_loaded)
+        if (GameManager.IsPlaying)
         {
             WallCollisionCheck();
             EdgeDetection();
@@ -150,7 +161,6 @@ public class playerController : MonoBehaviour
             localLeft = localRight * -1;
             localBack = localForward * -1;
             localDown = transform.parent.InverseTransformDirection(transform.up) * -1;
-
 
             if (animEdgeFlag && mazeRotation.rotate)
             {
@@ -292,11 +302,17 @@ public class playerController : MonoBehaviour
                 }
             }
         }
-        
         if (transform.localPosition == destination)
         {
-            transform.localPosition = destination;
-
+            Debug.Log("at the destination");
+            if (!mazeRotation.rotate)
+            {
+                if (Vector3.Distance(EndPosition.position, transform.localPosition) <= 0.2f)
+                {
+                    Debug.Log("reached the end!!");
+                    GameManager.GameWon();
+                }
+            }
             destinationFlag = true;
             if (inJunction)
             {
@@ -351,38 +367,6 @@ public class playerController : MonoBehaviour
     }
     void EdgeDetection()
     {
-        /*float overShoot = 0.1f;
-        if(transform.localPosition.x > MazeOffset + overShoot)
-        {
-            atEdge = true;
-            transform.localPosition = new Vector3(MazeOffset, transform.localPosition.y, transform.localPosition.z);
-        }
-        else if (transform.localPosition.y > MazeOffset + overShoot)
-        {
-            atEdge = true;
-            transform.localPosition = new Vector3(transform.localPosition.x, MazeOffset, transform.localPosition.z);
-        }
-        else if (transform.localPosition.z > MazeOffset + overShoot)
-        {
-            atEdge = true;
-            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, MazeOffset);
-        }
-        else if (transform.localPosition.x < -(MazeOffset + overShoot))
-        {
-            atEdge = true;
-            transform.localPosition = new Vector3(-MazeOffset, transform.localPosition.y, transform.localPosition.z);
-        }
-        else if (transform.localPosition.y < -(MazeOffset + overShoot))
-        {
-            atEdge = true;
-            transform.localPosition = new Vector3(transform.localPosition.x, -MazeOffset, transform.localPosition.z);
-        }
-        else if (transform.localPosition.z < -(MazeOffset + overShoot))
-        {
-            atEdge = true;
-            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, -MazeOffset);
-        }*/
-
         if(!downRay.hittingWall)
         {
             atEdge = true;
@@ -489,9 +473,12 @@ public class playerController : MonoBehaviour
     }
     public int Load()
     {
-        PlayerPrefs.SetString("current_level", "level_0");
-        LevelManager.NextLevel();
-        SaveManager.levelName = LevelManager.GetCurrentLevel();
+        SaveManager.levelName = GameManager.CurrentLevel;
+        
+        for(int i = 0; i < Parts.Count; i++)
+        {
+            Destroy(Parts[i]);
+        }
         state = sm.Load();
         nodes = new List<Node>();
         PartsTypes = new List<PrefabType>();
@@ -505,8 +492,9 @@ public class playerController : MonoBehaviour
         DownStep = MazeOffset / MazeSize;
         SaveManager.levelSize = state.levelSize;
         var start_end_flag = false;
-        for (int i = 0; i < state.node.Count; i++)
+        for (var i = 0; i < state.node.Count; i++)
         {
+            start_end_flag = false;
             GameObject tempObj = new GameObject();
             switch (nodes[i].Type)
             {
@@ -533,30 +521,26 @@ public class playerController : MonoBehaviour
                     break;
                 case PrefabType.Start:
                     start_end_flag = true;
-                    transform.localPosition = nodes[i].transform.position;
+                    StartPosition = nodes[i].transform;
                     break;
                 case PrefabType.End:
-                    start_end_flag = true;
+                    tempObj = Instantiate(PartEnd, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    EndPosition = nodes[i].transform;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
 
-            if (!start_end_flag)
-            {
-                tempObj.GetComponent<Renderer>().material = onMaze;
-                Parts.Add(tempObj);
-            }
+            if (start_end_flag) continue;
+            tempObj.GetComponent<Renderer>().material = onMaze;
+            Parts.Add(tempObj);
         }
         noOfParts = state.node.Count;
         maze_body.transform.localScale = new Vector3(SaveManager.levelSize, SaveManager.levelSize, SaveManager.levelSize);
         mainCamera.orthographicSize = SaveManager.levelSize + 7;
-/*        if(MazeSize%2 == 0)
-            transform.localPosition = new Vector3(1.5f, SaveManager.levelSize/2, 1.5f);
-        else
-            transform.localPosition = new Vector3(1.0f, SaveManager.levelSize/2, 1.0f);*/
-        destination = transform.localPosition;
-        game_level_loaded = true;
+        transform.position = StartPosition.localPosition;
+        transform.eulerAngles = Vector3.zero;
+        destination = transform.position;
         return 1;
     }
 }
