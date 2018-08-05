@@ -142,12 +142,13 @@ public class playerController : MonoBehaviour
         mazeRotation.rotate = false;
         animEdgeFlag = false;
         isMoving = false;
-
+        movementDireciton = Direction.Null;
         trigFlag = false;
         rotateFlag = false;
         atEdge = false;
         destinationFlag = true;
         inJunction = true;
+        tempDirection = Direction.Null;
     }
 	private void FixedUpdate ()
     {
@@ -168,6 +169,12 @@ public class playerController : MonoBehaviour
             }
             else if (animEdgeFlag && !mazeRotation.rotate)
             {
+                if (Vector3.Distance(EndPosition.position, transform.localPosition) <= 0.2f)
+                {
+                    Debug.Log("reached the end!!");
+                    GameManager.GameWon();
+                    return;
+                }
                 switch (movementDireciton)
                 {
                     case Direction.Right:
@@ -302,16 +309,15 @@ public class playerController : MonoBehaviour
                 }
             }
         }
+
         if (transform.localPosition == destination)
         {
             Debug.Log("at the destination");
-            if (!mazeRotation.rotate)
+            if (Vector3.Distance(EndPosition.position, transform.localPosition) <= 0.2f)
             {
-                if (Vector3.Distance(EndPosition.position, transform.localPosition) <= 0.2f)
-                {
-                    Debug.Log("reached the end!!");
-                    GameManager.GameWon();
-                }
+                Debug.Log("reached the end!!");
+                GameManager.GameWon();
+                return;
             }
             destinationFlag = true;
             if (inJunction)
