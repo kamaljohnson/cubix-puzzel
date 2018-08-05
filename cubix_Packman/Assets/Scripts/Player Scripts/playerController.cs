@@ -140,7 +140,9 @@ public class playerController : MonoBehaviour
     {
         MazeBody.transform.eulerAngles = Vector3.zero;
         mazeRotation.rotate = false;
+/*
         animEdgeFlag = false;
+*/
         isMoving = false;
         movementDireciton = Direction.Null;
         trigFlag = false;
@@ -149,6 +151,7 @@ public class playerController : MonoBehaviour
         destinationFlag = true;
         inJunction = true;
         tempDirection = Direction.Null;
+        anim.levelEntry = true;
     }
 	private void FixedUpdate ()
     {
@@ -171,7 +174,6 @@ public class playerController : MonoBehaviour
             {
                 if (Vector3.Distance(EndPosition.position, transform.localPosition) <= 0.2f)
                 {
-                    Debug.Log("reached the end!!");
                     GameManager.GameWon();
                     return;
                 }
