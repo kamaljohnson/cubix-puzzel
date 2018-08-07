@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,7 +21,6 @@ public class GameManager : MonoBehaviour
     
     private void Start()
     {
-        PlayerPrefs.SetString("current_level", "level_1");
         CurrentLevel = LevelManager.GetCurrentLevel();
         Play();
     }
@@ -46,7 +46,15 @@ public class GameManager : MonoBehaviour
     public static void GameWon()
     {
         LevelManager.NextLevel();
+        //TODO go back to the level map after winning a level 
         CurrentLevel = LevelManager.GetCurrentLevel();
         Play();
+    }
+
+    public static void LoadGameScene()
+    {
+        Debug.Log("opened the game scene with level " + CurrentLevel);
+        SceneManager.LoadScene("Game");
+
     }
 }
