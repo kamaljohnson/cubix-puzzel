@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     
     private void Start()
     {
-        PlayerPrefs.SetString("current_level", "level_1");
+        PlayerPrefs.SetString("current_level", "level_0");
         CurrentLevel = LevelManager.GetCurrentLevel();
         Play();
     }
@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     public static void GameWon()
     {
         LevelManager.NextLevel();
+        //TODO go back to the level map after winning a level 
         CurrentLevel = LevelManager.GetCurrentLevel();
         Play();
     }

@@ -4,8 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour {
+public class LevelManager : MonoBehaviour
+{
 
+    public static string CurrentLevel;
+    public static void ActivateLevel()
+    {
+        GameManager.CurrentLevel = CurrentLevel;
+        Debug.Log("the level is set");
+    }
     public static string GetCurrentLevel()
     {
         return (PlayerPrefs.GetString("current_level"));
@@ -15,10 +22,12 @@ public class LevelManager : MonoBehaviour {
     {
         string current_level = GetCurrentLevel();
         string[] intermediate_level_string_list = current_level.Split('_');
+        /*int theam = Int32.Parse(intermediate_level_string_list[1]);*/
         int level = Int32.Parse(intermediate_level_string_list[1]);
         level++;
         intermediate_level_string_list[1] = level.ToString();
-        current_level = intermediate_level_string_list[0] + "_" + intermediate_level_string_list[1];
+        current_level = string.Format("{0}_{1}", intermediate_level_string_list[0]/*, intermediate_level_string_list[1]*/, intermediate_level_string_list[1]);
         PlayerPrefs.SetString("current_level", current_level);
-    }
+    }    //TODO create script to change the current level sected form the level map
+    
 }
