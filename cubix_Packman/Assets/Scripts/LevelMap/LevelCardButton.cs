@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LevelCardButton : MonoBehaviour {
 
 	// Use this for initialization
-	private string LevelName;
+	public string LevelName;
 	void Start () {
 		
 	}

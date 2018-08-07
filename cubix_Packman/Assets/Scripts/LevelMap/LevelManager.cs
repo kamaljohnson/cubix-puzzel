@@ -11,7 +11,9 @@ public class LevelManager : MonoBehaviour
     public static void ActivateLevel()
     {
         GameManager.CurrentLevel = CurrentLevel;
-        Debug.Log("the level is set");
+        Debug.Log("the level is set to " + CurrentLevel);
+        PlayerPrefs.SetString("current_level", CurrentLevel);
+        GameManager.LoadGameScene();
     }
     public static string GetCurrentLevel()
     {

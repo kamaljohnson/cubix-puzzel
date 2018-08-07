@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="178f319c-d52c-4c44-9a2e-fab01c966f36" name="Default" comment="" />
+    <list default="true" id="178f319c-d52c-4c44-9a2e-fab01c966f36" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCardButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCardButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelManager.cs" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -176,29 +180,29 @@
       <file leaf-file-name="LevelManager.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelManager.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="23" column="66" selection-start-line="23" selection-start-column="66" selection-end-line="23" selection-end-column="66" />
+            <state relative-caret-position="150">
+              <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
               <folding>
-                <marker date="1533648826521" expanded="false" signature="6:111" ph="..." />
-                <marker date="1533648826521" expanded="true" signature="154:1147" ph="{...}" />
-                <marker date="1533648826521" expanded="true" signature="235:335" ph="{...}" />
-                <marker date="1533648826521" expanded="true" signature="378:447" ph="{...}" />
-                <marker date="1533648826521" expanded="true" signature="483:1062" ph="{...}" />
+                <marker date="1533649963851" expanded="false" signature="6:111" ph="..." />
+                <marker date="1533649963851" expanded="true" signature="154:1203" ph="{...}" />
+                <marker date="1533649963851" expanded="true" signature="235:391" ph="{...}" />
+                <marker date="1533649963851" expanded="true" signature="434:503" ph="{...}" />
+                <marker date="1533649963851" expanded="true" signature="539:1118" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LevelCardButton.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LevelCardButton.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCardButton.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="225">
+              <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
               <folding>
-                <marker date="1533648783174" expanded="true" signature="6:100" ph="..." />
-                <marker date="1533648783174" expanded="true" signature="147:340" ph="{...}" />
-                <marker date="1533648783174" expanded="true" signature="224:231" ph="{...}" />
-                <marker date="1533648783174" expanded="true" signature="259:338" ph="{...}" />
+                <marker date="1533649838193" expanded="true" signature="6:100" ph="..." />
+                <marker date="1533649838193" expanded="true" signature="147:339" ph="{...}" />
+                <marker date="1533649838193" expanded="true" signature="223:230" ph="{...}" />
+                <marker date="1533649838193" expanded="true" signature="258:337" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -260,19 +264,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameManager.cs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameManager.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+            <state relative-caret-position="171">
+              <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
               <folding>
-                <marker date="1533643743261" expanded="true" signature="60:1239" ph="{...}" />
-                <marker date="1533643743261" expanded="true" signature="332:469" ph="/* public GameObject PlayUi; ... */" />
-                <marker date="1533643743261" expanded="true" signature="543:685" ph="{...}" />
-                <marker date="1533643743261" expanded="true" signature="720:741" ph="{...}" />
-                <marker date="1533643743261" expanded="true" signature="776:797" ph="{...}" />
-                <marker date="1533643743261" expanded="true" signature="828:1023" ph="{...}" />
-                <marker date="1533643743261" expanded="true" signature="1057:1237" ph="{...}" />
+                <marker date="1533650071163" expanded="true" signature="6:53" ph="..." />
+                <marker date="1533650071163" expanded="true" signature="95:1438" ph="{...}" />
+                <marker date="1533650071163" expanded="true" signature="367:504" ph="/* public GameObject PlayUi; ... */" />
+                <marker date="1533650071163" expanded="true" signature="578:720" ph="{...}" />
+                <marker date="1533650071163" expanded="true" signature="755:776" ph="{...}" />
+                <marker date="1533650071163" expanded="true" signature="811:832" ph="{...}" />
+                <marker date="1533650071163" expanded="true" signature="863:1058" ph="{...}" />
+                <marker date="1533650071163" expanded="true" signature="1092:1272" ph="{...}" />
+                <marker date="1533650071163" expanded="true" signature="1312:1436" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -320,10 +326,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelMapUI.cs" />
         <option value="$PROJECT_DIR$/Assets/CardDetails.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCard.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelMap/CardDetails.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCardButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -413,12 +419,12 @@
       <updated>1532989630449</updated>
       <workItem from="1532989635473" duration="13770000" />
       <workItem from="1533242421130" duration="7940000" />
-      <workItem from="1533326081680" duration="51177000" />
+      <workItem from="1533326081680" duration="52027000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72887000" />
+    <option name="totallyTimeSpent" value="73737000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1294,18 +1300,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCardButton.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+        <state relative-caret-position="225">
+          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
           <folding>
-            <marker date="1533643743261" expanded="true" signature="60:1239" ph="{...}" />
-            <marker date="1533643743261" expanded="true" signature="332:469" ph="/* public GameObject PlayUi; ... */" />
-            <marker date="1533643743261" expanded="true" signature="543:685" ph="{...}" />
-            <marker date="1533643743261" expanded="true" signature="720:741" ph="{...}" />
-            <marker date="1533643743261" expanded="true" signature="776:797" ph="{...}" />
-            <marker date="1533643743261" expanded="true" signature="828:1023" ph="{...}" />
-            <marker date="1533643743261" expanded="true" signature="1057:1237" ph="{...}" />
+            <marker date="1533649838193" expanded="true" signature="6:100" ph="..." />
+            <marker date="1533649838193" expanded="true" signature="147:339" ph="{...}" />
+            <marker date="1533649838193" expanded="true" signature="223:230" ph="{...}" />
+            <marker date="1533649838193" expanded="true" signature="258:337" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1324,27 +1327,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelManager.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="23" column="66" selection-start-line="23" selection-start-column="66" selection-end-line="23" selection-end-column="66" />
+        <state relative-caret-position="150">
+          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
           <folding>
-            <marker date="1533648826521" expanded="false" signature="6:111" ph="..." />
-            <marker date="1533648826521" expanded="true" signature="154:1147" ph="{...}" />
-            <marker date="1533648826521" expanded="true" signature="235:335" ph="{...}" />
-            <marker date="1533648826521" expanded="true" signature="378:447" ph="{...}" />
-            <marker date="1533648826521" expanded="true" signature="483:1062" ph="{...}" />
+            <marker date="1533649963851" expanded="false" signature="6:111" ph="..." />
+            <marker date="1533649963851" expanded="true" signature="154:1203" ph="{...}" />
+            <marker date="1533649963851" expanded="true" signature="235:391" ph="{...}" />
+            <marker date="1533649963851" expanded="true" signature="434:503" ph="{...}" />
+            <marker date="1533649963851" expanded="true" signature="539:1118" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCardButton.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="171">
+          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
           <folding>
-            <marker date="1533648783174" expanded="true" signature="6:100" ph="..." />
-            <marker date="1533648783174" expanded="true" signature="147:340" ph="{...}" />
-            <marker date="1533648783174" expanded="true" signature="224:231" ph="{...}" />
-            <marker date="1533648783174" expanded="true" signature="259:338" ph="{...}" />
+            <marker date="1533650071163" expanded="true" signature="6:53" ph="..." />
+            <marker date="1533650071163" expanded="true" signature="95:1438" ph="{...}" />
+            <marker date="1533650071163" expanded="true" signature="367:504" ph="/* public GameObject PlayUi; ... */" />
+            <marker date="1533650071163" expanded="true" signature="578:720" ph="{...}" />
+            <marker date="1533650071163" expanded="true" signature="755:776" ph="{...}" />
+            <marker date="1533650071163" expanded="true" signature="811:832" ph="{...}" />
+            <marker date="1533650071163" expanded="true" signature="863:1058" ph="{...}" />
+            <marker date="1533650071163" expanded="true" signature="1092:1272" ph="{...}" />
+            <marker date="1533650071163" expanded="true" signature="1312:1436" ph="{...}" />
           </folding>
         </state>
       </provider>
