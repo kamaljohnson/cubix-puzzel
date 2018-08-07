@@ -42,7 +42,10 @@ public class LevelMapUI : MonoBehaviour
     public void InitiateLevelCard(string cardName)
     {
         Debug.Log("instantiated the card");
-        AllLevelCards.Add(Instantiate(LevelCardPrefab, LevelCardParentTrasform));
+        GameObject tempObj = Instantiate(LevelCardPrefab, LevelCardParentTrasform);
+        tempObj.GetComponent<LevelCardButton>().LevelName = cardName;
+        AllLevelCards.Add(tempObj);
+        
     }
 
     public void DeleteAllCards()
