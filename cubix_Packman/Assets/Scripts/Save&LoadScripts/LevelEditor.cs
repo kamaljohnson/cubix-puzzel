@@ -11,6 +11,8 @@ public enum PrefabType  // all the prefabs that goes into the game level is adde
     Part03,
     Part04,
     Part05,
+    Key,
+    Points,
     Start,
     End,
 }
@@ -57,6 +59,8 @@ public class LevelEditor : MonoBehaviour {
     public GameObject Part04;
     public GameObject Part05;
 
+    public GameObject PartPoint;
+    public GameObject PartKey;
     public GameObject PartStart;
     public GameObject PartEnd;
     
@@ -229,6 +233,14 @@ public class LevelEditor : MonoBehaviour {
                 noOfParts--;
             }
         }
+        else if (Input.GetKeyDown("k"))
+        {
+            currentPrefab = PrefabType.Key;
+        }
+        else if (Input.GetKeyDown("p"))
+        {
+            currentPrefab = PrefabType.Points;
+        }
         else if (Input.GetKeyDown("b"))
         {
             IsStart = true;
@@ -265,6 +277,12 @@ public class LevelEditor : MonoBehaviour {
                 break;
             case PrefabType.End:
                 currentPart = PartEnd;
+                break;
+            case PrefabType.Key:
+                currentPart = PartKey;
+                break;
+            case PrefabType.Points:
+                currentPart = PartPoint;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -319,6 +337,14 @@ public class LevelEditor : MonoBehaviour {
                     break;
                 case PrefabType.End:
                     tempNode.Type = PrefabType.End;
+                    tempNode.transform = Parts[i].transform;
+                    break;
+                case PrefabType.Key:
+                    tempNode.Type = PrefabType.Key;
+                    tempNode.transform = Parts[i].transform;
+                    break;
+                case PrefabType.Points:
+                    tempNode.Type = PrefabType.Points;
                     tempNode.transform = Parts[i].transform;
                     break;
                 default:
@@ -389,12 +415,20 @@ public class LevelEditor : MonoBehaviour {
                     tempObj = Instantiate(PartEnd, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.End);
                     break;
+                case PrefabType.Key:
+                    tempObj = Instantiate(PartKey, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    PartsTypes.Add(PrefabType.Key);
+                    break;
+                case PrefabType.Points:
+                    tempObj = Instantiate(PartPoint, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    PartsTypes.Add(PrefabType.Points);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
             
-            tempObj.GetComponent<Renderer>().material = onMaze;
             Parts.Add(tempObj);
+            tempObj.GetComponent<Renderer>().material = onMaze;
 
         }
         noOfParts = state.node.Count;

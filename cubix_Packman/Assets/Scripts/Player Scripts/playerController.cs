@@ -103,6 +103,8 @@ public class playerController : MonoBehaviour
     public GameObject Part04;
     public GameObject Part05;
     public GameObject PartEnd;
+    public GameObject PartKey;
+    public GameObject PartPoint;
     
     public Material onMaze;
     public Camera mainCamera;
@@ -533,6 +535,14 @@ public class playerController : MonoBehaviour
                     break;
                 case PrefabType.End:
                     tempObj = Instantiate(PartEnd, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    EndPosition = nodes[i].transform;
+                    break;
+                case PrefabType.Key:
+                    tempObj = Instantiate(PartKey, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    EndPosition = nodes[i].transform;
+                    break;
+                case PrefabType.Points:
+                    tempObj = Instantiate(PartPoint, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     EndPosition = nodes[i].transform;
                     break;
                 default:
