@@ -1248,6 +1248,8 @@ MonoBehaviour:
   Part04: {fileID: 1407962199249706, guid: 76ecb2fc1141b354d950fbbc9e87bec7, type: 2}
   Part05: {fileID: 1247051777156242, guid: 806975d54d2413541a5c4ab3e574811b, type: 2}
   PartEnd: {fileID: 1850680298045126, guid: 8cca57c29b24a8449bfd1cda33bdc8f8, type: 2}
+  PartKey: {fileID: 1672100145971414, guid: 0b9ca214c4c22354cbf177ab2d77970f, type: 2}
+  PartPoint: {fileID: 1750163361043440, guid: 3653af1fa8338714d9a898d6a23b4b80, type: 2}
   onMaze: {fileID: 2100000, guid: aee9359992066c34a87aa63acd7a3c25, type: 2}
   mainCamera: {fileID: 47680774}
 --- !u!95 &2068765028
