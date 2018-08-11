@@ -11,5 +11,10 @@ public class AddOnManager : MonoBehaviour
     {
         NoOfPoints++;
     }
-    
+
+    public static void collectedPoint()
+    {
+        NoOfPoints--;
+        Debug.Log("Points : " + NoOfPoints.ToString());
+    }
 }

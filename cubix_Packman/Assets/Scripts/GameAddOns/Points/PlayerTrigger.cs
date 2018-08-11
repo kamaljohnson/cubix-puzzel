@@ -8,7 +8,11 @@ public class PlayerTrigger : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            Destroy(transform.parent.gameObject);
+            if(gameObject.tag == "Point")
+            {    
+                AddOnManager.collectedPoint();
+                Destroy(transform.parent.gameObject);
+            }
         }
     }
 }
