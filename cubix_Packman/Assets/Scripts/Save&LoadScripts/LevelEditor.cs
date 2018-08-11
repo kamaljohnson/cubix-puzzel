@@ -297,7 +297,7 @@ public class LevelEditor : MonoBehaviour {
                 tempObject = Instantiate(currentPart, tilePosition.position, tilePosition.rotation, Maze.transform);
 
                 tempObject.transform.rotation = angleSet ? orientation : angRef.transform.rotation;
-
+                
                 tempObject.GetComponent<Renderer>().material = preview;
             }
         }

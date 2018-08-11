@@ -744,8 +744,8 @@ MonoBehaviour:
   Part03: {fileID: 1320878115104930, guid: 6c61610f42eca7349b5e9a15510fb94c, type: 2}
   Part04: {fileID: 1407962199249706, guid: 76ecb2fc1141b354d950fbbc9e87bec7, type: 2}
   Part05: {fileID: 1247051777156242, guid: 806975d54d2413541a5c4ab3e574811b, type: 2}
-  PartPoint: {fileID: 1750163361043440, guid: 3653af1fa8338714d9a898d6a23b4b80, type: 2}
-  PartKey: {fileID: 1672100145971414, guid: 0b9ca214c4c22354cbf177ab2d77970f, type: 2}
+  PartPoint: {fileID: 1360923548942094, guid: 928cfb9455b6c42499019b3f73180889, type: 2}
+  PartKey: {fileID: 1360923548942094, guid: 928cfb9455b6c42499019b3f73180889, type: 2}
   PartStart: {fileID: 1520088311570962, guid: 285d71e1481d8c244807e92c1f3303a5, type: 2}
   PartEnd: {fileID: 1850680298045126, guid: 8cca57c29b24a8449bfd1cda33bdc8f8, type: 2}
   MazeCube: {fileID: 1618058748806150, guid: b917edee49d53be4c9fccd80a845f40f, type: 2}
