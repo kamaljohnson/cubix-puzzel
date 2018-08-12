@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 /*
  * 1. script to direct the camara to move (HINT make the camara move over to the corners of am imaginary cube over the main maze cube)
@@ -92,9 +90,9 @@ public class playerController : MonoBehaviour
 
     SaveManager sm = new SaveManager();
     SaveState state = new SaveState();
-    List<Node> nodes = new List<Node>();
-    List<GameObject> Parts = new List<GameObject>();
-    List<PrefabType> PartsTypes = new List<PrefabType>();
+    System.Collections.Generic.List<Node> nodes = new System.Collections.Generic.List<Node>();
+    System.Collections.Generic.List<GameObject> Parts = new System.Collections.Generic.List<GameObject>();
+    System.Collections.Generic.List<PrefabType> PartsTypes = new System.Collections.Generic.List<PrefabType>();
     
     public GameObject Maze;
     public GameObject Part01;
@@ -113,6 +111,8 @@ public class playerController : MonoBehaviour
 
     public static Transform EndPosition;
     public static Transform StartPosition;
+
+    public static int PointsCollected = 0;
     
     private void Awake() {
 
@@ -484,15 +484,14 @@ public class playerController : MonoBehaviour
     public int Load()
     {
         SaveManager.levelName = GameManager.CurrentLevel;
-        
         for(int i = 0; i < Parts.Count; i++)
         {
             Destroy(Parts[i]);
         }
         state = sm.Load();
-        nodes = new List<Node>();
-        PartsTypes = new List<PrefabType>();
-        Parts = new List<GameObject>();
+        nodes = new System.Collections.Generic.List<Node>();
+        PartsTypes = new System.Collections.Generic.List<PrefabType>();
+        Parts = new System.Collections.Generic.List<GameObject>();
         for (int i = 0; i < state.node.Count; i++)
         {
             nodes.Add(state.node[i].ConvertToNode());

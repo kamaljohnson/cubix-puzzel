@@ -8,6 +8,7 @@ using UnityEngine;
 public class SaveState {
 
     public float levelSize;
+    public Dictionary<int, string> PortalPairs;
     public List<SaveavleNode> node;
 }
 

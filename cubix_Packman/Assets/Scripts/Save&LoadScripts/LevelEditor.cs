@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 
 public enum PrefabType  // all the prefabs that goes into the game level is added here 
@@ -58,7 +59,7 @@ public class LevelEditor : MonoBehaviour {
     public GameObject Part03;
     public GameObject Part04;
     public GameObject Part05;
-
+    
     public GameObject PartPoint;
     public GameObject PartKey;
     public GameObject PartStart;
@@ -201,7 +202,7 @@ public class LevelEditor : MonoBehaviour {
             tempObject.GetComponent<Renderer>().material = preview;
         }
 
-        if (Input.GetMouseButtonDown(0) && !firstTime && canRotateVertical && canRotateHorizontal)
+        if (Input.GetMouseButtonDown(0) && !firstTime && canRotateVertical && canRotateHorizontal )
         {
             if (!isDelete)
             {
@@ -237,7 +238,7 @@ public class LevelEditor : MonoBehaviour {
         {
             currentPrefab = PrefabType.Key;
         }
-        else if (Input.GetKeyDown("p"))
+        else if (Input.GetKeyDown("c"))
         {
             currentPrefab = PrefabType.Points;
         }
@@ -251,6 +252,8 @@ public class LevelEditor : MonoBehaviour {
             IsEnd = true;
             currentPrefab = PrefabType.End;
         }
+
+        
     }
 
     private void ChangePart()
