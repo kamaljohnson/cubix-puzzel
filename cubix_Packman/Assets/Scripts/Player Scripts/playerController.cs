@@ -483,6 +483,7 @@ public class playerController : MonoBehaviour
     }
     public int Load()
     {
+        PointsCollected = 0;
         SaveManager.levelName = GameManager.CurrentLevel;
         for(int i = 0; i < Parts.Count; i++)
         {

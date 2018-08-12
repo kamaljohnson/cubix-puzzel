@@ -45,8 +45,9 @@ public class GameManager : MonoBehaviour
 
     public static void GameWon()
     {
+        PlayerPrefs.SetInt(CurrentLevel + "_Points", playerController.PointsCollected);
         LevelManager.NextLevel();
-        //TODO go back to the level map after winning a level 
+        //TODO go back to the level map after winning a level
         CurrentLevel = LevelManager.GetCurrentLevel();
         Play();
     }
