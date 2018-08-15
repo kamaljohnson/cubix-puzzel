@@ -170,7 +170,7 @@ public class LevelEditor : MonoBehaviour {
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
-            if (currentPrefab == PrefabType.Part05)
+            if (currentPrefab >= (PrefabType) 4)
                 currentPrefab = PrefabType.Part01;
             else
                 currentPrefab += 1;
@@ -288,8 +288,6 @@ public class LevelEditor : MonoBehaviour {
             case PrefabType.Points:
                 currentPart = PartPoint;
                 break;
-            default:
-                throw new ArgumentOutOfRangeException();
         }
         for (int i = 0; i < index; i++)
         {
