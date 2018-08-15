@@ -537,7 +537,7 @@ public class playerController : MonoBehaviour
                     tempObj = Instantiate(PartEnd, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     EndPosition = nodes[i].transform;
                     break;
-                case PrefabType.Key:
+                case PrefabType.KeyWall:
                     tempObj = Instantiate(PartKey, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     EndPosition = nodes[i].transform;
                     break;

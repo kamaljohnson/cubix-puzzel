@@ -12,7 +12,8 @@ public enum PrefabType  // all the prefabs that goes into the game level is adde
     Part03,
     Part04,
     Part05,
-    Key,
+    KeyWall,
+    KeyPortal,
     Points,
     Start,
     End,
@@ -236,7 +237,7 @@ public class LevelEditor : MonoBehaviour {
         }
         else if (Input.GetKeyDown("k"))
         {
-            currentPrefab = PrefabType.Key;
+            currentPrefab = PrefabType.KeyWall;
         }
         else if (Input.GetKeyDown("c"))
         {
@@ -281,7 +282,7 @@ public class LevelEditor : MonoBehaviour {
             case PrefabType.End:
                 currentPart = PartEnd;
                 break;
-            case PrefabType.Key:
+            case PrefabType.KeyWall:
                 currentPart = PartKey;
                 break;
             case PrefabType.Points:
@@ -342,8 +343,8 @@ public class LevelEditor : MonoBehaviour {
                     tempNode.Type = PrefabType.End;
                     tempNode.transform = Parts[i].transform;
                     break;
-                case PrefabType.Key:
-                    tempNode.Type = PrefabType.Key;
+                case PrefabType.KeyWall:
+                    tempNode.Type = PrefabType.KeyWall;
                     tempNode.transform = Parts[i].transform;
                     break;
                 case PrefabType.Points:
@@ -418,9 +419,9 @@ public class LevelEditor : MonoBehaviour {
                     tempObj = Instantiate(PartEnd, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.End);
                     break;
-                case PrefabType.Key:
+                case PrefabType.KeyWall:
                     tempObj = Instantiate(PartKey, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
-                    PartsTypes.Add(PrefabType.Key);
+                    PartsTypes.Add(PrefabType.KeyWall);
                     break;
                 case PrefabType.Points:
                     tempObj = Instantiate(PartPoint, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
