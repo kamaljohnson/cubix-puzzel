@@ -1,5 +1,7 @@
 ﻿using System;
 using UnityEngine;
+using System.Collections.Generic;
+
 /*
  * 1. script to direct the camara to move (HINT make the camara move over to the corners of am imaginary cube over the main maze cube)
  * 2. move the camera to the next position by using the direction of movement of the player and the current position of the camera  
@@ -23,6 +25,9 @@ public class playerController : MonoBehaviour
     public GameObject Forward;
     public GameObject Back;
     public GameObject Down;
+    
+    public List<Material> ListOfMaterials;
+    private int NoOfGates;
 
     RayCastScript rightRay;
     RayCastScript leftRay;
@@ -104,9 +109,8 @@ public class playerController : MonoBehaviour
     public GameObject PartKey;
     public GameObject PartPoint;
     
-    public Material onMaze;
     public Camera mainCamera;
-
+    
     int noOfParts = 0;
 
     public static Transform EndPosition;
@@ -114,8 +118,8 @@ public class playerController : MonoBehaviour
 
     public static int PointsCollected = 0;
     
-    private void Awake() {
-
+    private void Awake()
+    {
         Screen.orientation = ScreenOrientation.Portrait;
         swipeInput = GetComponent<SwipeControl>();
         
@@ -545,6 +549,7 @@ public class playerController : MonoBehaviour
                     tempObj = Instantiate(PartKey, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     preKey = tempObj;
                     EndPosition = nodes[i].transform;
+                    NoOfGates++;
                     break;
                 case PrefabType.Points:
                     tempObj = Instantiate(PartPoint, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
@@ -555,14 +560,17 @@ public class playerController : MonoBehaviour
             }
                 
             if (start_end_flag) continue;
-            tempObj.GetComponent<Renderer>().material = onMaze;
+            tempObj.GetComponent<Renderer>().material = ListOfMaterials[0];
             Parts.Add(tempObj);
             
             if (key_flag && nodes[i].Type != PrefabType.KeyWall)
             {
                 key_flag = false;
                 preKey.GetComponentInChildren<Key>().Lock = Parts[Parts.Count - 1];
-                Debug.Log("HERE");
+                Parts[Parts.Count - 1].GetComponent<Renderer>().material = ListOfMaterials[NoOfGates];
+                foreach (Transform child in Parts[Parts.Count - 2].transform) {
+                    child.GetComponent<Renderer>().material = ListOfMaterials[NoOfGates];
+                }
             }
         }
         noOfParts = state.node.Count;

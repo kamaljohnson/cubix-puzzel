@@ -734,9 +734,6 @@ MonoBehaviour:
   Body: {fileID: 1205486832}
   Maze: {fileID: 1956580123}
   MazeSize: 3
-  preview: {fileID: 2100000, guid: 7c092a98e50f4be43afcafa9fc037ac6, type: 2}
-  onMaze: {fileID: 2100000, guid: aee9359992066c34a87aa63acd7a3c25, type: 2}
-  onDeleteMatereal: {fileID: 2100000, guid: 8874e9943f5623644be7a88601b923ec, type: 2}
   tilePosition: {fileID: 1255992856}
   firstTime: 1
   Part01: {fileID: 1644928004358622, guid: 44ceb3ed83f1b1b46802dd5056bd9fac, type: 2}
@@ -748,6 +745,10 @@ MonoBehaviour:
   PartKey: {fileID: 1887563822151268, guid: 86fe8a243cc86184180ee894ecafca9c, type: 2}
   PartStart: {fileID: 1520088311570962, guid: 285d71e1481d8c244807e92c1f3303a5, type: 2}
   PartEnd: {fileID: 1850680298045126, guid: 8cca57c29b24a8449bfd1cda33bdc8f8, type: 2}
+  Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7c092a98e50f4be43afcafa9fc037ac6, type: 2}
+  - {fileID: 2100000, guid: 8874e9943f5623644be7a88601b923ec, type: 2}
   MazeCube: {fileID: 1618058748806150, guid: b917edee49d53be4c9fccd80a845f40f, type: 2}
   Tile: {fileID: 1284733078449372, guid: bc4893f8151ad9e4ba07027b70f1a644, type: 2}
   angRef: {fileID: 15655395}

@@ -1502,6 +1502,13 @@ MonoBehaviour:
   Forward: {fileID: 763567819}
   Back: {fileID: 1207663302}
   Down: {fileID: 575996165}
+  ListOfMaterials:
+  - {fileID: 2100000, guid: aee9359992066c34a87aa63acd7a3c25, type: 2}
+  - {fileID: 2100000, guid: b1b2a41aadf1837439df7d13d1e32286, type: 2}
+  - {fileID: 2100000, guid: 2b77e589516cee14baad13dd25a1afad, type: 2}
+  - {fileID: 2100000, guid: 5eaad5b4a2f03e74a9490b3eed8b5397, type: 2}
+  - {fileID: 2100000, guid: f5939e6f845b69d42863a9874c24d886, type: 2}
+  - {fileID: 2100000, guid: 7e3935b3b85764e49bde9d5086780c25, type: 2}
   maze_body: {fileID: 1136616302}
   MazeBody: {fileID: 671544344}
   cubeMesh: {fileID: 1317987133}
@@ -1514,7 +1521,6 @@ MonoBehaviour:
   PartEnd: {fileID: 1850680298045126, guid: 8cca57c29b24a8449bfd1cda33bdc8f8, type: 2}
   PartKey: {fileID: 1887563822151268, guid: 86fe8a243cc86184180ee894ecafca9c, type: 2}
   PartPoint: {fileID: 1360923548942094, guid: 928cfb9455b6c42499019b3f73180889, type: 2}
-  onMaze: {fileID: 2100000, guid: aee9359992066c34a87aa63acd7a3c25, type: 2}
   mainCamera: {fileID: 47680774}
 --- !u!95 &2068765028
 Animator:
