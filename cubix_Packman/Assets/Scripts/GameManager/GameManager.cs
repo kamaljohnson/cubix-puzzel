@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         CurrentLevel = LevelManager.GetCurrentLevel();
+        CurrentLevel = "level_0";
         Play();
     }
 
