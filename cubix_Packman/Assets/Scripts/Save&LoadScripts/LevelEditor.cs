@@ -33,12 +33,7 @@ public class LevelEditor : MonoBehaviour {
     public GameObject Body;
     public GameObject Maze;
     public float MazeSize = 3;
-
-
-    public Material preview;
-    public Material onMaze;
-    public Material onDeleteMatereal;
-
+    
     public Transform tilePosition;
     List<GameObject> Tiles = new List<GameObject>();
     List<GameObject> Parts = new List<GameObject>();
@@ -65,6 +60,8 @@ public class LevelEditor : MonoBehaviour {
     public GameObject PartKey;
     public GameObject PartStart;
     public GameObject PartEnd;
+
+    public List<Material> Materials;
     
     public GameObject MazeCube;
 
@@ -166,7 +163,7 @@ public class LevelEditor : MonoBehaviour {
             tempObject.transform.Rotate(0, 0, 90);
             orientation = tempObject.transform.rotation;
             angleSet = true;
-            tempObject.GetComponent<Renderer>().material = preview;
+            tempObject.GetComponent<Renderer>().material = Materials[1];
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
@@ -186,7 +183,7 @@ public class LevelEditor : MonoBehaviour {
         {
             for (int i = 0; i < noOfParts; i++)
             {
-                Parts[i].GetComponent<Renderer>().material = onMaze;
+                Parts[i].GetComponent<Renderer>().material = Materials[0];
             }
         }
         for (int i = 0; i < noOfParts; i++)
@@ -194,20 +191,20 @@ public class LevelEditor : MonoBehaviour {
             if (Mathf.Round((tempObject.transform.localPosition - Parts[i].transform.localPosition).magnitude) == 0 && Mathf.Round((tempObject.transform.rotation.eulerAngles - Parts[i].transform.rotation.eulerAngles).magnitude) == 0 && currentPrefab == PartsTypes[i])
             {
                 isDelete = true;
-                Parts[i].GetComponent<Renderer>().material = onDeleteMatereal;
-                tempObject.GetComponent<Renderer>().material = onDeleteMatereal;
+                Parts[i].GetComponent<Renderer>().material = Materials[2];
+                tempObject.GetComponent<Renderer>().material = Materials[2];
                 toDeleteIndex = i;
                 break;
             }
             isDelete = false;
-            tempObject.GetComponent<Renderer>().material = preview;
+            tempObject.GetComponent<Renderer>().material = Materials[1];
         }
 
         if (Input.GetMouseButtonDown(0) && !firstTime && canRotateVertical && canRotateHorizontal )
         {
             if (!isDelete)
             {
-                tempObject.GetComponent<Renderer>().material = onMaze;
+                tempObject.GetComponent<Renderer>().material = Materials[0];
                 PrefabType tempType = new PrefabType();
                 Parts.Add(Instantiate(tempObject, tempObject.transform.position, tempObject.transform.rotation, Maze.transform));
                 tempType = currentPrefab;
@@ -300,7 +297,7 @@ public class LevelEditor : MonoBehaviour {
 
                 tempObject.transform.rotation = angleSet ? orientation : angRef.transform.rotation;
                 
-                tempObject.GetComponent<Renderer>().material = preview;
+                tempObject.GetComponent<Renderer>().material = Materials[1];
             }
         }
         scrolled = false;
@@ -428,7 +425,7 @@ public class LevelEditor : MonoBehaviour {
             }
             
             Parts.Add(tempObj);
-            tempObj.GetComponent<Renderer>().material = onMaze;
+            tempObj.GetComponent<Renderer>().material = Materials[0];
 
         }
         noOfParts = state.node.Count;
