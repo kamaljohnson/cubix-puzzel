@@ -427,8 +427,6 @@ public class LevelEditor : MonoBehaviour {
                     tempObj = Instantiate(PartPoint, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Points);
                     break;
-                default:
-                    throw new ArgumentOutOfRangeException();
             }
             
             Parts.Add(tempObj);

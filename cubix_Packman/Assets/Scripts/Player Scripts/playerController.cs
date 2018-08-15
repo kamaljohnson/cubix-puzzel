@@ -502,6 +502,9 @@ public class playerController : MonoBehaviour
         DownStep = MazeOffset / MazeSize;
         SaveManager.levelSize = state.levelSize;
         var start_end_flag = false;
+        var key_flag = false;
+        GameObject preKey = new GameObject();
+        
         for (var i = 0; i < state.node.Count; i++)
         {
             start_end_flag = false;
@@ -538,7 +541,9 @@ public class playerController : MonoBehaviour
                     EndPosition = nodes[i].transform;
                     break;
                 case PrefabType.KeyWall:
+                    key_flag = true;
                     tempObj = Instantiate(PartKey, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    preKey = tempObj;
                     EndPosition = nodes[i].transform;
                     break;
                 case PrefabType.Points:
@@ -548,10 +553,17 @@ public class playerController : MonoBehaviour
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-
+                
             if (start_end_flag) continue;
             tempObj.GetComponent<Renderer>().material = onMaze;
             Parts.Add(tempObj);
+            
+            if (key_flag && nodes[i].Type != PrefabType.KeyWall)
+            {
+                key_flag = false;
+                preKey.GetComponentInChildren<Key>().Lock = Parts[Parts.Count - 1];
+                Debug.Log("HERE");
+            }
         }
         noOfParts = state.node.Count;
         maze_body.transform.localScale = new Vector3(SaveManager.levelSize, SaveManager.levelSize, SaveManager.levelSize);

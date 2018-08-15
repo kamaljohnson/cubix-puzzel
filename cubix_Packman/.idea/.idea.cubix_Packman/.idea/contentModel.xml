@@ -15,9 +15,10 @@
             <e p="AddOnManager.cs" t="Include" />
             <e p="Keys" t="Include">
               <e p="Key.cs" t="Include" />
+              <e p="PlayerKeyTrigger.cs" t="Include" />
             </e>
             <e p="Points" t="Include">
-              <e p="PlayerTrigger.cs" t="Include" />
+              <e p="PlayerCoinTrigger.cs" t="Include" />
               <e p="Points.cs" t="Include" />
             </e>
           </e>
