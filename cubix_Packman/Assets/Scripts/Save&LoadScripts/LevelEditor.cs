@@ -49,17 +49,8 @@ public class LevelEditor : MonoBehaviour {
     public bool firstTime = true;
     List<Node> NodeList = new List<Node>(); // the list of all the node in a level
     Node currentNode;   //the current node which is being manipulated 
-    
-    public GameObject Part01;
-    public GameObject Part02;
-    public GameObject Part03;
-    public GameObject Part04;
-    public GameObject Part05;
-    
-    public GameObject PartPoint;
-    public GameObject PartKey;
-    public GameObject PartStart;
-    public GameObject PartEnd;
+
+    public List<GameObject> ListOfParts;
 
     public List<Material> Materials;
     
@@ -259,31 +250,31 @@ public class LevelEditor : MonoBehaviour {
         switch (currentPrefab)
         {
             case PrefabType.Part01:
-                currentPart = Part01;
+                currentPart = ListOfParts[0];
                 break;
             case PrefabType.Part02:
-                currentPart = Part02;
+                currentPart = ListOfParts[1];
                 break;
             case PrefabType.Part03:
-                currentPart = Part03;
+                currentPart = ListOfParts[2];
                 break;
             case PrefabType.Part04:
-                currentPart = Part04;
+                currentPart = ListOfParts[3];
                 break;
             case PrefabType.Part05:
-                currentPart = Part05;
+                currentPart = ListOfParts[4];
                 break;
             case PrefabType.Start:
-                currentPart = PartStart;
+                currentPart = ListOfParts[5];
                 break;
             case PrefabType.End:
-                currentPart = PartEnd;
+                currentPart = ListOfParts[6];
                 break;
             case PrefabType.KeyWall:
-                currentPart = PartKey;
+                currentPart = ListOfParts[7];
                 break;
             case PrefabType.Points:
-                currentPart = PartPoint;
+                currentPart = ListOfParts[8];
                 break;
         }
         for (int i = 0; i < index; i++)
@@ -387,39 +378,39 @@ public class LevelEditor : MonoBehaviour {
             {
 
                 case (PrefabType.Part01):
-                    tempObj = Instantiate(Part01, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[0], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Part01);
                     break;
                 case (PrefabType.Part02):
-                    tempObj = Instantiate(Part02, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[1], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Part02);
                     break;
                 case (PrefabType.Part03):
-                    tempObj = Instantiate(Part03, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[2], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Part03);
                     break;
                 case (PrefabType.Part04):
-                    tempObj = Instantiate(Part04, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[3], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Part04);
                     break;
                 case (PrefabType.Part05):
-                    tempObj = Instantiate(Part05, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[4], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Part05);
                     break;
                 case PrefabType.Start:
-                    tempObj = Instantiate(PartStart, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[5], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Start);
                     break;
                 case PrefabType.End:
-                    tempObj = Instantiate(PartEnd, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[6], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.End);
                     break;
                 case PrefabType.KeyWall:
-                    tempObj = Instantiate(PartKey, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[7], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.KeyWall);
                     break;
                 case PrefabType.Points:
-                    tempObj = Instantiate(PartPoint, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[8], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Points);
                     break;
             }
