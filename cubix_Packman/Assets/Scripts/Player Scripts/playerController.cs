@@ -41,6 +41,8 @@ public class playerController : MonoBehaviour
     public GameObject MazeBody;
     MazeBodyRotation mazeRotation;
 
+    public Transform playerMesh;
+    
     bool canMoveRight = false;
     bool canMoveLeft = false;
     bool canMoveForward = false;
@@ -140,20 +142,30 @@ public class playerController : MonoBehaviour
 
     public void Reset()
     {
-        MazeBody.transform.eulerAngles = Vector3.zero;
+        Vector3 playerMeshOffset = new Vector3(0, 0.1225f, 0);
+        
         mazeRotation.rotate = false;
-/*
-        animEdgeFlag = false;
-*/
+        mazeRotation.gameObject.transform.eulerAngles = CheckPoint.MazeCurrentCheckPointTransformRotation;
+        transform.eulerAngles = Vector3.zero;
         isMoving = false;
         movementDireciton = Direction.Null;
+        tempDirection = Direction.Null;
         trigFlag = false;
         rotateFlag = false;
         atEdge = false;
         destinationFlag = true;
         inJunction = true;
         tempDirection = Direction.Null;
-        anim.levelEntry = true;
+        canMoveBack = false;
+        canMoveForward = false;
+        canMoveLeft = false;
+        canMoveRight = false;
+        anim.animationStop = true;
+        transform.localPosition = CheckPoint.PlayerCurrentCheckPointTransformPosition;
+        playerMesh.localPosition = transform.localPosition + playerMeshOffset;
+        playerMesh.eulerAngles = Vector3.zero;
+        destination = CheckPoint.PlayerCurrentCheckPointTransformPosition;
+        //anim.levelEntry = true;
     }
 	private void FixedUpdate ()
     {
@@ -536,6 +548,7 @@ public class playerController : MonoBehaviour
                 case PrefabType.Start:
                     start_end_flag = true;
                     StartPosition = nodes[i].transform;
+                    CheckPoint.SetCheckPointTransfrom(StartPosition.localPosition);
                     break;
                 case PrefabType.End:
                     tempObj = Instantiate(ListOfParts[5], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);

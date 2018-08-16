@@ -1,27 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
 
-    public static Transform MazeCurrentCheckPointTransform;
-    public static Transform PlayerCurrentCheckPointTransform;
+    public static Vector3 MazeCurrentCheckPointTransformRotation;
+    public static Vector3 PlayerCurrentCheckPointTransformRotation;
+    public static Vector3 PlayerCurrentCheckPointTransformPosition;
     
-    public Transform MazeCheckPointTransition;
-    public Transform PlayerCheckPointTransition;
 
-
-    public void SetCheckPointTransfrom()
+    public static void SetCheckPointTransfrom(Vector3 checkpoinPosition)
     {
         Debug.Log("checkpoint set");
-        MazeCurrentCheckPointTransform = MazeCheckPointTransition;
-        PlayerCurrentCheckPointTransform = PlayerCheckPointTransition;
+        MazeCurrentCheckPointTransformRotation = FindObjectOfType<playerController>().MazeBody.transform.eulerAngles;
+        PlayerCurrentCheckPointTransformRotation = Vector3.zero;
+        PlayerCurrentCheckPointTransformPosition = checkpoinPosition;
     }
 
-    public void SetLocalValues(Transform mazeTransform, Transform plaerTransform)
+    public static void ActivateCheckPoint()
     {
-        MazeCheckPointTransition = mazeTransform;
-        PlayerCheckPointTransition = plaerTransform;
+        Debug.Log("activated the checkpoint");/*
+        FindObjectOfType<playerController>().Maze.transform.eulerAngles = MazeCurrentCheckPointTransformRotation;
+        FindObjectOfType<playerController>().player.transform.eulerAngles = PlayerCurrentCheckPointTransformRotation;
+        FindObjectOfType<playerController>().player.transform.localPosition = PlayerCurrentCheckPointTransformPosition;*/
+        Player.IsAlive = true;
+        FindObjectOfType<playerController>().Reset();
     }
 }

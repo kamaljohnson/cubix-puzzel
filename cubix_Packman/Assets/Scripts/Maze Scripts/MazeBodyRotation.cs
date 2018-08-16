@@ -27,6 +27,10 @@ public class MazeBodyRotation : MonoBehaviour {
             
             
         }
+        else
+        {
+            counter = 0;
+        }
         /*if(rotationFlag)
         {   //Rotate();
             Debug.Log(counter);
