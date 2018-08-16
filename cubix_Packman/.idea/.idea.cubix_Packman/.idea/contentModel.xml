@@ -42,6 +42,7 @@
           <e p="Player Scripts" t="Include">
             <e p="AnimationScript.cs" t="Include" />
             <e p="GameUI.cs" t="Include" />
+            <e p="Player.cs" t="Include" />
             <e p="playerController.cs" t="Include" />
             <e p="RayCastScript.cs" t="Include" />
             <e p="SwipeControl.cs" t="Include" />

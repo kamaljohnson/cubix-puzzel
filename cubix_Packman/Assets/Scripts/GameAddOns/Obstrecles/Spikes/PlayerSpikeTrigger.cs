@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PlayerSpikeTrigger : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            Player.IsAlive = false;
+            Debug.Log("DEAD");
+        }
+    }
 }
