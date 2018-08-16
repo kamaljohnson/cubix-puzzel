@@ -18,6 +18,7 @@ public enum PrefabType  // all the prefabs that goes into the game level is adde
     Start,
     End,
     Spike,
+    CheckPoint,
 }
 public class LevelEditor : MonoBehaviour {
 
@@ -247,6 +248,10 @@ public class LevelEditor : MonoBehaviour {
         {
             currentPrefab = PrefabType.Spike;
         }
+        else if (Input.GetKeyDown("x"))
+        {
+            currentPrefab = PrefabType.CheckPoint;
+        }
 
         
     }
@@ -286,6 +291,9 @@ public class LevelEditor : MonoBehaviour {
                 break;
             case PrefabType.Spike:
                 currentPart = ListOfParts[9];
+                break;
+            case PrefabType.CheckPoint:
+                currentPart = ListOfParts[10];
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -352,6 +360,12 @@ public class LevelEditor : MonoBehaviour {
                     break;
                 case PrefabType.Spike:
                     tempNode.Type = PrefabType.Spike;
+                    tempNode.transform = Parts[i].transform;
+                    break;
+                case PrefabType.KeyPortal:
+                    break;
+                case PrefabType.CheckPoint:
+                    tempNode.Type = PrefabType.CheckPoint;
                     tempNode.transform = Parts[i].transform;
                     break;
                 default:
@@ -434,6 +448,14 @@ public class LevelEditor : MonoBehaviour {
                     tempObj = Instantiate(ListOfParts[9], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Spike);
                     break;
+                case PrefabType.KeyPortal:
+                    break;
+                case PrefabType.CheckPoint:
+                    tempObj = Instantiate(ListOfParts[10], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    PartsTypes.Add(PrefabType.CheckPoint);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
             
             Parts.Add(tempObj);

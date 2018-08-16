@@ -18,12 +18,10 @@ public class Spikes : MonoBehaviour
         if(EditorMode)
             return;
         
-        _timer += Time.deltaTime * 3;
+        _timer += Time.deltaTime * 2;
         
         _currntIndex = (int)_timer;
-        
-        Debug.Log(" --> " + _currntIndex.ToString());
-        
+                
         if (_currntIndex == LocalTimerIndex)
         {
             SpikeAction(true);
@@ -33,7 +31,7 @@ public class Spikes : MonoBehaviour
             SpikeAction(false);
         }
 
-        if (_currntIndex > IndexLimit)
+        if (_currntIndex == IndexLimit-1)
         {
             _timer = 0;
         }

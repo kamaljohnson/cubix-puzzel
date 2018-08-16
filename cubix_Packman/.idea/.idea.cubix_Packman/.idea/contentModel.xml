@@ -13,6 +13,10 @@
           </e>
           <e p="GameAddOns" t="Include">
             <e p="AddOnManager.cs" t="Include" />
+            <e p="Checkpoints" t="Include">
+              <e p="CheckPoint.cs" t="Include" />
+              <e p="PlayerCheckpointTrigger.cs" t="Include" />
+            </e>
             <e p="Keys" t="Include">
               <e p="Key.cs" t="Include" />
               <e p="PlayerKeyTrigger.cs" t="Include" />

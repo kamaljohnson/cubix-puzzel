@@ -545,17 +545,20 @@ public class playerController : MonoBehaviour
                     key_flag = true;
                     tempObj = Instantiate(ListOfParts[6], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     preKey = tempObj;
-                    EndPosition = nodes[i].transform;
                     NoOfGates++;
                     break;
                 case PrefabType.Points:
                     tempObj = Instantiate(ListOfParts[7], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
-                    EndPosition = nodes[i].transform;
                     break;
                 case PrefabType.Spike:
                     tempObj = Instantiate(ListOfParts[8], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     tempObj.GetComponent<Spikes>().LocalTimerIndex = Spikes.CurrentFlagIndex++;
                     Spikes.SpikeInitializeFlag = true;
+                    break;
+                case PrefabType.KeyPortal:
+                    break;
+                case PrefabType.CheckPoint:
+                    tempObj = Instantiate(ListOfParts[9], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
