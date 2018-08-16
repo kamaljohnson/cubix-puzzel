@@ -182,7 +182,8 @@ public class LevelEditor : MonoBehaviour {
         }
         for (int i = 0; i < noOfParts; i++)
         {
-            if (Mathf.Round((tempObject.transform.localPosition - Parts[i].transform.localPosition).magnitude) == 0 && Mathf.Round((tempObject.transform.rotation.eulerAngles - Parts[i].transform.rotation.eulerAngles).magnitude) == 0 && currentPrefab == PartsTypes[i])
+            if ((Mathf.Round((tempObject.transform.localPosition - Parts[i].transform.localPosition).magnitude) == 0 && Mathf.Round((tempObject.transform.rotation.eulerAngles - Parts[i].transform.rotation.eulerAngles).magnitude) == 0 && currentPrefab == PartsTypes[i] && currentPrefab <= PrefabType.Part05) ||
+                (Mathf.Round((tempObject.transform.localPosition - Parts[i].transform.localPosition).magnitude) == 0) && currentPrefab > PrefabType.Part05 && currentPrefab == PartsTypes[i])
             {
                 isDelete = true;
                 Parts[i].GetComponent<Renderer>().material = Materials[2];

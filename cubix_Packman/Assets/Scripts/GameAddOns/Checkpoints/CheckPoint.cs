@@ -18,11 +18,10 @@ public class CheckPoint : MonoBehaviour
 
     public static void ActivateCheckPoint()
     {
-        Debug.Log("activated the checkpoint");/*
-        FindObjectOfType<playerController>().Maze.transform.eulerAngles = MazeCurrentCheckPointTransformRotation;
-        FindObjectOfType<playerController>().player.transform.eulerAngles = PlayerCurrentCheckPointTransformRotation;
-        FindObjectOfType<playerController>().player.transform.localPosition = PlayerCurrentCheckPointTransformPosition;*/
+        Debug.Log("activated the checkpoint");
+        
         Player.IsAlive = true;
+        FindObjectOfType<SwipeControl>().Reset();
         FindObjectOfType<playerController>().Reset();
     }
 }

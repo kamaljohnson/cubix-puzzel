@@ -9,7 +9,6 @@ public class PlayerSpikeTrigger : MonoBehaviour {
         if (other.tag == "Player")
         {
             Player.IsAlive = false;
-            Debug.Log("dead!!!");
         }
     }
 }

@@ -142,7 +142,7 @@ public class playerController : MonoBehaviour
 
     public void Reset()
     {
-        Vector3 playerMeshOffset = new Vector3(0, 0.1225f, 0);
+        var playerMeshOffset = new Vector3(0, 0.1225f, 0);
         
         mazeRotation.rotate = false;
         mazeRotation.gameObject.transform.eulerAngles = CheckPoint.MazeCurrentCheckPointTransformRotation;
@@ -150,7 +150,7 @@ public class playerController : MonoBehaviour
         isMoving = false;
         movementDireciton = Direction.Null;
         tempDirection = Direction.Null;
-        trigFlag = false;
+        /*trigFlag = false;*/
         rotateFlag = false;
         atEdge = false;
         destinationFlag = true;
@@ -165,6 +165,7 @@ public class playerController : MonoBehaviour
         playerMesh.localPosition = transform.localPosition + playerMeshOffset;
         playerMesh.eulerAngles = Vector3.zero;
         destination = CheckPoint.PlayerCurrentCheckPointTransformPosition;
+        GameManager.IsPlaying = true;
         //anim.levelEntry = true;
     }
 	private void FixedUpdate ()
@@ -261,7 +262,7 @@ public class playerController : MonoBehaviour
         }
     }
     void Move() //controls the movement of the player 
-    {
+    {   
         if (((Input.GetAxis("Horizontal") > 0  || swipeInput.Right)&& !mazeRotation.rotate)|| tempDirection == Direction.Right)
         {
             if (canMoveRight)
