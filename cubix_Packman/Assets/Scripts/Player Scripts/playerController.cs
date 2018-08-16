@@ -100,14 +100,8 @@ public class playerController : MonoBehaviour
     System.Collections.Generic.List<PrefabType> PartsTypes = new System.Collections.Generic.List<PrefabType>();
     
     public GameObject Maze;
-    public GameObject Part01;
-    public GameObject Part02;
-    public GameObject Part03;
-    public GameObject Part04;
-    public GameObject Part05;
-    public GameObject PartEnd;
-    public GameObject PartKey;
-    public GameObject PartPoint;
+
+    public List<GameObject> ListOfParts;
     
     public Camera mainCamera;
     
@@ -517,23 +511,23 @@ public class playerController : MonoBehaviour
             {
 
                 case (PrefabType.Part01):
-                    tempObj = Instantiate(Part01, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[0], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Part01);
                     break;
                 case (PrefabType.Part02):
-                    tempObj = Instantiate(Part02, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[1], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Part02);
                     break;
                 case (PrefabType.Part03):
-                    tempObj = Instantiate(Part03, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[2], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Part03);
                     break;
                 case (PrefabType.Part04):
-                    tempObj = Instantiate(Part04, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[3], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Part04);
                     break;
                 case (PrefabType.Part05):
-                    tempObj = Instantiate(Part05, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[4], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Part05);
                     break;
                 case PrefabType.Start:
@@ -541,18 +535,18 @@ public class playerController : MonoBehaviour
                     StartPosition = nodes[i].transform;
                     break;
                 case PrefabType.End:
-                    tempObj = Instantiate(PartEnd, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[5], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     EndPosition = nodes[i].transform;
                     break;
                 case PrefabType.KeyWall:
                     key_flag = true;
-                    tempObj = Instantiate(PartKey, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[6], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     preKey = tempObj;
                     EndPosition = nodes[i].transform;
                     NoOfGates++;
                     break;
                 case PrefabType.Points:
-                    tempObj = Instantiate(PartPoint, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[7], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     EndPosition = nodes[i].transform;
                     break;
                 default:
