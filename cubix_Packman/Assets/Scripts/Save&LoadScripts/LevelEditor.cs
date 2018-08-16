@@ -88,6 +88,7 @@ public class LevelEditor : MonoBehaviour {
     }
     private void Update()
     {
+        Spikes.EditorMode = true;
         ForwardRotation = Body.transform.parent.InverseTransformDirection(transform.forward);
         RightRotation = Body.transform.parent.InverseTransformDirection(transform.right);
         LeftRotation = RightRotation * -1;

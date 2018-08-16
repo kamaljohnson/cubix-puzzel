@@ -190,6 +190,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3638c5bf538ee4b8b187dcd169b7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Spike: {fileID: 1168950275333348}
+  LocalTimerIndex: 0
+  IndexLimit: 0
 --- !u!114 &114999065964506184
 MonoBehaviour:
   m_ObjectHideFlags: 1

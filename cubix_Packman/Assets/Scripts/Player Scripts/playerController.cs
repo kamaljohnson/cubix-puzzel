@@ -114,6 +114,8 @@ public class playerController : MonoBehaviour
     
     private void Awake()
     {
+        
+        Spikes.EditorMode = false;
         Screen.orientation = ScreenOrientation.Portrait;
         swipeInput = GetComponent<SwipeControl>();
         
@@ -155,6 +157,7 @@ public class playerController : MonoBehaviour
     }
 	private void FixedUpdate ()
     {
+
         if (GameManager.IsPlaying)
         {
             WallCollisionCheck();
@@ -549,10 +552,29 @@ public class playerController : MonoBehaviour
                     tempObj = Instantiate(ListOfParts[7], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     EndPosition = nodes[i].transform;
                     break;
+                case PrefabType.Spike:
+                    tempObj = Instantiate(ListOfParts[8], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj.GetComponent<Spikes>().LocalTimerIndex = Spikes.CurrentFlagIndex++;
+                    Spikes.SpikeInitializeFlag = true;
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-                
+
+            if (nodes[i].Type != PrefabType.Spike)
+            {
+                if (Spikes.SpikeInitializeFlag)
+                {
+                    Spikes.SpikeInitializeFlag = false;
+                    Debug.Log("here");
+                    for (var j = 1; j < Spikes.CurrentFlagIndex + 1; j++)
+                    {
+                        Parts[Parts.Count - j].GetComponent<Spikes>().IndexLimit = Spikes.CurrentFlagIndex + 1;
+                    }
+                }
+                Spikes.CurrentFlagIndex = 0;
+            }
+            
             if (start_end_flag) continue;
             tempObj.GetComponent<Renderer>().material = ListOfMaterials[0];
             Parts.Add(tempObj);
