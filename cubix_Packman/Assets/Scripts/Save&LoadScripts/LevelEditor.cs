@@ -17,6 +17,7 @@ public enum PrefabType  // all the prefabs that goes into the game level is adde
     Points,
     Start,
     End,
+    Spike,
 }
 public class LevelEditor : MonoBehaviour {
 
@@ -241,6 +242,10 @@ public class LevelEditor : MonoBehaviour {
             IsEnd = true;
             currentPrefab = PrefabType.End;
         }
+        else if (Input.GetKeyDown("r"))
+        {
+            currentPrefab = PrefabType.Spike;
+        }
 
         
     }
@@ -276,6 +281,13 @@ public class LevelEditor : MonoBehaviour {
             case PrefabType.Points:
                 currentPart = ListOfParts[8];
                 break;
+            case PrefabType.KeyPortal:
+                break;
+            case PrefabType.Spike:
+                currentPart = ListOfParts[9];
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
         for (int i = 0; i < index; i++)
         {
@@ -335,6 +347,10 @@ public class LevelEditor : MonoBehaviour {
                     break;
                 case PrefabType.Points:
                     tempNode.Type = PrefabType.Points;
+                    tempNode.transform = Parts[i].transform;
+                    break;
+                case PrefabType.Spike:
+                    tempNode.Type = PrefabType.Spike;
                     tempNode.transform = Parts[i].transform;
                     break;
                 default:
@@ -412,6 +428,10 @@ public class LevelEditor : MonoBehaviour {
                 case PrefabType.Points:
                     tempObj = Instantiate(ListOfParts[8], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Points);
+                    break;
+                case PrefabType.Spike:
+                    tempObj = Instantiate(ListOfParts[9], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    PartsTypes.Add(PrefabType.Spike);
                     break;
             }
             
