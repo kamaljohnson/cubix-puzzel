@@ -4,7 +4,6 @@ public class CheckPoint : MonoBehaviour
 {
 
     public static Vector3 MazeCurrentCheckPointTransformRotation;
-    public static Vector3 PlayerCurrentCheckPointTransformRotation;
     public static Vector3 PlayerCurrentCheckPointTransformPosition;
     
 
@@ -12,7 +11,6 @@ public class CheckPoint : MonoBehaviour
     {
         Debug.Log("checkpoint set");
         MazeCurrentCheckPointTransformRotation = FindObjectOfType<playerController>().MazeBody.transform.eulerAngles;
-        PlayerCurrentCheckPointTransformRotation = Vector3.zero;
         PlayerCurrentCheckPointTransformPosition = checkpoinPosition;
     }
 

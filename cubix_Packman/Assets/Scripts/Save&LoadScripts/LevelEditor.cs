@@ -19,6 +19,7 @@ public enum PrefabType  // all the prefabs that goes into the game level is adde
     End,
     Spike,
     CheckPoint,
+    Guardian,
 }
 public class LevelEditor : MonoBehaviour {
 
@@ -253,6 +254,10 @@ public class LevelEditor : MonoBehaviour {
         {
             currentPrefab = PrefabType.CheckPoint;
         }
+        else if(Input.GetKeyDown("g"))
+        {
+            currentPrefab = PrefabType.Guardian;
+        }
 
         
     }
@@ -295,6 +300,9 @@ public class LevelEditor : MonoBehaviour {
                 break;
             case PrefabType.CheckPoint:
                 currentPart = ListOfParts[10];
+                break;
+            case PrefabType.Guardian:
+                currentPart = ListOfParts[11];
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -367,6 +375,10 @@ public class LevelEditor : MonoBehaviour {
                     break;
                 case PrefabType.CheckPoint:
                     tempNode.Type = PrefabType.CheckPoint;
+                    tempNode.transform = Parts[i].transform;
+                    break;
+                case PrefabType.Guardian:
+                    tempNode.Type = PrefabType.Guardian;
                     tempNode.transform = Parts[i].transform;
                     break;
                 default:
@@ -454,6 +466,10 @@ public class LevelEditor : MonoBehaviour {
                 case PrefabType.CheckPoint:
                     tempObj = Instantiate(ListOfParts[10], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.CheckPoint);
+                    break;
+                case PrefabType.Guardian:
+                    tempObj = Instantiate(ListOfParts[11], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    PartsTypes.Add(PrefabType.Guardian);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

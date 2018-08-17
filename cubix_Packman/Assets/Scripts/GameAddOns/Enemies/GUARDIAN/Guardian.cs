@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Guardian : MonoBehaviour
 {
-
+    
     public List<Transform> GuardianPath = new List<Transform>();
     private int _currentGuardianPositionIndex;
     private int _movementDirection;
