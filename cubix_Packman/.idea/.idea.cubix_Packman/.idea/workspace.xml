@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="178f319c-d52c-4c44-9a2e-fab01c966f36" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.cubix_Packman/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.cubix_Packman/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Obstrecles/Spikes/PlayerSpikeTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Obstrecles/Spikes/PlayerSpikeTrigger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player Scripts/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player Scripts/playerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player Scripts/playerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/LevelEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/LevelEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_0" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_0.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_0.meta" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -110,28 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Spikes.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Obstrecles/Spikes/Spikes.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="41" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
-              <folding>
-                <marker date="1534407411507" expanded="true" signature="55:900" ph="{...}" />
-                <marker date="1534407411507" expanded="true" signature="389:801" ph="{...}" />
-                <marker date="1534407411507" expanded="true" signature="592:643" ph="{...}" />
-                <marker date="1534407411507" expanded="true" signature="656:708" ph="{...}" />
-                <marker date="1534407411507" expanded="true" signature="751:795" ph="{...}" />
-                <marker date="1534407411507" expanded="true" signature="846:893" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="playerController.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="playerController.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player Scripts/playerController.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="166" column="74" lean-forward="true" selection-start-line="166" selection-start-column="74" selection-end-line="166" selection-end-column="74" />
+              <caret line="166" column="74" selection-start-line="166" selection-start-column="74" selection-end-line="166" selection-end-column="74" />
               <folding>
                 <marker date="1534445648634" expanded="false" signature="6:66" ph="..." />
                 <marker date="1534445648634" expanded="true" signature="68:342" ph="/* 1. script to direct the camara to move (HINT make the camara move over to the corners of am imaginary cube ove ... */" />
@@ -217,6 +192,21 @@
                 <marker date="1534445648634" expanded="true" signature="19921:20077" ph="{...}" />
                 <marker date="1534445648634" expanded="true" signature="20395:20832" ph="{...}" />
                 <marker date="1534445648634" expanded="true" signature="20709:20818" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayerOnGuardianTrigger.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/PlayerOnGuardianTrigger.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+              <folding>
+                <marker date="1534484823874" expanded="false" signature="6:78" ph="..." />
+                <marker date="1534484823874" expanded="true" signature="133:254" ph="{...}" />
+                <marker date="1534484823874" expanded="true" signature="183:190" ph="{...}" />
+                <marker date="1534484823874" expanded="true" signature="245:252" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -376,6 +366,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player Scripts/Player.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/AddOnManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/PlayerOnGuardianTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Maze Scripts/MazeBodyRotation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/EditorScripts/TileOnClick.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/EditorScripts/EditorUI.cs" root0="FORCE_HIGHLIGHTING" />
@@ -430,6 +421,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Obstrecles/Spikes/PlayerSpikeTrigger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player Scripts/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player Scripts/playerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/PlayerOnGuardianTrigger.cs" />
       </list>
     </option>
   </component>
@@ -520,12 +512,12 @@
       <workItem from="1532989635473" duration="13770000" />
       <workItem from="1533242421130" duration="7940000" />
       <workItem from="1533326081680" duration="79401000" />
-      <workItem from="1534291585983" duration="44275000" />
+      <workItem from="1534291585983" duration="44936000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145386000" />
+    <option name="totallyTimeSpent" value="146047000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -603,13 +595,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Keys/Key.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/AddOnManager.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1406,7 +1391,7 @@
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player Scripts/playerController.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="166" column="74" lean-forward="true" selection-start-line="166" selection-start-column="74" selection-end-line="166" selection-end-column="74" />
+          <caret line="166" column="74" selection-start-line="166" selection-start-column="74" selection-end-line="166" selection-end-column="74" />
           <folding>
             <marker date="1534445648634" expanded="false" signature="6:66" ph="..." />
             <marker date="1534445648634" expanded="true" signature="68:342" ph="/* 1. script to direct the camara to move (HINT make the camara move over to the corners of am imaginary cube ove ... */" />
@@ -1492,6 +1477,19 @@
             <marker date="1534445648634" expanded="true" signature="19921:20077" ph="{...}" />
             <marker date="1534445648634" expanded="true" signature="20395:20832" ph="{...}" />
             <marker date="1534445648634" expanded="true" signature="20709:20818" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/PlayerOnGuardianTrigger.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding>
+            <marker date="1534484823874" expanded="false" signature="6:78" ph="..." />
+            <marker date="1534484823874" expanded="true" signature="133:254" ph="{...}" />
+            <marker date="1534484823874" expanded="true" signature="183:190" ph="{...}" />
+            <marker date="1534484823874" expanded="true" signature="245:252" ph="{...}" />
           </folding>
         </state>
       </provider>
