@@ -19,9 +19,8 @@ public class CheckPoint : MonoBehaviour
     public static void ActivateCheckPoint()
     {
         Debug.Log("activated the checkpoint");
-        
-        Player.IsAlive = true;
         FindObjectOfType<SwipeControl>().Reset();
         FindObjectOfType<playerController>().Reset();
+        Player.IsAlive = true;
     }
 }

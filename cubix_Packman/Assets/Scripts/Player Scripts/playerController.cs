@@ -165,8 +165,6 @@ public class playerController : MonoBehaviour
         playerMesh.localPosition = transform.localPosition + playerMeshOffset;
         playerMesh.eulerAngles = Vector3.zero;
         destination = CheckPoint.PlayerCurrentCheckPointTransformPosition;
-        GameManager.IsPlaying = true;
-        //anim.levelEntry = true;
     }
 	private void FixedUpdate ()
     {

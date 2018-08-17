@@ -20,7 +20,6 @@ public class LevelMapUI : MonoBehaviour
         string levelName = "level_";
         string Directory;
         //BinaryFormatter BF = new BinaryFormatter();
-        string jsonString;
         while (true)
         {
             levelName += i.ToString();
