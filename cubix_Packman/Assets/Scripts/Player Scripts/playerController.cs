@@ -328,10 +328,8 @@ public class playerController : MonoBehaviour
 
         if (transform.localPosition == destination)
         {
-            Debug.Log("at the destination");
             if (Vector3.Distance(EndPosition.position, transform.localPosition) <= 0.2f)
             {
-                Debug.Log("reached the end!!");
                 GameManager.GameWon();
                 return;
             }
@@ -513,14 +511,17 @@ public class playerController : MonoBehaviour
         MazeOffset = MazeSize / 2;
         DownStep = MazeOffset / MazeSize;
         SaveManager.levelSize = state.levelSize;
-        var start_end_flag = false;
-        var key_flag = false;
-        GameObject preKey = new GameObject();
+
+        var keyFlag = false;
+        var guardianFlag = false;
         
+        GameObject preKey = new GameObject();
+
+        GameObject tempObj = new GameObject();
+
         for (var i = 0; i < state.node.Count; i++)
         {
-            start_end_flag = false;
-            GameObject tempObj = new GameObject();
+            var startEndFlag = false;
             switch (nodes[i].Type)
             {
 
@@ -545,7 +546,7 @@ public class playerController : MonoBehaviour
                     PartsTypes.Add(PrefabType.Part05);
                     break;
                 case PrefabType.Start:
-                    start_end_flag = true;
+                    startEndFlag = true;
                     StartPosition = nodes[i].transform;
                     CheckPoint.SetCheckPointTransfrom(StartPosition.localPosition);
                     break;
@@ -554,7 +555,7 @@ public class playerController : MonoBehaviour
                     EndPosition = nodes[i].transform;
                     break;
                 case PrefabType.KeyWall:
-                    key_flag = true;
+                    keyFlag = true;
                     tempObj = Instantiate(ListOfParts[6], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     preKey = tempObj;
                     NoOfGates++;
@@ -572,16 +573,33 @@ public class playerController : MonoBehaviour
                 case PrefabType.CheckPoint:
                     tempObj = Instantiate(ListOfParts[9], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     break;
+                case PrefabType.Guardian:
+                    if (guardianFlag == false)
+                    {
+                        tempObj = Instantiate(ListOfParts[10], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                        tempObj.GetComponent<Guardian>().GuardianPath.Add(tempObj.transform.transform);    // added initial position of the guardian
+                        
+                    }
+                    else
+                    {
+                        tempObj.GetComponent<Guardian>().GuardianPath.Add(nodes[i].transform.transform);
+                    }
+                    guardianFlag = true;
+                    
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
 
-            if (nodes[i].Type != PrefabType.Spike)
+            if (nodes[i].Type != PrefabType.Guardian)
+            {
+                guardianFlag = false;
+            }
+            if (nodes[i].Type != PrefabType.Spike || i == nodes.Count-1)
             {
                 if (Spikes.SpikeInitializeFlag)
                 {
                     Spikes.SpikeInitializeFlag = false;
-                    Debug.Log("here");
                     for (var j = 1; j < Spikes.CurrentFlagIndex + 1; j++)
                     {
                         Parts[Parts.Count - j].GetComponent<Spikes>().IndexLimit = Spikes.CurrentFlagIndex + 1;
@@ -590,13 +608,13 @@ public class playerController : MonoBehaviour
                 Spikes.CurrentFlagIndex = 0;
             }
             
-            if (start_end_flag) continue;
+            if (startEndFlag) continue;
             tempObj.GetComponent<Renderer>().material = ListOfMaterials[0];
             Parts.Add(tempObj);
             
-            if (key_flag && nodes[i].Type != PrefabType.KeyWall)
+            if (keyFlag && nodes[i].Type != PrefabType.KeyWall)
             {
-                key_flag = false;
+                keyFlag = false;
                 preKey.GetComponentInChildren<Key>().Lock = Parts[Parts.Count - 1];
                 Parts[Parts.Count - 1].GetComponent<Renderer>().material = ListOfMaterials[NoOfGates];
                 foreach (Transform child in Parts[Parts.Count - 2].transform) {

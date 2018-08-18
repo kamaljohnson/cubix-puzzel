@@ -6,37 +6,49 @@ public class Guardian : MonoBehaviour
 {
     
     public List<Transform> GuardianPath = new List<Transform>();
-    private int _currentGuardianPositionIndex;
-    private int _movementDirection;
-    public float GuardianSpeed = 1;
-    public bool CanMoveToLocation;
+    private int _currentGuardianPositionIndex = 0;
+    private int _movementDirection = 1;
+    float GuardianSpeed = 3;
+    bool CanMoveToLocation = true;
     private bool _destinationReached = true;
+
+    private float TOLORENCE = 0.01f;
     
     private void Update()
     {
         if (_destinationReached)
         {
+            _destinationReached = false;
             //check if possible to move to the next index via _movementDirection
-        }
-        
-        if (CanMoveToLocation)
-        {
-            _currentGuardianPositionIndex += _movementDirection;
-            if (_currentGuardianPositionIndex % GuardianPath.Count - 1 == 0)
+            Debug.Log("current index : " + _currentGuardianPositionIndex.ToString());
+            
+            if (CanMoveToLocation)
+            {
+                if ((_currentGuardianPositionIndex == 0 && _movementDirection == -1) ||
+                    (_currentGuardianPositionIndex == GuardianPath.Count - 1 && _movementDirection == 1))
+                {
+                    _movementDirection *= -1;
+                    Debug.Log("changing direction");
+                }
+                _currentGuardianPositionIndex += _movementDirection;
+            }
+            else
             {
                 _movementDirection *= -1;
             }
         }
-        else
-        {
-            _movementDirection *= -1;
-        }
+        
         Move();
     }
 
     private void Move()
     {
-        transform.localPosition = Vector3.MoveTowards(transform.localPosition, GuardianPath[_currentGuardianPositionIndex].position, Time.deltaTime * GuardianSpeed/* * animationSpeed*/);
-        
+        Debug.Log("Guardian Moving");
+        transform.localPosition = Vector3.MoveTowards(transform.localPosition, GuardianPath[_currentGuardianPositionIndex].localPosition, Time.deltaTime * GuardianSpeed/* * animationSpeed*/);
+        if ((transform.localPosition - GuardianPath[_currentGuardianPositionIndex].localPosition).magnitude < TOLORENCE)
+        {
+            Debug.Log("reached the destination");
+            _destinationReached = true;
+        }
     }
 }
