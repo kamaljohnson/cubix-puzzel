@@ -577,7 +577,7 @@ public class playerController : MonoBehaviour
                     if (guardianFlag == false)
                     {
                         tempObj = Instantiate(ListOfParts[10], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
-                        tempObj.GetComponent<Guardian>().GuardianPath.Add(tempObj.transform.transform);    // added initial position of the guardian
+                        tempObj.GetComponent<Guardian>().GuardianPath.Add(nodes[i].transform.transform);    // added initial position of the guardian
                         
                     }
                     else
