@@ -12,6 +12,11 @@ public class Player : MonoBehaviour
     {
         if (!IsAlive && !deathFlag)
         {
+            foreach(var k in FindObjectsOfType<Key>())
+            {
+                k.Lock.SetActive(true);
+            }
+            
             deathFlag = true;
             NoOfMoves++;
             Debug.Log("activating the checkpoint");

@@ -4,12 +4,10 @@
     <list default="true" id="178f319c-d52c-4c44-9a2e-fab01c966f36" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.cubix_Packman/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.cubix_Packman/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/Guardian.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/Guardian.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player Scripts/playerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player Scripts/playerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/PlayerOnGuardianTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/PlayerOnGuardianTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Keys/Key.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Keys/Key.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player Scripts/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_0" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_0.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_0.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_1" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_2" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_2.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_2.meta" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,11 +32,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="playerController.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="playerController.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player Scripts/playerController.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="246">
-              <caret line="584" column="104" lean-forward="true" selection-start-line="584" selection-start-column="104" selection-end-line="584" selection-end-column="104" />
+              <caret line="604" selection-start-line="604" selection-end-line="604" />
               <folding>
                 <marker date="1534579990750" expanded="false" signature="6:66" ph="..." />
                 <marker date="1534579990750" expanded="true" signature="68:342" ph="/* 1. script to direct the camara to move (HINT make the camara move over to the corners of am imaginary cube ove ... */" />
@@ -135,18 +133,20 @@
       <file leaf-file-name="Guardian.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/Guardian.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="7" column="39" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="39" />
+            <state relative-caret-position="165">
+              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
               <folding>
-                <marker date="1534579848684" expanded="true" signature="6:78" ph="..." />
-                <marker date="1534579848684" expanded="true" signature="117:1789" ph="{...}" />
-                <marker date="1534579848684" expanded="true" signature="462:1163" ph="{...}" />
-                <marker date="1534579848684" expanded="true" signature="501:1132" ph="{...}" />
-                <marker date="1534579848684" expanded="true" signature="681:1035" ph="{...}" />
-                <marker date="1534579848684" expanded="true" signature="869:951" ph="{...}" />
-                <marker date="1534579848684" expanded="true" signature="1052:1122" ph="{...}" />
-                <marker date="1534579848684" expanded="true" signature="1188:1787" ph="{...}" />
-                <marker date="1534579848684" expanded="true" signature="1507:1781" ph="{...}" />
+                <marker date="1534591870507" expanded="false" signature="6:78" ph="..." />
+                <marker date="1534591870507" expanded="true" signature="117:2210" ph="{...}" />
+                <marker date="1534591870507" expanded="true" signature="564:1584" ph="{...}" />
+                <marker date="1534591870507" expanded="true" signature="593:790" ph="{...}" />
+                <marker date="1534591870507" expanded="true" signature="690:780" ph="{...}" />
+                <marker date="1534591870507" expanded="true" signature="823:1526" ph="{...}" />
+                <marker date="1534591870507" expanded="true" signature="1003:1395" ph="{...}" />
+                <marker date="1534591870507" expanded="true" signature="1191:1311" ph="{...}" />
+                <marker date="1534591870507" expanded="true" signature="1412:1516" ph="{...}" />
+                <marker date="1534591870507" expanded="true" signature="1609:2208" ph="{...}" />
+                <marker date="1534591870507" expanded="true" signature="1928:2202" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -231,29 +231,13 @@
       <file leaf-file-name="PlayerOnGuardianTrigger.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/PlayerOnGuardianTrigger.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+            <state relative-caret-position="120">
+              <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
               <folding>
-                <marker date="1534484823874" expanded="false" signature="6:78" ph="..." />
-                <marker date="1534484823874" expanded="true" signature="133:254" ph="{...}" />
-                <marker date="1534484823874" expanded="true" signature="183:190" ph="{...}" />
-                <marker date="1534484823874" expanded="true" signature="245:252" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SaveState.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveState.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
-              <caret line="53" column="44" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
-              <folding>
-                <marker date="1534485190269" expanded="false" signature="6:98" ph="..." />
-                <marker date="1534485190269" expanded="true" signature="139:255" ph="{...}" />
-                <marker date="1534485190269" expanded="true" signature="274:339" ph="{...}" />
-                <marker date="1534485190269" expanded="true" signature="684:1323" ph="{...}" />
-                <marker date="1534485190269" expanded="true" signature="1355:1751" ph="{...}" />
+                <marker date="1534593311680" expanded="false" signature="6:78" ph="..." />
+                <marker date="1534593311680" expanded="true" signature="133:288" ph="{...}" />
+                <marker date="1534593311680" expanded="true" signature="183:286" ph="{...}" />
+                <marker date="1534593311680" expanded="true" signature="224:280" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -262,66 +246,60 @@
       <file leaf-file-name="Spikes.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Obstrecles/Spikes/Spikes.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+            <state relative-caret-position="60">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
               <folding>
-                <marker date="1534407411507" expanded="true" signature="55:900" ph="{...}" />
-                <marker date="1534407411507" expanded="true" signature="389:801" ph="{...}" />
-                <marker date="1534407411507" expanded="true" signature="592:643" ph="{...}" />
-                <marker date="1534407411507" expanded="true" signature="656:708" ph="{...}" />
-                <marker date="1534407411507" expanded="true" signature="751:795" ph="{...}" />
-                <marker date="1534407411507" expanded="true" signature="846:893" ph="{...}" />
+                <marker date="1534594371480" expanded="true" signature="55:900" ph="{...}" />
+                <marker date="1534594371480" expanded="true" signature="389:801" ph="{...}" />
+                <marker date="1534594371480" expanded="true" signature="592:643" ph="{...}" />
+                <marker date="1534594371480" expanded="true" signature="656:708" ph="{...}" />
+                <marker date="1534594371480" expanded="true" signature="751:795" ph="{...}" />
+                <marker date="1534594371480" expanded="true" signature="846:893" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameUI.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player Scripts/GameUI.cs">
+      <file leaf-file-name="PlayerSpikeTrigger.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Obstrecles/Spikes/PlayerSpikeTrigger.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+            <state relative-caret-position="15">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
               <folding>
-                <marker date="1534487536814" expanded="false" signature="6:123" ph="..." />
-                <marker date="1534487536814" expanded="true" signature="160:394" ph="{...}" />
-                <marker date="1534487536814" expanded="true" signature="263:392" ph="{...}" />
+                <marker date="1534445444018" expanded="false" signature="6:78" ph="..." />
+                <marker date="1534445444018" expanded="true" signature="128:283" ph="{...}" />
+                <marker date="1534445444018" expanded="true" signature="178:281" ph="{...}" />
+                <marker date="1534445444018" expanded="true" signature="219:275" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LevelMapUI.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelMapUI.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
-              <folding>
-                <marker date="1534485136082" expanded="false" signature="6:95" ph="..." />
-                <marker date="1534485136082" expanded="true" signature="136:1565" ph="{...}" />
-                <marker date="1534485136082" expanded="true" signature="316:355" ph="{...}" />
-                <marker date="1534485136082" expanded="true" signature="382:1045" ph="{...}" />
-                <marker date="1534485136082" expanded="true" signature="586:1039" ph="{...}" />
-                <marker date="1534485136082" expanded="true" signature="831:905" ph="{...}" />
-                <marker date="1534485136082" expanded="true" signature="922:974" ph="{...}" />
-                <marker date="1534485136082" expanded="true" signature="1097:1356" ph="{...}" />
-                <marker date="1534485136082" expanded="true" signature="1390:1563" ph="{...}" />
-                <marker date="1534485136082" expanded="true" signature="1450:1509" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.cs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Player.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player Scripts/Player.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+            <state relative-caret-position="225">
+              <caret line="17" column="51" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="17" selection-end-column="51" />
               <folding>
-                <marker date="1534487731071" expanded="false" signature="6:78" ph="..." />
-                <marker date="1534487731071" expanded="true" signature="115:635" ph="{...}" />
-                <marker date="1534487731071" expanded="true" signature="255:633" ph="{...}" />
-                <marker date="1534487731071" expanded="true" signature="297:512" ph="{...}" />
-                <marker date="1534487731071" expanded="true" signature="534:627" ph="{...}" />
+                <marker date="1534594703981" expanded="false" signature="6:78" ph="..." />
+                <marker date="1534594703981" expanded="true" signature="115:693" ph="{...}" />
+                <marker date="1534594703981" expanded="true" signature="255:691" ph="{...}" />
+                <marker date="1534594703981" expanded="true" signature="297:570" ph="{...}" />
+                <marker date="1534594703981" expanded="true" signature="592:685" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Key.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Keys/Key.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+              <folding>
+                <marker date="1534594714452" expanded="false" signature="6:131" ph="..." />
+                <marker date="1534594714452" expanded="true" signature="165:316" ph="{...}" />
+                <marker date="1534594714452" expanded="true" signature="227:313" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -372,27 +350,28 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCardButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player Scripts/Player.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player Scripts/Player.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/AddOnManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/PlayerOnGuardianTrigger.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/Guardian.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/PlayerOnGuardianTrigger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/Guardian.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Maze Scripts/MazeBodyRotation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/EditorScripts/TileOnClick.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/EditorScripts/EditorUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A281636E-41FA-4BAF-A286-F03D62E46CDB/90/9fcc047e/ColorBlock.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Obstrecles/Spikes/PlayerSpikeTrigger.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Obstrecles/Spikes/Spikes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Obstrecles/Spikes/Spikes.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/EditorScripts/EditorWindowScript.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Checkpoints/PlayerCheckpointTrigger.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player Scripts/GameUI.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player Scripts/playerController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player Scripts/GameUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player Scripts/playerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Keys/Key.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EFD2E540-FF2F-47B1-98C1-4EE0F0329B68/f2/0c994fdd/Behaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player Scripts/AnimationScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player Scripts/SwipeControl.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EFD2E540-FF2F-47B1-98C1-4EE0F0329B68/75/eaec2281/PlayerPrefs.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ECB5D8E2-0A91-44BC-A4F2-58317D1E56F9/41/0973efc5/String.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/LevelEditor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/LevelEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Keys/PlayerKeyTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveState.cs" root0="SKIP_HIGHLIGHTING" />
@@ -417,25 +396,25 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Points/Points.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/AddOnManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Points/PlayerTrigger.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Keys/Key.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Keys/PlayerKeyTrigger.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Obstrecles/Spikes/Spikes.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Checkpoints/PlayerCheckpointTrigger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Maze Scripts/MazeBodyRotation.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player Scripts/AnimationScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Obstrecles/Spikes/PlayerSpikeTrigger.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/PlayerOnGuardianTrigger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/BOLT/PlayerOnBoltTrigger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelMapUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EditorScripts/EditorUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player Scripts/GameUI.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player Scripts/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/LevelEditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/Guardian.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player Scripts/playerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/Guardian.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/PlayerOnGuardianTrigger.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Obstrecles/Spikes/Spikes.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player Scripts/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Keys/Key.cs" />
       </list>
     </option>
   </component>
@@ -449,8 +428,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="315" />
-    <option name="y" value="214" />
+    <option name="x" value="344" />
+    <option name="y" value="-8" />
     <option name="width" value="983" />
     <option name="height" value="558" />
   </component>
@@ -460,6 +439,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="SolutionExplorer">
+        <option name="show-file-system" value="false" />
+        <option name="show-all-items" value="false" />
+      </pane>
       <pane id="Scratches" />
       <pane id="UnityExplorer">
         <subPane>
@@ -483,10 +466,6 @@
           <select />
         </subPane>
         <option name="show-hidden-items" value="false" />
-      </pane>
-      <pane id="SolutionExplorer">
-        <option name="show-file-system" value="false" />
-        <option name="show-all-items" value="false" />
       </pane>
     </panes>
   </component>
@@ -528,12 +507,13 @@
       <workItem from="1533326081680" duration="79401000" />
       <workItem from="1534291585983" duration="55638000" />
       <workItem from="1534544480091" duration="5686000" />
-      <workItem from="1534570745590" duration="4172000" />
+      <workItem from="1534570745590" duration="4491000" />
+      <workItem from="1534591523479" duration="2486000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="166607000" />
+    <option name="totallyTimeSpent" value="169412000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -553,16 +533,16 @@
       <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" weight="0.0" />
       <window_info anchor="bottom" id="Unit Tests" order="10" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.1452345" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.077912256" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Unity" order="9" />
       <window_info anchor="right" id="Database" order="4" weight="0.32980332" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="NuGet" order="12" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -579,7 +559,7 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Unity" order="9" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1452345" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.077912256" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -611,13 +591,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player Scripts/SwipeControl.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player Scripts/LevelManager.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/EditorScripts/EditorUI.cs">
       <provider selected="true" editor-type-id="text-editor">
@@ -1019,13 +992,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Keys/Key.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Keys/PlayerKeyTrigger.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1061,13 +1027,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Obstrecles/Spikes/PlayerSpikeTrigger.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/BOLT/PlayerOnBoltTrigger.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1086,21 +1045,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Obstrecles/Spikes/Spikes.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding>
-            <marker date="1534407411507" expanded="true" signature="55:900" ph="{...}" />
-            <marker date="1534407411507" expanded="true" signature="389:801" ph="{...}" />
-            <marker date="1534407411507" expanded="true" signature="592:643" ph="{...}" />
-            <marker date="1534407411507" expanded="true" signature="656:708" ph="{...}" />
-            <marker date="1534407411507" expanded="true" signature="751:795" ph="{...}" />
-            <marker date="1534407411507" expanded="true" signature="846:893" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1137,20 +1081,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player Scripts/Player.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-          <folding>
-            <marker date="1534487731071" expanded="false" signature="6:78" ph="..." />
-            <marker date="1534487731071" expanded="true" signature="115:635" ph="{...}" />
-            <marker date="1534487731071" expanded="true" signature="255:633" ph="{...}" />
-            <marker date="1534487731071" expanded="true" signature="297:512" ph="{...}" />
-            <marker date="1534487731071" expanded="true" signature="534:627" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player Scripts/GameUI.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1159,19 +1089,6 @@
             <marker date="1534487536814" expanded="false" signature="6:123" ph="..." />
             <marker date="1534487536814" expanded="true" signature="160:394" ph="{...}" />
             <marker date="1534487536814" expanded="true" signature="263:392" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/PlayerOnGuardianTrigger.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-          <folding>
-            <marker date="1534484823874" expanded="false" signature="6:78" ph="..." />
-            <marker date="1534484823874" expanded="true" signature="133:254" ph="{...}" />
-            <marker date="1534484823874" expanded="true" signature="183:190" ph="{...}" />
-            <marker date="1534484823874" expanded="true" signature="245:252" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1262,28 +1179,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/Guardian.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="7" column="39" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="39" />
-          <folding>
-            <marker date="1534579848684" expanded="true" signature="6:78" ph="..." />
-            <marker date="1534579848684" expanded="true" signature="117:1789" ph="{...}" />
-            <marker date="1534579848684" expanded="true" signature="462:1163" ph="{...}" />
-            <marker date="1534579848684" expanded="true" signature="501:1132" ph="{...}" />
-            <marker date="1534579848684" expanded="true" signature="681:1035" ph="{...}" />
-            <marker date="1534579848684" expanded="true" signature="869:951" ph="{...}" />
-            <marker date="1534579848684" expanded="true" signature="1052:1122" ph="{...}" />
-            <marker date="1534579848684" expanded="true" signature="1188:1787" ph="{...}" />
-            <marker date="1534579848684" expanded="true" signature="1507:1781" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player Scripts/playerController.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
-          <caret line="584" column="104" lean-forward="true" selection-start-line="584" selection-start-column="104" selection-end-line="584" selection-end-column="104" />
+          <caret line="604" selection-start-line="604" selection-end-line="604" />
           <folding>
             <marker date="1534579990750" expanded="false" signature="6:66" ph="..." />
             <marker date="1534579990750" expanded="true" signature="68:342" ph="/* 1. script to direct the camara to move (HINT make the camara move over to the corners of am imaginary cube ove ... */" />
@@ -1372,6 +1271,100 @@
             <marker date="1534579990750" expanded="true" signature="20563:20719" ph="{...}" />
             <marker date="1534579990750" expanded="true" signature="21034:21470" ph="{...}" />
             <marker date="1534579990750" expanded="true" signature="21347:21456" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Obstrecles/Spikes/PlayerSpikeTrigger.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <marker date="1534445444018" expanded="false" signature="6:78" ph="..." />
+            <marker date="1534445444018" expanded="true" signature="128:283" ph="{...}" />
+            <marker date="1534445444018" expanded="true" signature="178:281" ph="{...}" />
+            <marker date="1534445444018" expanded="true" signature="219:275" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/PlayerOnGuardianTrigger.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+          <folding>
+            <marker date="1534593311680" expanded="false" signature="6:78" ph="..." />
+            <marker date="1534593311680" expanded="true" signature="133:288" ph="{...}" />
+            <marker date="1534593311680" expanded="true" signature="183:286" ph="{...}" />
+            <marker date="1534593311680" expanded="true" signature="224:280" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/Guardian.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding>
+            <marker date="1534591870507" expanded="false" signature="6:78" ph="..." />
+            <marker date="1534591870507" expanded="true" signature="117:2210" ph="{...}" />
+            <marker date="1534591870507" expanded="true" signature="564:1584" ph="{...}" />
+            <marker date="1534591870507" expanded="true" signature="593:790" ph="{...}" />
+            <marker date="1534591870507" expanded="true" signature="690:780" ph="{...}" />
+            <marker date="1534591870507" expanded="true" signature="823:1526" ph="{...}" />
+            <marker date="1534591870507" expanded="true" signature="1003:1395" ph="{...}" />
+            <marker date="1534591870507" expanded="true" signature="1191:1311" ph="{...}" />
+            <marker date="1534591870507" expanded="true" signature="1412:1516" ph="{...}" />
+            <marker date="1534591870507" expanded="true" signature="1609:2208" ph="{...}" />
+            <marker date="1534591870507" expanded="true" signature="1928:2202" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Obstrecles/Spikes/Spikes.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <marker date="1534594371480" expanded="true" signature="55:900" ph="{...}" />
+            <marker date="1534594371480" expanded="true" signature="389:801" ph="{...}" />
+            <marker date="1534594371480" expanded="true" signature="592:643" ph="{...}" />
+            <marker date="1534594371480" expanded="true" signature="656:708" ph="{...}" />
+            <marker date="1534594371480" expanded="true" signature="751:795" ph="{...}" />
+            <marker date="1534594371480" expanded="true" signature="846:893" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EFD2E540-FF2F-47B1-98C1-4EE0F0329B68/f2/0c994fdd/Behaviour.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Keys/Key.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <marker date="1534594714452" expanded="false" signature="6:131" ph="..." />
+            <marker date="1534594714452" expanded="true" signature="165:316" ph="{...}" />
+            <marker date="1534594714452" expanded="true" signature="227:313" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player Scripts/Player.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="17" column="51" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="17" selection-end-column="51" />
+          <folding>
+            <marker date="1534594703981" expanded="false" signature="6:78" ph="..." />
+            <marker date="1534594703981" expanded="true" signature="115:693" ph="{...}" />
+            <marker date="1534594703981" expanded="true" signature="255:691" ph="{...}" />
+            <marker date="1534594703981" expanded="true" signature="297:570" ph="{...}" />
+            <marker date="1534594703981" expanded="true" signature="592:685" ph="{...}" />
           </folding>
         </state>
       </provider>

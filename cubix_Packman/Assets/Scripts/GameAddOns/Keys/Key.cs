@@ -7,10 +7,9 @@ public class Key : MonoBehaviour
 {
 
     public GameObject Lock;
-    
+
     public void ActivateKey()
     {
-        Debug.Log("I AM HERE");
         Lock.SetActive(!Lock.activeSelf);
     }
 

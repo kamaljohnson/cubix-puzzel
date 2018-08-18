@@ -8,14 +8,26 @@ public class Guardian : MonoBehaviour
     public List<Transform> GuardianPath = new List<Transform>();
     private int _currentGuardianPositionIndex = 0;
     private int _movementDirection = 1;
-    float GuardianSpeed = 0.5f;
+    float GuardianSpeed = 1f;
     bool CanMoveToLocation = true;
     private bool _destinationReached = true;
 
     private float TOLORENCE = 0.001f;
-    
+
+    private bool TimerFlag = false;
+    private float Timer = 0;
+    private float GardianWaitingTimer = 5;
     private void Update()
     {
+        if (TimerFlag)
+        {
+            Timer += Time.deltaTime * 10;
+            if (Timer > GardianWaitingTimer)
+            {
+                TimerFlag = false;
+                Timer = 0;
+            }
+        }
         if (_destinationReached)
         {
             _destinationReached = false;
@@ -25,6 +37,7 @@ public class Guardian : MonoBehaviour
             {
                 if ((_currentGuardianPositionIndex == 0 && _movementDirection == -1) || (_currentGuardianPositionIndex == GuardianPath.Count - 1 && _movementDirection == 1))
                 {
+                    TimerFlag = true;
                     _movementDirection *= -1;
                 }
                 _currentGuardianPositionIndex += _movementDirection;
@@ -32,11 +45,13 @@ public class Guardian : MonoBehaviour
             }
             else
             {
+                TimerFlag = true;
                 _movementDirection *= -1;
             }
         }
         
-        Move();
+        if(!TimerFlag)
+            Move();
     }
 
     private void Move()
