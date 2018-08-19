@@ -28,6 +28,7 @@
               </e>
               <e p="HAMMER" t="Include">
                 <e p="Hammer.cs" t="Include" />
+                <e p="hammerActivateTrigger.cs" t="Include" />
                 <e p="PlayerOnHammerTrigger.cs" t="Include" />
               </e>
             </e>

@@ -749,6 +749,7 @@ MonoBehaviour:
   - {fileID: 1853170480203742, guid: 2124ccd16ea1a1e4c8e750d6c8e28a06, type: 2}
   - {fileID: 1653958189779564, guid: 52d1cb4846cfc4a45a60c05bf4a8db7c, type: 2}
   - {fileID: 1042865064797652, guid: 442e103ea16ef3b488ce03f62d422c26, type: 2}
+  - {fileID: 1376621147998546, guid: 7c4dcd82482546a469e68caaa82f77f3, type: 2}
   Materials:
   - {fileID: 2100000, guid: aee9359992066c34a87aa63acd7a3c25, type: 2}
   - {fileID: 2100000, guid: 7c092a98e50f4be43afcafa9fc037ac6, type: 2}

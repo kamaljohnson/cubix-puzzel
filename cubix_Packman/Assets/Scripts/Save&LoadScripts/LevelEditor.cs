@@ -20,6 +20,7 @@ public enum PrefabType  // all the prefabs that goes into the game level is adde
     Spike,
     CheckPoint,
     Guardian,
+    Hammer,
 }
 public class LevelEditor : MonoBehaviour {
 
@@ -258,6 +259,10 @@ public class LevelEditor : MonoBehaviour {
         {
             currentPrefab = PrefabType.Guardian;
         }
+        else if (Input.GetKeyDown("h"))
+        {
+            currentPrefab = PrefabType.Hammer;
+        }
 
         
     }
@@ -303,6 +308,9 @@ public class LevelEditor : MonoBehaviour {
                 break;
             case PrefabType.Guardian:
                 currentPart = ListOfParts[11];
+                break;
+            case PrefabType.Hammer:
+                currentPart = ListOfParts[12];
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -379,6 +387,10 @@ public class LevelEditor : MonoBehaviour {
                     break;
                 case PrefabType.Guardian:
                     tempNode.Type = PrefabType.Guardian;
+                    tempNode.transform = Parts[i].transform;
+                    break;
+                case PrefabType.Hammer:
+                    tempNode.Type = PrefabType.Hammer;
                     tempNode.transform = Parts[i].transform;
                     break;
                 default:
@@ -470,6 +482,10 @@ public class LevelEditor : MonoBehaviour {
                 case PrefabType.Guardian:
                     tempObj = Instantiate(ListOfParts[11], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Guardian);
+                    break;
+                case PrefabType.Hammer:
+                    tempObj = Instantiate(ListOfParts[12], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    PartsTypes.Add(PrefabType.Hammer);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

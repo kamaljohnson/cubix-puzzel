@@ -17,12 +17,11 @@ public class Spikes : MonoBehaviour
     {
         if(EditorMode)
             return;
-        
-        _timer += Time.deltaTime * 3;
+        _timer += Time.deltaTime * 2;
         
         _currntIndex = (int)_timer;
                 
-        if (_currntIndex == LocalTimerIndex && _spikeFlag) 
+        if ( (_currntIndex % 5) == (LocalTimerIndex % 5) && _spikeFlag) 
         {
             _spikeFlag = false;
             SpikeAction();
@@ -31,10 +30,10 @@ public class Spikes : MonoBehaviour
         {
             _spikeFlag = true;
         }
-        if (_currntIndex == IndexLimit-1)
+/*        if (_currntIndex == IndexLimit-1)
         {
             _timer = 0;
-        }
+        }*/
     }
 
     private void SpikeAction()

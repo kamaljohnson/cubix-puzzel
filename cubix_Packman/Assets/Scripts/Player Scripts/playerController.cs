@@ -587,6 +587,9 @@ public class playerController : MonoBehaviour
                     guardianFlag = true;
                     
                     break;
+                case PrefabType.Hammer:
+                    tempObj = Instantiate(ListOfParts[11], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
