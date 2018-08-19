@@ -18,28 +18,30 @@ public class Spikes : MonoBehaviour
         if(EditorMode)
             return;
         
-        _timer += Time.deltaTime * 2;
+        _timer += Time.deltaTime * 3;
         
         _currntIndex = (int)_timer;
                 
-        if (_currntIndex == LocalTimerIndex)
+        if (_currntIndex == LocalTimerIndex && _spikeFlag) 
         {
-            SpikeAction(true);
+            _spikeFlag = false;
+            SpikeAction();
         }
         else
         {
-            SpikeAction(false);
+            _spikeFlag = true;
         }
-
         if (_currntIndex == IndexLimit-1)
         {
             _timer = 0;
         }
     }
 
-    private void SpikeAction(bool activity)
+    private void SpikeAction()
     {
-        Spike.SetActive(activity);
+        if(EditorMode)
+            return;
+        Spike.GetComponent<Animation>().Play("Spike");
     }
     
 }

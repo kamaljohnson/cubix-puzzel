@@ -23,52 +23,52 @@ public class Node
 public class SaveavleNode
 {
     //ID
-    public PrefabType Type;
+    public PrefabType T;
 
     //transform.position
-    public float posx;
-    public float posy;
-    public float posz;
+    public float px;
+    public float py;
+    public float pz;
 
     //transform.rotation
-    public float rotx;
-    public float roty;
-    public float rotz;
+    public int rx;
+    public int ry;
+    public int rz;
 
     public void ConvertToSaveable( PrefabType type, Transform transform)
     {
-        this.Type = type;
+        this.T = type;
 
         float temp_posx = transform.position.x;
         float temp_posy = transform.position.y;
         float temp_posz = transform.position.z;
 
-        this.posx  = (float)(Math.Round((double)temp_posx, 2));
-        this.posy  = (float)(Math.Round((double)temp_posy, 2));
-        this.posz  = (float)(Math.Round((double)temp_posz, 2));
-
-        this.posx = transform.position.x;
-        this.posy = transform.position.y;
-        this.posz = transform.position.z;
-
-        Vector3 rot = transform.eulerAngles;
         
-        this.rotx = rot.x;
-        this.roty = rot.y;
-        this.rotz = rot.z;
+        float temp_rotx = transform.eulerAngles.x;
+        float temp_roty = transform.eulerAngles.y;
+        float temp_rotz = transform.eulerAngles.z;
+
+        this.px  = (float)(Math.Round((double)temp_posx, 1));
+        this.py  = (float)(Math.Round((double)temp_posy, 1));
+        this.pz  = (float)(Math.Round((double)temp_posz, 1));
+
+        this.rx  = (int)(Math.Round((double)temp_rotx, 0));
+        this.ry  = (int)(Math.Round((double)temp_roty, 0));
+        this.rz  = (int)(Math.Round((double)temp_rotz, 0));
+        
     }
     public Node ConvertToNode()
     {
         Node node = new Node();
 
-        node.Type = this.Type;
+        node.Type = this.T;
 
         GameObject tempObj = new GameObject();
         node.transform = tempObj.transform;
 
-        node.transform.position = new Vector3(this.posx, this.posy, this.posz);
+        node.transform.position = new Vector3(this.px, this.py, this.pz);
 
-        Quaternion rotation = Quaternion.Euler(this.rotx, this.roty, this.rotz);
+        Quaternion rotation = Quaternion.Euler(this.rx, this.ry, this.rz);
         node.transform.rotation = rotation;
         return node;
     }
