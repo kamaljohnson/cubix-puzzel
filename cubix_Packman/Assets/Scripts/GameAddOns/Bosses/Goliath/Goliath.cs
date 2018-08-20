@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class Goliath : MonoBehaviour
 {
+    public static float ResponseTime = 1f;
+ 
+    public static float ResponseTimer = ResponseTime;
+    
     public static bool TriggerFlag;
     public static List<Transform> PossiblePositions = new List<Transform>();
 
     public static Vector3 InitialPosition;
     public static Vector3 Destination;
+    public static Vector3 TempDestination;
     private Vector3 _intermediateDestination;
 
     private float _tolarance = 0.4f;
 
-    private float _speed = 3f;
+    private float _speed = 4f;
 
     public static bool MovementFlag;
 
@@ -23,15 +28,28 @@ public class Goliath : MonoBehaviour
     private void Awake()
     {
         MovementFlag = false;
+        Destination = TempDestination;
     }
 
     private void Update()
     {
+        if (ResponseTimer > ResponseTime)
+        {
+            if (TempDestination != Destination)
+            {
+                Destination = TempDestination;
+                ResponseTimer = ResponseTime;
+            }
+        }
+        else
+        {
+            ResponseTimer += Time.deltaTime;
+        }
 
+        Debug.Log("timer : " + ResponseTimer.ToString());
         if (_stepFlag)
         {
             var temp = Destination - transform.localPosition;
-            Debug.Log("destination : " + _intermediateDestination.ToString());
             if (temp.magnitude > _tolarance)
             {
                 if (Mathf.Abs(temp.x) > _tolarance)

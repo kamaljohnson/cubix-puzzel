@@ -9,7 +9,7 @@ public class GoliathPlayerTrigger : MonoBehaviour
         if (other.tag == "Player")
         {
             Player.IsAlive = false;
-            Goliath.Destination = Goliath.InitialPosition;
+            Goliath.TempDestination = Goliath.InitialPosition;
         }
     }
 
