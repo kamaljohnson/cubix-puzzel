@@ -596,6 +596,7 @@ public class playerController : MonoBehaviour
                     break;
                 case PrefabType.Goliath:
                     tempObj = Instantiate(ListOfParts[13], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    Goliath.InitialPosition = tempObj.transform.localPosition;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

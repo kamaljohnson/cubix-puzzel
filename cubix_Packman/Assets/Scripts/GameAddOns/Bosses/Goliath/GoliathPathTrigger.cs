@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoliathPlayerTrigger : MonoBehaviour
-{	
+public class GoliathPathTrigger : MonoBehaviour {
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            Player.IsAlive = false;
-            Goliath.Destination = Goliath.InitialPosition;
+            Goliath.MovementFlag = true;
+            Goliath.Destination = transform.parent.transform.localPosition;
         }
     }
-
 }

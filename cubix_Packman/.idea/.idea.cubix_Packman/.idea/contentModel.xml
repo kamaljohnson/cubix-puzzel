@@ -16,6 +16,7 @@
             <e p="Bosses" t="Include">
               <e p="Goliath" t="Include">
                 <e p="Goliath.cs" t="Include" />
+                <e p="GoliathPathTrigger.cs" t="Include" />
                 <e p="GoliathPlayerTrigger.cs" t="Include" />
               </e>
             </e>
