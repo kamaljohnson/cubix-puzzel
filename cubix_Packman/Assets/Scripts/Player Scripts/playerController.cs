@@ -590,6 +590,13 @@ public class playerController : MonoBehaviour
                 case PrefabType.Hammer:
                     tempObj = Instantiate(ListOfParts[11], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     break;
+                case PrefabType.GoliathWalk:
+                    tempObj = Instantiate(ListOfParts[12], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    Goliath.PossiblePositions.Add(tempObj.transform);
+                    break;
+                case PrefabType.Goliath:
+                    tempObj = Instantiate(ListOfParts[13], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

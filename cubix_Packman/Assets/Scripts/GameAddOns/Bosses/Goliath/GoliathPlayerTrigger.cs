@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoliathPlayerTrigger : MonoBehaviour {
+public class GoliathPlayerTrigger : MonoBehaviour
+{	private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            Player.IsAlive = false;
+        }
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

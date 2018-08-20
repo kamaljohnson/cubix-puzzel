@@ -22,6 +22,7 @@ public enum PrefabType  // all the prefabs that goes into the game level is adde
     Guardian,
     Hammer,
     Goliath,
+    GoliathWalk,
 }
 public class LevelEditor : MonoBehaviour {
 
@@ -266,6 +267,10 @@ public class LevelEditor : MonoBehaviour {
         }
         else if (Input.GetKeyDown("1"))
         {
+            currentPrefab = PrefabType.GoliathWalk;
+        }
+        else if (Input.GetKeyDown("2"))
+        {
             currentPrefab = PrefabType.Goliath;
         }
 
@@ -319,6 +324,9 @@ public class LevelEditor : MonoBehaviour {
                 break;
             case PrefabType.Goliath:
                 currentPart = ListOfParts[13];
+                break;
+            case PrefabType.GoliathWalk:
+                currentPart = ListOfParts[14];
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -404,6 +412,10 @@ public class LevelEditor : MonoBehaviour {
                     break;
                 case PrefabType.Goliath:
                     tempNode.Type = PrefabType.Goliath;
+                    tempNode.transform = Parts[i].transform;
+                    break;
+                case PrefabType.GoliathWalk:
+                    tempNode.Type = PrefabType.GoliathWalk;
                     tempNode.transform = Parts[i].transform;
                     break;
                 default:
@@ -504,6 +516,10 @@ public class LevelEditor : MonoBehaviour {
                     tempObj = Instantiate(ListOfParts[13], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Goliath);
                     break;
+                case PrefabType.GoliathWalk:
+                    tempObj = Instantiate(ListOfParts[14], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    PartsTypes.Add(PrefabType.GoliathWalk);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -564,6 +580,7 @@ public class LevelEditor : MonoBehaviour {
 
         Maze.transform.Rotate(0, -90, 0);
         Maze.transform.Rotate(-90, 0, 0);
+        startingXpos = (MazeSize - 1) / 2;
         startingXpos = (MazeSize - 1) / 2;
         startingYpos = startingXpos;
         heightOffset = MazeSize / 2;
