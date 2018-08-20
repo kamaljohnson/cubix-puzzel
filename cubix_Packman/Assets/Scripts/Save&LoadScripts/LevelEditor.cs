@@ -21,6 +21,7 @@ public enum PrefabType  // all the prefabs that goes into the game level is adde
     CheckPoint,
     Guardian,
     Hammer,
+    Goliath,
 }
 public class LevelEditor : MonoBehaviour {
 
@@ -263,6 +264,10 @@ public class LevelEditor : MonoBehaviour {
         {
             currentPrefab = PrefabType.Hammer;
         }
+        else if (Input.GetKeyDown("1"))
+        {
+            currentPrefab = PrefabType.Goliath;
+        }
 
         
     }
@@ -312,9 +317,13 @@ public class LevelEditor : MonoBehaviour {
             case PrefabType.Hammer:
                 currentPart = ListOfParts[12];
                 break;
+            case PrefabType.Goliath:
+                currentPart = ListOfParts[13];
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
+        
         for (int i = 0; i < index; i++)
         {
             if ((Tiles[i].GetComponent<TileOnClick>().clicked == true || tilePosition.position == Tiles[i].transform.position))
@@ -391,6 +400,10 @@ public class LevelEditor : MonoBehaviour {
                     break;
                 case PrefabType.Hammer:
                     tempNode.Type = PrefabType.Hammer;
+                    tempNode.transform = Parts[i].transform;
+                    break;
+                case PrefabType.Goliath:
+                    tempNode.Type = PrefabType.Goliath;
                     tempNode.transform = Parts[i].transform;
                     break;
                 default:
@@ -486,6 +499,10 @@ public class LevelEditor : MonoBehaviour {
                 case PrefabType.Hammer:
                     tempObj = Instantiate(ListOfParts[12], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Hammer);
+                    break;
+                case PrefabType.Goliath:
+                    tempObj = Instantiate(ListOfParts[13], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    PartsTypes.Add(PrefabType.Goliath);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
