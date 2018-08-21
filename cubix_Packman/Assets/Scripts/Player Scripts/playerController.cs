@@ -598,6 +598,10 @@ public class playerController : MonoBehaviour
                     tempObj = Instantiate(ListOfParts[13], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     Goliath.InitialPosition = tempObj.transform.localPosition;
                     break;
+                case PrefabType.GoliathAttackSwitch:
+                    tempObj = Instantiate(ListOfParts[14], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    GoliathAttackSwitch.SwitchLists.Add(tempObj);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

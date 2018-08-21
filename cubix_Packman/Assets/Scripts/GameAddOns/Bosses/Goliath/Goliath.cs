@@ -1,9 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class Goliath : MonoBehaviour
 {
+    
+    public static bool EditorMode = false;
+    public static float health;
+    public static float MaxHealth = 100;
+    private static float damage = 20;
+    
     private float _initialTimer = 0;
     private float WaitinhTIme = 5f;
 
@@ -16,26 +23,47 @@ public class Goliath : MonoBehaviour
 
     private float _tolarance = 0.001f;
 
-    private float _speed = 3.5f;
+    private float _speed = 1.35f;
 
     private bool _stepFlag = true;
-
-
 
     Vector3 _localRight;
     Vector3 _localForward;
 
+    private float WaitingTimer = 0;
+    private float WaitingTime = 2;
+    
+    private GoliathAnimationScript anim;
+    public GameObject GoliathMesh;
+    
     private bool _atJuntion = true;
 
     private void Start()
     {
+        health = MaxHealth;
+        anim = GoliathMesh.GetComponent<GoliathAnimationScript>();
+
         Destination = transform.localPosition;
         LocalDestination = transform.localPosition;
     }
 
     private void FixedUpdate()
     {
+        if (health <= 0)
+        {
+            gameObject.SetActive(false);
+        }
 
+        if (Destination == transform.localPosition)
+        {
+            WaitingTimer+=Time.deltaTime;
+            if (WaitingTimer >= WaitingTime)
+            {
+                Random rnd = new Random();
+                Destination = PossiblePositions[rnd.Next(0, PossiblePositions.Count)].localPosition;
+                WaitingTimer = 0;
+            }
+        }
         _localForward = transform.parent.InverseTransformDirection(transform.up) * 2;
         _localRight = transform.parent.InverseTransformDirection(transform.right) * 2;
 
@@ -88,6 +116,7 @@ public class Goliath : MonoBehaviour
             {
                 LocalDestination = tempRight;
                 tempMag = (tempRight - Destination).magnitude;
+                anim.right = true;
             }
         }
 
@@ -98,6 +127,7 @@ public class Goliath : MonoBehaviour
             {
                 LocalDestination = tempLeft;
                 tempMag = (tempLeft - Destination).magnitude;
+                anim.left = true;
             }
         }
 
@@ -108,6 +138,7 @@ public class Goliath : MonoBehaviour
             {
                 LocalDestination = tempForward;
                 tempMag = (tempForward - Destination).magnitude;
+                anim.forward = true;
             }
         }
 
@@ -117,6 +148,7 @@ public class Goliath : MonoBehaviour
             if ((tempBack - Destination).magnitude <= tempMag)
             {
                 LocalDestination = tempBack;
+                anim.back = true;
             }
         }
 
@@ -133,6 +165,12 @@ public class Goliath : MonoBehaviour
         }
 
         return false;
+    }
+
+    public static void Atacked()
+    {
+        health -= damage;
+
     }
 }
 

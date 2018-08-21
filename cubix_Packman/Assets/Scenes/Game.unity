@@ -1441,7 +1441,8 @@ MonoBehaviour:
   - {fileID: 1738516180647100, guid: efa60d2fad546d04ea516e805d85d64c, type: 2}
   - {fileID: 1013070119249066, guid: 20db87d103f7807498f589f406e64799, type: 2}
   - {fileID: 1680018757046476, guid: 195058adda60c8e469b7a859ee200693, type: 2}
-  - {fileID: 1805515750248824, guid: c13c59f47c012b54082d491e7046a4ca, type: 2}
+  - {fileID: 1609044305532150, guid: c13c59f47c012b54082d491e7046a4ca, type: 2}
+  - {fileID: 1508332411533892, guid: 801ef0f7cdf26914eb1736c2f5f48079, type: 2}
   mainCamera: {fileID: 47680774}
 --- !u!95 &2068765028
 Animator:

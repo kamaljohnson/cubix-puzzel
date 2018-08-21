@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
             Debug.Log("activating the checkpoint");
             GameManager.IsPlaying = false;
             CheckPoint.ActivateCheckPoint();
+            Goliath.health = Goliath.MaxHealth;
         }
 
         if (IsAlive)

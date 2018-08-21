@@ -23,6 +23,7 @@ public enum PrefabType  // all the prefabs that goes into the game level is adde
     Hammer,
     Goliath,
     GoliathWalk,
+    GoliathAttackSwitch,
 }
 public class LevelEditor : MonoBehaviour {
 
@@ -94,6 +95,7 @@ public class LevelEditor : MonoBehaviour {
     private void Update()
     {
         Spikes.EditorMode = true;
+        Goliath.EditorMode = true;
         ForwardRotation = Body.transform.parent.InverseTransformDirection(transform.forward);
         RightRotation = Body.transform.parent.InverseTransformDirection(transform.right);
         LeftRotation = RightRotation * -1;
@@ -273,6 +275,10 @@ public class LevelEditor : MonoBehaviour {
         {
             currentPrefab = PrefabType.Goliath;
         }
+        else if (Input.GetKeyDown("3"))
+        {
+            currentPrefab = PrefabType.GoliathAttackSwitch;
+        }
 
         
     }
@@ -327,6 +333,9 @@ public class LevelEditor : MonoBehaviour {
                 break;
             case PrefabType.GoliathWalk:
                 currentPart = ListOfParts[14];
+                break;
+            case PrefabType.GoliathAttackSwitch:
+                currentPart = ListOfParts[15];
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -416,6 +425,10 @@ public class LevelEditor : MonoBehaviour {
                     break;
                 case PrefabType.GoliathWalk:
                     tempNode.Type = PrefabType.GoliathWalk;
+                    tempNode.transform = Parts[i].transform;
+                    break;
+                case PrefabType.GoliathAttackSwitch:
+                    tempNode.Type = PrefabType.GoliathAttackSwitch;
                     tempNode.transform = Parts[i].transform;
                     break;
                 default:
@@ -519,6 +532,10 @@ public class LevelEditor : MonoBehaviour {
                 case PrefabType.GoliathWalk:
                     tempObj = Instantiate(ListOfParts[14], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.GoliathWalk);
+                    break;
+                case PrefabType.GoliathAttackSwitch:
+                    tempObj = Instantiate(ListOfParts[15], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    PartsTypes.Add(PrefabType.GoliathAttackSwitch);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

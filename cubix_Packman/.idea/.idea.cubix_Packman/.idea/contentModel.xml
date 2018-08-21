@@ -15,6 +15,13 @@
             <e p="AddOnManager.cs" t="Include" />
             <e p="Bosses" t="Include">
               <e p="Goliath" t="Include">
+                <e p="Animations" t="Include">
+                  <e p="GoliathAnimationScript.cs" t="Include" />
+                </e>
+                <e p="AttackSwitch" t="Include">
+                  <e p="GoliathAttackSwitch.cs" t="Include" />
+                  <e p="GoliathAttackSwitchPlayerTrigger.cs" t="Include" />
+                </e>
                 <e p="Goliath.cs" t="Include" />
                 <e p="GoliathPathTrigger.cs" t="Include" />
                 <e p="GoliathPlayerTrigger.cs" t="Include" />
