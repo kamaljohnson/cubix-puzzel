@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Goliath : MonoBehaviour
@@ -9,7 +8,7 @@ public class Goliath : MonoBehaviour
     public static float ResponseTimer = ResponseTime;
     
     public static bool TriggerFlag;
-    public static List<Transform> PossiblePositions = new List<Transform>();
+    public static List<Vector3> PossiblePositions = new List<Vector3>();
 
     public static Vector3 InitialPosition;
     public static Vector3 Destination;

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4898311169994156}
   - component: {fileID: 23378102145721552}
   m_Layer: 0
-  m_Name: GoliathEditor 1
+  m_Name: GoliathEditor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
