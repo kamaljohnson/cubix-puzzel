@@ -13,39 +13,36 @@ public class Goliath : MonoBehaviour
     public static Vector3 InitialPosition;
     public static Vector3 Destination;
     public static Vector3 TempDestination;
-    private Vector3 _intermediateDestination;
+    public static Vector3 IntermediateDestination;
 
     private float _tolarance = 0.4f;
 
-    private float _speed = 4f;
+    private float _speed = 3.5f;
 
     public static bool MovementFlag;
 
     private bool _stepFlag = true;
-    Vector3 _offset = new Vector3(0, 0, .9f);
     
-    private void Awake()
+    private void Start()
     {
         MovementFlag = false;
-        Destination = TempDestination;
+        Destination = transform.localPosition;
+        TempDestination = transform.localPosition;
+        IntermediateDestination = transform.localPosition;
     }
 
     private void Update()
     {
         if (ResponseTimer > ResponseTime)
         {
-            if (TempDestination != Destination)
-            {
-                Destination = TempDestination;
-                ResponseTimer = ResponseTime;
-            }
+            Destination = TempDestination;
+            ResponseTimer = ResponseTime;
         }
         else
         {
             ResponseTimer += Time.deltaTime;
         }
 
-        Debug.Log("timer : " + ResponseTimer.ToString());
         if (_stepFlag)
         {
             var temp = Destination - transform.localPosition;
@@ -53,21 +50,21 @@ public class Goliath : MonoBehaviour
             {
                 if (Mathf.Abs(temp.x) > _tolarance)
                 {
-                    _intermediateDestination = 
+                    IntermediateDestination = 
                         new Vector3(transform.localPosition.x + 1f * Mathf.Sign(temp.x),
                             transform.localPosition.y, transform.localPosition.z);
                     _stepFlag = false;
                 }
                 else if (Mathf.Abs(temp.y) > _tolarance) 
                 {
-                    _intermediateDestination = new Vector3(transform.localPosition.x,
+                    IntermediateDestination = new Vector3(transform.localPosition.x,
                         transform.localPosition.y + 1f * Mathf.Sign(temp.y),
                         transform.localPosition.z);
                     _stepFlag = false;
                 }
                 else if (Mathf.Abs(temp.z) > _tolarance)
                 {
-                    _intermediateDestination = new Vector3(transform.localPosition.x, transform.localPosition.y,
+                    IntermediateDestination = new Vector3(transform.localPosition.x, transform.localPosition.y,
                         transform.localPosition.z + 1f * Mathf.Sign(temp.z));
                     _stepFlag = false;
                 }
@@ -80,8 +77,8 @@ public class Goliath : MonoBehaviour
 
     void Move()
     {
-        if((transform.localPosition - _intermediateDestination).magnitude > _tolarance)
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, _intermediateDestination, _speed * Time.deltaTime);
+        if((transform.localPosition - IntermediateDestination).magnitude > 0.001)
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, IntermediateDestination, _speed * Time.deltaTime);
         else
         {
             _stepFlag = true;
