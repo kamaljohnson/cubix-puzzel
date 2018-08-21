@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     
     public static Vector3 EndPosition = new Vector3();
     public static Vector3 StartPosition = new Vector3();
+    public static GameObject EndState;
     
     /*public GameObject PlayUi;
     public GameObject SettingsUi;

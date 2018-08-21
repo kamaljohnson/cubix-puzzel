@@ -9,6 +9,7 @@ public class PlayerCheckpointTrigger : MonoBehaviour
         if (other.tag == "Player")
         {
             CheckPoint.SetCheckPointTransfrom(transform.parent.transform.localPosition);
+            transform.parent.gameObject.SetActive(false);
         }
     }
 }

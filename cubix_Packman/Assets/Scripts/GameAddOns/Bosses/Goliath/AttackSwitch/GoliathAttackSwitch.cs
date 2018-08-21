@@ -25,6 +25,9 @@ public class GoliathAttackSwitch : MonoBehaviour {
     public static void NextSwitch()
     {
         SwitchLists[currentIndex].SetActive(false);
+        if(Goliath.health == 0)
+            return;
+        
         currentIndex++;
         if (currentIndex == SwitchLists.Count)
             currentIndex = 0;

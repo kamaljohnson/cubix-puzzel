@@ -10,6 +10,17 @@ public class Key : MonoBehaviour
 
     public void ActivateKey()
     {
+        if (Lock.activeSelf == true)
+        {
+            if (!CheckPoint.LocksTemp.Contains(Lock))
+            {
+                CheckPoint.LocksTemp.Add(Lock);
+            }
+        }
+        else
+        {
+            CheckPoint.LocksTemp.Remove(Lock);
+        }
         Lock.SetActive(!Lock.activeSelf);
     }
 

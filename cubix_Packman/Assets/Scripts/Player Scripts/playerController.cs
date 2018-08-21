@@ -553,6 +553,7 @@ public class playerController : MonoBehaviour
                 case PrefabType.End:
                     tempObj = Instantiate(ListOfParts[5], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     EndPosition = nodes[i].transform;
+                    GameManager.EndState = tempObj;
                     break;
                 case PrefabType.KeyWall:
                     keyFlag = true;

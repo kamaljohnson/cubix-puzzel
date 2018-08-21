@@ -8,7 +8,7 @@ public class Goliath : MonoBehaviour
     
     public static bool EditorMode = false;
     public static float health;
-    public static float MaxHealth = 100;
+    public static float MaxHealth = 20;
     private static float damage = 20;
     
     private float _initialTimer = 0;
@@ -40,6 +40,7 @@ public class Goliath : MonoBehaviour
 
     private void Start()
     {
+        GameManager.EndState.SetActive(false);
         health = MaxHealth;
         anim = GoliathMesh.GetComponent<GoliathAnimationScript>();
 
@@ -51,6 +52,7 @@ public class Goliath : MonoBehaviour
     {
         if (health <= 0)
         {
+            GameManager.EndState.SetActive(true);
             gameObject.SetActive(false);
         }
 
@@ -111,7 +113,6 @@ public class Goliath : MonoBehaviour
 
         if (Contains(tempRight, TempPosList))
         {
-            Debug.Log("here 1");
             if ((tempRight - Destination).magnitude <= tempMag)
             {
                 LocalDestination = tempRight;
@@ -122,7 +123,6 @@ public class Goliath : MonoBehaviour
 
         if (Contains(tempLeft, TempPosList))
         {
-            Debug.Log("here 2");
             if ((tempLeft - Destination).magnitude <= tempMag)
             {
                 LocalDestination = tempLeft;
@@ -133,7 +133,6 @@ public class Goliath : MonoBehaviour
 
         if (Contains(tempForward, TempPosList))
         {
-            Debug.Log("here 3");
             if ((tempForward - Destination).magnitude <= tempMag)
             {
                 LocalDestination = tempForward;
@@ -144,7 +143,6 @@ public class Goliath : MonoBehaviour
 
         if (Contains(tempBack, TempPosList))
         {
-            Debug.Log("here 4");
             if ((tempBack - Destination).magnitude <= tempMag)
             {
                 LocalDestination = tempBack;

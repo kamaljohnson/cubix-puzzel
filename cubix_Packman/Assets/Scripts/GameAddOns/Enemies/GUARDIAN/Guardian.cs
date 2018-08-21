@@ -59,7 +59,6 @@ public class Guardian : MonoBehaviour
         transform.localPosition = Vector3.MoveTowards(transform.localPosition, GuardianPath[_currentGuardianPositionIndex].localPosition, Time.deltaTime * GuardianSpeed/* * animationSpeed*/);
         if ((transform.localPosition - GuardianPath[_currentGuardianPositionIndex].localPosition).magnitude < TOLORENCE)
         {
-            Debug.Log("current -> " + _currentGuardianPositionIndex.ToString() + "transfrom : " + transform.localPosition.ToString() + " : " + GuardianPath[_currentGuardianPositionIndex].localPosition.ToString());
             _destinationReached = true;
         }
     }
