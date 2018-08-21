@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GoliathPlayerTrigger : MonoBehaviour
-{	
-    private void OnTriggerEnter(Collider other)
+{
+    private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
             Player.IsAlive = false;
-            Goliath.TempDestination = Goliath.InitialPosition;
+            Goliath.Destination = Goliath.InitialPosition;
         }
     }
-
 }
