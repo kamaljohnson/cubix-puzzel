@@ -186,7 +186,7 @@ public class playerController : MonoBehaviour
             }
             else if (animEdgeFlag && !mazeRotation.rotate)
             {
-                if (Vector3.Distance(EndPosition.position, transform.localPosition) <= 0.2f)
+                if (Vector3.Distance(EndPosition.position, transform.localPosition) <= 0.2f && GameManager.EndState.activeSelf)
                 {
                     GameManager.GameWon();
                     return;
