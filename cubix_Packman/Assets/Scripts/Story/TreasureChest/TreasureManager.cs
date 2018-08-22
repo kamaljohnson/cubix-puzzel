@@ -6,41 +6,68 @@ using System.IO;
 
 public class TreasureManager : MonoBehaviour
 {
-
+    
     public static TreasureChest TreasureListAll;
     public static TreasureChest TreasureListGot;
+
+    void Start()
+    {
+        TreasureListAll = new TreasureChest();
+        TreasureListGot = new TreasureChest();
+        
+        Save();
+    }
     
     [Serializable]
     public class TreasureChest
     {
-        public List<Chest> AllTreasureChests;
+        public List<Chest> Treasures;
     }
 
     public struct Chest
     {
+        public int ChestIndex;
         public String LevelName;
-        public String PuzzleName;
-        public int PuzzleIndex;
     }
-    
+
+
+    public static void AddChestToAllTreasures(Chest chest)
+    {
+        if (!TreasureListAll.Treasures.Contains(chest))
+        {
+            TreasureListAll.Treasures.Add(chest);
+            Save();
+            Debug.Log("added to all treasures. . .");
+        }
+    }
+
+    public static void AddChestToGotTreasures(Chest chest)
+    {
+        if (!TreasureListGot.Treasures.Contains(chest))
+        {
+            TreasureListGot.Treasures.Add(chest);
+            Save();
+            Debug.Log("added to got treasures. . .");
+        }
+    }
     
     public static void Save()
     {
 
-        var directoryAll = Application.streamingAssetsPath + "/Treasures/TreasureList";
-        var directoryGot = Application.streamingAssetsPath + "/Treasures/TreasureList";
+        var directoryAll = Application.streamingAssetsPath + "/Treasures/TreasureListAll";
+        var directoryGot = Application.streamingAssetsPath + "/Treasures/TreasureListGot";
 
         var jsonStringAll = JsonUtility.ToJson(TreasureListAll);
         var jsonStringGot = JsonUtility.ToJson(TreasureListGot);
         
         File.WriteAllText(directoryAll, jsonStringAll);
-        File.WriteAllText(directoryAll, jsonStringGot);
+        File.WriteAllText(directoryGot, jsonStringGot);
     }
     public static void Load()
     {
 
-        var directoryAll = Application.streamingAssetsPath + "/Treasures/TreasureList";
-        var directoryGot = Application.streamingAssetsPath + "/Treasures/TreasureGot";
+        var directoryAll = Application.streamingAssetsPath + "/Treasures/TreasureListAll";
+        var directoryGot = Application.streamingAssetsPath + "/Treasures/TreasureListGot";
 
         string jsonStringAll;
         string jsonStringGot;
@@ -62,6 +89,6 @@ public class TreasureManager : MonoBehaviour
             jsonStringGot = File.ReadAllText(directoryGot);
         }
         TreasureListAll = JsonUtility.FromJson<TreasureChest>(jsonStringAll);
-        TreasureListAll = JsonUtility.FromJson<TreasureChest>(jsonStringGot);
+        TreasureListGot = JsonUtility.FromJson<TreasureChest>(jsonStringGot);
     }
 }
