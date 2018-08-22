@@ -527,23 +527,28 @@ public class playerController : MonoBehaviour
             {
 
                 case (PrefabType.Part01):
-                    tempObj = Instantiate(ListOfParts[0], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[0], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
                     PartsTypes.Add(PrefabType.Part01);
                     break;
                 case (PrefabType.Part02):
-                    tempObj = Instantiate(ListOfParts[1], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[1], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
                     PartsTypes.Add(PrefabType.Part02);
                     break;
                 case (PrefabType.Part03):
-                    tempObj = Instantiate(ListOfParts[2], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[2], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
                     PartsTypes.Add(PrefabType.Part03);
                     break;
                 case (PrefabType.Part04):
-                    tempObj = Instantiate(ListOfParts[3], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[3], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
                     PartsTypes.Add(PrefabType.Part04);
                     break;
                 case (PrefabType.Part05):
-                    tempObj = Instantiate(ListOfParts[4], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[4], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
                     PartsTypes.Add(PrefabType.Part05);
                     break;
                 case PrefabType.Start:
@@ -552,60 +557,95 @@ public class playerController : MonoBehaviour
                     CheckPoint.SetCheckPointTransfrom(StartPosition.localPosition);
                     break;
                 case PrefabType.End:
-                    tempObj = Instantiate(ListOfParts[5], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[5], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
                     EndPosition = nodes[i].transform;
                     GameManager.EndState = tempObj;
                     break;
                 case PrefabType.KeyWall:
                     keyFlag = true;
-                    tempObj = Instantiate(ListOfParts[6], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[6], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
                     preKey = tempObj;
                     NoOfGates++;
                     break;
                 case PrefabType.Points:
-                    tempObj = Instantiate(ListOfParts[7], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[7], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
                     break;
                 case PrefabType.Spike:
-                    tempObj = Instantiate(ListOfParts[8], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[8], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
                     tempObj.GetComponent<Spikes>().LocalTimerIndex = Spikes.CurrentFlagIndex++;
                     Spikes.SpikeInitializeFlag = true;
                     break;
                 case PrefabType.KeyPortal:
                     break;
                 case PrefabType.CheckPoint:
-                    tempObj = Instantiate(ListOfParts[9], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[9], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
                     break;
                 case PrefabType.Guardian:
                     if (guardianFlag == false)
                     {
-                        tempObj = Instantiate(ListOfParts[10], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
-                        tempObj.GetComponent<Guardian>().GuardianPath.Add(nodes[i].transform.transform);    // added initial position of the guardian
+                        tempObj = Instantiate(ListOfParts[10], nodes[i].transform.position, nodes[i].transform.rotation,
+                            Maze.transform);
+                        tempObj.GetComponent<Guardian>().GuardianPath
+                            .Add(nodes[i].transform.transform); // added initial position of the guardian
 
                     }
                     else
                     {
                         tempObj.GetComponent<Guardian>().GuardianPath.Add(nodes[i].transform.transform);
                     }
+
                     guardianFlag = true;
-                    
+
                     break;
                 case PrefabType.Hammer:
-                    tempObj = Instantiate(ListOfParts[11], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[11], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
                     break;
                 case PrefabType.GoliathWalk:
-                    tempObj = Instantiate(ListOfParts[12], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[12], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
                     Goliath.PossiblePositions.Add(tempObj.transform);
                     break;
                 case PrefabType.Goliath:
-                    tempObj = Instantiate(ListOfParts[13], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[13], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
                     Goliath.InitialPosition = tempObj.transform.localPosition;
                     break;
                 case PrefabType.GoliathAttackSwitch:
-                    tempObj = Instantiate(ListOfParts[14], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[14], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
                     GoliathAttackSwitch.SwitchLists.Add(tempObj);
                     break;
+                case PrefabType.Chest:
+                    var flag = false;
+                    foreach (var chest in TreasureManager.TreasureListGot.Treasures)
+                    {
+                        if (chest.LevelName == GameManager.CurrentLevel)
+                        {
+                            Debug.Log("chest is already taken");
+                            flag = true;
+                            break;
+                        }
+                    }
+
+                    if (!flag)
+                    {
+                        tempObj = Instantiate(ListOfParts[15], nodes[i].transform.position, nodes[i].transform.rotation,
+                            Maze.transform);
+                        var currentChest = new TreasureManager.Chest();
+                        currentChest.LevelName = GameManager.CurrentLevel;
+                        currentChest.ChestIndex = 0;
+                        Chest.CurrentChest = currentChest;
+                    }
+
+                    break;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    break;
             }
 
             if (nodes[i].Type != PrefabType.Guardian)

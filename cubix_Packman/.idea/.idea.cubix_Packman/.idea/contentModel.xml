@@ -31,6 +31,10 @@
               <e p="CheckPoint.cs" t="Include" />
               <e p="PlayerCheckpointTrigger.cs" t="Include" />
             </e>
+            <e p="Chest" t="Include">
+              <e p="Chest.cs" t="Include" />
+              <e p="ChestOnPlayerTrigger.cs" t="Include" />
+            </e>
             <e p="Enemies" t="Include">
               <e p="BOLT" t="Include">
                 <e p="Bolt.cs" t="Include" />

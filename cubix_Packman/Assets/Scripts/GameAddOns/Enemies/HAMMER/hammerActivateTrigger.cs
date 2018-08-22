@@ -5,18 +5,18 @@ using UnityEngine;
 public class hammerActivateTrigger : MonoBehaviour
 {
 
-	public bool hammerActive;
+	public bool HammerActive;
 
 	private void Start()
 	{
-		hammerActive = false;
+		HammerActive = false;
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == "Player" && !hammerActive)
+		if (other.CompareTag("Player") && !HammerActive)
 		{
-			hammerActive = true;
+			HammerActive = true;
 		}
 	}
 }

@@ -9,10 +9,10 @@ public class Hammer : MonoBehaviour
     public GameObject trigger;
     private void Update()
     {
-        if (trigger.GetComponent<hammerActivateTrigger>().hammerActive)
+        if (trigger.GetComponent<hammerActivateTrigger>().HammerActive)
         {
             hammer.GetComponent<Animation>().Play("Hammer");
-            trigger.GetComponent<hammerActivateTrigger>().hammerActive = false;
+            trigger.GetComponent<hammerActivateTrigger>().HammerActive = false;
         }
     }
 }

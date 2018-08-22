@@ -6,9 +6,9 @@ public class PlayerCoinTrigger : MonoBehaviour {
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            if(gameObject.tag == "Point")
+            if(gameObject.CompareTag("Point"))
             {    
                 AddOnManager.collectedPoint();
                 Destroy(transform.parent.gameObject);

@@ -6,7 +6,7 @@ public class GoliathAttackSwitchPlayerTrigger : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             GoliathAttackSwitch.NextSwitch();
             Goliath.Atacked();

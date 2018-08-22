@@ -6,7 +6,7 @@ public class PlayerOnHammerTrigger : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == "Player")
+		if (other.CompareTag("Player"))
 		{
 			Player.IsAlive = false;
 		}

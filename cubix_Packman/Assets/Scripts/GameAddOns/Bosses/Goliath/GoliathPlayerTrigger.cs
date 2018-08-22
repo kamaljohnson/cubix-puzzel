@@ -6,7 +6,7 @@ public class GoliathPlayerTrigger : MonoBehaviour
 {
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             Player.IsAlive = false;
             Goliath.Destination = Goliath.InitialPosition;

@@ -9,20 +9,23 @@ public class TreasureManager : MonoBehaviour
     public static TreasureChest TreasureListAll;
     public static TreasureChest TreasureListGot;
 
-    void Start()
+    void Awake()
     {
-        TreasureListAll = new TreasureChest();
-        TreasureListGot = new TreasureChest();
-        
-        Save();
+        Load();
     }
     
     [Serializable]
     public class TreasureChest
     {
         public List<Chest> Treasures;
+
+        public TreasureChest()
+        {
+            Treasures = new List<Chest>();    
+        }
     }
 
+    [Serializable]
     public struct Chest
     {
         public int ChestIndex;
@@ -42,8 +45,17 @@ public class TreasureManager : MonoBehaviour
 
     public static void AddChestToGotTreasures(Chest chest)
     {
-        if (!TreasureListGot.Treasures.Contains(chest))
+        if (TreasureListGot.Treasures.Count != 0)
         {
+            if (!TreasureListGot.Treasures.Contains(chest))
+            {
+                TreasureListGot.Treasures.Add(chest);
+                Save();
+                Debug.Log("added to got treasures. . .");
+            }
+        }
+        else
+        {    
             TreasureListGot.Treasures.Add(chest);
             Save();
             Debug.Log("added to got treasures. . .");

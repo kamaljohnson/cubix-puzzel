@@ -24,6 +24,7 @@ public enum PrefabType  // all the prefabs that goes into the game level is adde
     Goliath,
     GoliathWalk,
     GoliathAttackSwitch,
+    Chest,
 }
 public class LevelEditor : MonoBehaviour {
 
@@ -279,6 +280,10 @@ public class LevelEditor : MonoBehaviour {
         {
             currentPrefab = PrefabType.GoliathAttackSwitch;
         }
+        else if (Input.GetKeyDown("`"))
+        {
+            currentPrefab = PrefabType.Chest;
+        }
 
         
     }
@@ -336,6 +341,9 @@ public class LevelEditor : MonoBehaviour {
                 break;
             case PrefabType.GoliathAttackSwitch:
                 currentPart = ListOfParts[15];
+                break;
+            case PrefabType.Chest:
+                currentPart = ListOfParts[16];
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -429,6 +437,10 @@ public class LevelEditor : MonoBehaviour {
                     break;
                 case PrefabType.GoliathAttackSwitch:
                     tempNode.Type = PrefabType.GoliathAttackSwitch;
+                    tempNode.transform = Parts[i].transform;
+                    break;
+                case PrefabType.Chest:
+                    tempNode.Type = PrefabType.Chest;
                     tempNode.transform = Parts[i].transform;
                     break;
                 default:
@@ -536,6 +548,10 @@ public class LevelEditor : MonoBehaviour {
                 case PrefabType.GoliathAttackSwitch:
                     tempObj = Instantiate(ListOfParts[15], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.GoliathAttackSwitch);
+                    break;
+                case PrefabType.Chest:
+                    tempObj = Instantiate(ListOfParts[16], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    PartsTypes.Add(PrefabType.Chest);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
