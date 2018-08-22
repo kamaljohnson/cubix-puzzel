@@ -87,6 +87,14 @@
             <e p="SaveManager.cs" t="Include" />
             <e p="SaveState.cs" t="Include" />
           </e>
+          <e p="Story" t="Include">
+            <e p="Jigsaw" t="Include">
+              <e p="JigsawManager.cs" t="Include" />
+            </e>
+            <e p="TreasureChest" t="Include">
+              <e p="TreasureManager.cs" t="Include" />
+            </e>
+          </e>
           <e p="Unwanted Scripts" t="Include">
             <e p="CameraScript.cs" t="Include" />
             <e p="ColliderScript.cs" t="Include" />
