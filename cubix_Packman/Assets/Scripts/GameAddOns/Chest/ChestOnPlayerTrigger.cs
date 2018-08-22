@@ -8,6 +8,7 @@ public class ChestOnPlayerTrigger : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("here");
             TreasureManager.AddChestToGotTreasures(Chest.CurrentChest);
             transform.parent.gameObject.SetActive(false);
         }

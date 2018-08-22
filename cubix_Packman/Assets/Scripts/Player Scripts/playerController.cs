@@ -637,10 +637,16 @@ public class playerController : MonoBehaviour
                     {
                         tempObj = Instantiate(ListOfParts[15], nodes[i].transform.position, nodes[i].transform.rotation,
                             Maze.transform);
-                        var currentChest = new TreasureManager.Chest();
-                        currentChest.LevelName = GameManager.CurrentLevel;
-                        currentChest.ChestIndex = 0;
-                        Chest.CurrentChest = currentChest;
+                        
+                        foreach (var chest in TreasureManager.TreasureListAll.Treasures)
+                        {
+                            if (chest.LevelName == GameManager.CurrentLevel)
+                            {
+                                Chest.CurrentChest = chest;
+                                break;
+                            }
+                        }
+                        
                     }
 
                     break;

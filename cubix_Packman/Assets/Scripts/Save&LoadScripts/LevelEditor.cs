@@ -442,6 +442,31 @@ public class LevelEditor : MonoBehaviour {
                 case PrefabType.Chest:
                     tempNode.Type = PrefabType.Chest;
                     tempNode.transform = Parts[i].transform;
+                    
+                    var flag = false;
+                    TreasureManager.Load();
+                    if (TreasureManager.TreasureListAll.Treasures.Count > 0)
+                    {
+                        foreach (var chest in TreasureManager.TreasureListAll.Treasures)
+                        {
+                            if (chest.LevelName == GameManager.CurrentLevel)
+                            {
+                                flag = true;
+                                break;
+                            }
+                        }
+                    }
+                    if(!flag)
+                    {
+                        TreasureManager.Chest chest = new TreasureManager.Chest();
+                        chest.LevelName = SaveManager.levelName;
+                        
+                        //TODO get the chest index from somewhere
+                        chest.ChestIndex = PlayerPrefs.GetInt("NumberOfChests")+1;
+                        PlayerPrefs.SetInt("NumberOfChests", PlayerPrefs.GetInt("NumberOfChests")+1);
+                        
+                        TreasureManager.AddChestToAllTreasures(chest);
+                    }                    
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
