@@ -10,7 +10,6 @@ public class SaveManager : MonoBehaviour
 {
 
     public static SaveManager Instance { set; get; }
-    public object JsonMapper { get; private set; }
 
     public SaveState state;
 
@@ -24,16 +23,8 @@ public class SaveManager : MonoBehaviour
     }
     public void Save(SaveState state)
     {
-        //string s = Helper.Serialize(state);
-        //XmlSerializer serializer = new XmlSerializer(typeof(SaveState));
-        //FileStream stream = new FileStream(Application.persistentDataPath +"/Levels/"+ levelName, FileMode.Create);
-        //serializer.Serialize(stream, state);
-        //Debug.Log(Application.persistentDataPath + "/Levels/" + levelName);
-        //stream.Close();
-
 
         string Directory = Application.streamingAssetsPath + "/Levels/" + levelName;
-        //BinaryFormatter BF = new BinaryFormatter();
         
         string jsonString;
 
@@ -42,14 +33,9 @@ public class SaveManager : MonoBehaviour
     }
     public SaveState Load()
     {
-        //XmlSerializer serializer = new XmlSerializer(typeof(SaveState));
-        //FileStream stream = new FileStream(Application.persistentDataPath + "/Levels/" + levelName, FileMode.Open);
-        //Debug.Log(Application.persistentDataPath + "/Levels/" + levelName);
-        //state = (SaveState)serializer.Deserialize(stream);
-
 
         string Directory = Application.streamingAssetsPath + "/Levels/" + levelName;
-        //BinaryFormatter BF = new BinaryFormatter();
+
         string jsonString;
         if(Application.platform == RuntimePlatform.Android)
         {
@@ -63,25 +49,7 @@ public class SaveManager : MonoBehaviour
             jsonString = File.ReadAllText(Directory);
         }
         state = JsonUtility.FromJson<SaveState>(jsonString);
-        /*if (File.Exists(Directory))
-        {
 
-            Debug.Log("File Exits");
-
-            WWW linkstream;
-
-            linkstream = new WWW("file://" + Directory);
-
-
-
-            while (!linkstream.isDone) { }
-
-            MemoryStream MySaveFile = new MemoryStream(linkstream.bytes);
-
-            state = (SaveState)BF.Deserialize(MySaveFile);
-            MySaveFile.Close();
-
-        }*/
         return state;
     }
 }
