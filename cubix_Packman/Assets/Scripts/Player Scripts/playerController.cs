@@ -188,6 +188,7 @@ public class playerController : MonoBehaviour
             {
                 if (Vector3.Distance(EndPosition.position, transform.localPosition) <= 0.2f && GameManager.EndState.activeSelf)
                 {
+                    Debug.Log("game won !!!!!!!!!!");
                     GameManager.GameWon();
                     return;
                 }
@@ -328,7 +329,7 @@ public class playerController : MonoBehaviour
 
         if (transform.localPosition == destination)
         {
-            if (Vector3.Distance(EndPosition.position, transform.localPosition) <= 0.2f)
+            if (Vector3.Distance(EndPosition.position, transform.localPosition) <= 0.2f && GameManager.EndState.activeSelf)
             {
                 GameManager.GameWon();
                 return;
