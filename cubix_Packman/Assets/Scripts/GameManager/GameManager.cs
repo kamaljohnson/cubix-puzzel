@@ -12,17 +12,12 @@ public class GameManager : MonoBehaviour
     public static Vector3 EndPosition = new Vector3();
     public static Vector3 StartPosition = new Vector3();
     public static GameObject EndState;
-    
-    /*public GameObject PlayUi;
-    public GameObject SettingsUi;
-    public GameObject GameOverUi;
-    public GameObject LevelSelectionUi;*/
+
     
     public static string CurrentLevel;
     
     private void Start()
     {
-        CurrentLevel = LevelManager.GetCurrentLevel();
         CurrentLevel = "level_0";
         Play();
     }
@@ -50,7 +45,6 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt(CurrentLevel + "_Points", playerController.PointsCollected);
         LevelManager.NextLevel();
         //TODO go back to the level map after winning a level
-        CurrentLevel = LevelManager.GetCurrentLevel();
         Play();
     }
 

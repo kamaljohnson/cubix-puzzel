@@ -15,26 +15,12 @@ public class LevelMapUI : MonoBehaviour
 
     public void LoadMap()
     {
-        Debug.Log("called the funtion");
-        int i = 0;
-        string levelName = "level_";
-        string Directory;
-        //BinaryFormatter BF = new BinaryFormatter();
-        while (true)
+        Debug.Log("called the funtion");   
+        string levelName = string.Format("level_{0}_", SeasonManager.CurrentSeason.ToString());
+
+        for (int i = 1; i <= SeasonManager.NumberOfLevelsInSeason; i++)
         {
-            levelName += i.ToString();
-            Debug.Log("level : " + levelName);
-            Directory = Application.streamingAssetsPath + "/Levels/" + levelName;
-            i++;
-            if (System.IO.File.Exists(Directory))
-            {
-                InitiateLevelCard(levelName);
-            }
-            else
-            {
-                return;
-            }
-            levelName = levelName.Split('_')[0] + "_";
+            InitiateLevelCard(string.Format("level_{0}_{1}", SeasonManager.CurrentSeason.ToString(), i.ToString()));
         }
     }
 

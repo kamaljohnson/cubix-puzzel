@@ -3,33 +3,39 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
 
     public static string CurrentLevel;
+    private static bool _created = false;
+
+    
+    void Awake()
+    {
+        if (!_created)
+        {
+            DontDestroyOnLoad(this.gameObject);
+            _created = true;
+        }
+    }
+    
     public static void ActivateLevel()
     {
         GameManager.CurrentLevel = CurrentLevel;
-        Debug.Log("the level is set to " + CurrentLevel);
-        PlayerPrefs.SetString("current_level", CurrentLevel);
-        GameManager.LoadGameScene();
-    }
-    public static string GetCurrentLevel()
-    {
-        return (PlayerPrefs.GetString("current_level"));
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public static void NextLevel()
     {
-        string current_level = GetCurrentLevel();
-        string[] intermediate_level_string_list = current_level.Split('_');
-        /*int theam = Int32.Parse(intermediate_level_string_list[1]);*/
-        int level = Int32.Parse(intermediate_level_string_list[1]);
+        var intermediateLevelStringList = CurrentLevel.Split('_');
+
+        var level = int.Parse(intermediateLevelStringList[1]);
         level++;
-        intermediate_level_string_list[1] = level.ToString();
-        current_level = string.Format("{0}_{1}", intermediate_level_string_list[0]/*, intermediate_level_string_list[1]*/, intermediate_level_string_list[1]);
-        PlayerPrefs.SetString("current_level", current_level);
-    }    //TODO create script to change the current level sected form the level map
-    
+        if (level < SeasonManager.NumberOfLevelsInSeason)
+        {
+            CurrentLevel = string.Format("{0}_{1}_{2}", intermediateLevelStringList[0], intermediateLevelStringList[1], level.ToString());
+        }
+    }    
 }

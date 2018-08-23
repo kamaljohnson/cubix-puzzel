@@ -449,7 +449,7 @@ public class LevelEditor : MonoBehaviour {
                     {
                         foreach (var chest in TreasureManager.TreasureListAll.Treasures)
                         {
-                            if (chest.LevelName == GameManager.CurrentLevel)
+                            if (chest.LevelName == SaveManager.levelName)
                             {
                                 flag = true;
                                 break;
