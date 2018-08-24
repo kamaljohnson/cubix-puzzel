@@ -1,20 +1,20 @@
 ﻿using System.Collections.Generic;
 using System;
-using System.Xml.Serialization;
 using UnityEngine;
 
 
 [Serializable]
 public class SaveState {
 
-    public float levelSize;
-    public List<SaveavleNode> node;
+    public float LevelSize;
+    public List<int> IndexOfCoinsCollected = new List<int>();
+    public List<int> IndexOfDiamondsCollectd = new List<int>();
+    public List<SaveavleNode> Node;
 }
 
 public class Node
 {
     public PrefabType Type;
-
     public Transform transform;
 }
 
@@ -38,22 +38,22 @@ public class SaveavleNode
     {
         this.T = type;
 
-        float temp_posx = transform.position.x;
-        float temp_posy = transform.position.y;
-        float temp_posz = transform.position.z;
+        float tempPosx = transform.position.x;
+        float tempPosy = transform.position.y;
+        float tempPosz = transform.position.z;
 
         
-        float temp_rotx = transform.eulerAngles.x;
-        float temp_roty = transform.eulerAngles.y;
-        float temp_rotz = transform.eulerAngles.z;
+        float tempRotx = transform.eulerAngles.x;
+        float tempRoty = transform.eulerAngles.y;
+        float tempRotz = transform.eulerAngles.z;
 
-        this.px  = (float)(Math.Round((double)temp_posx, 1));
-        this.py  = (float)(Math.Round((double)temp_posy, 1));
-        this.pz  = (float)(Math.Round((double)temp_posz, 1));
+        this.px  = (float)(Math.Round((double)tempPosx, 1));
+        this.py  = (float)(Math.Round((double)tempPosy, 1));
+        this.pz  = (float)(Math.Round((double)tempPosz, 1));
 
-        this.rx  = (int)(Math.Round((double)temp_rotx, 0));
-        this.ry  = (int)(Math.Round((double)temp_roty, 0));
-        this.rz  = (int)(Math.Round((double)temp_rotz, 0));
+        this.rx  = (int)(Math.Round((double)tempRotx, 0));
+        this.ry  = (int)(Math.Round((double)tempRoty, 0));
+        this.rz  = (int)(Math.Round((double)tempRotz, 0));
         
     }
     public Node ConvertToNode()

@@ -11,6 +11,7 @@ public class PlayerCoinTrigger : MonoBehaviour {
             if(gameObject.CompareTag("Point"))
             {    
                 AddOnManager.collectedPoint();
+                GameManager.IndexOfCoinsCollected.Add(transform.parent.gameObject.GetComponent<Points>().Index);
                 Destroy(transform.parent.gameObject);
             }
         }

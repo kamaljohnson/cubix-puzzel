@@ -14,7 +14,7 @@ public enum PrefabType  // all the prefabs that goes into the game level is adde
     Part05,
     KeyWall,
     KeyPortal,
-    Points,
+    Coins,
     Start,
     End,
     Spike,
@@ -240,7 +240,7 @@ public class LevelEditor : MonoBehaviour {
         }
         else if (Input.GetKeyDown("c"))
         {
-            currentPrefab = PrefabType.Points;
+            currentPrefab = PrefabType.Coins;
         }
         else if (Input.GetKeyDown("b"))
         {
@@ -316,7 +316,7 @@ public class LevelEditor : MonoBehaviour {
             case PrefabType.KeyWall:
                 currentPart = ListOfParts[7];
                 break;
-            case PrefabType.Points:
+            case PrefabType.Coins:
                 currentPart = ListOfParts[8];
                 break;
             case PrefabType.KeyPortal:
@@ -405,8 +405,8 @@ public class LevelEditor : MonoBehaviour {
                     tempNode.Type = PrefabType.KeyWall;
                     tempNode.transform = Parts[i].transform;
                     break;
-                case PrefabType.Points:
-                    tempNode.Type = PrefabType.Points;
+                case PrefabType.Coins:
+                    tempNode.Type = PrefabType.Coins;
                     tempNode.transform = Parts[i].transform;
                     break;
                 case PrefabType.Spike:
@@ -477,13 +477,13 @@ public class LevelEditor : MonoBehaviour {
         {
             Destroy(Parts[i]);
         }
-        state.node = new List<SaveavleNode>();
+        state.Node = new List<SaveavleNode>();
         for(int i = 0; i < noOfParts; i++)
         {
-            state.node.Add(new SaveavleNode());
-            state.node[i].ConvertToSaveable(nodes[i].Type, nodes[i].transform);
+            state.Node.Add(new SaveavleNode());
+            state.Node[i].ConvertToSaveable(nodes[i].Type, nodes[i].transform);
         }
-        state.levelSize = SaveManager.levelSize;
+        state.LevelSize = SaveManager.levelSize;
         sm.Save(state);
         Load();
         isSaving = false;
@@ -495,14 +495,14 @@ public class LevelEditor : MonoBehaviour {
         nodes = new List<Node>();
         PartsTypes = new List<PrefabType>();
         Parts = new List<GameObject>();
-        for (int i = 0; i < state.node.Count; i++)
+        for (int i = 0; i < state.Node.Count; i++)
         {
-            nodes.Add(state.node[i].ConvertToNode());
+            nodes.Add(state.Node[i].ConvertToNode());
                
         }
-        MazeSize = state.levelSize;
-        SaveManager.levelSize = state.levelSize;
-        for (int i = 0; i < state.node.Count; i++)
+        MazeSize = state.LevelSize;
+        SaveManager.levelSize = state.LevelSize;
+        for (int i = 0; i < state.Node.Count; i++)
         {
             GameObject tempObj = new GameObject();
             switch (nodes[i].Type)
@@ -540,9 +540,9 @@ public class LevelEditor : MonoBehaviour {
                     tempObj = Instantiate(ListOfParts[7], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.KeyWall);
                     break;
-                case PrefabType.Points:
+                case PrefabType.Coins:
                     tempObj = Instantiate(ListOfParts[8], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
-                    PartsTypes.Add(PrefabType.Points);
+                    PartsTypes.Add(PrefabType.Coins);
                     break;
                 case PrefabType.Spike:
                     tempObj = Instantiate(ListOfParts[9], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
@@ -586,7 +586,7 @@ public class LevelEditor : MonoBehaviour {
             tempObj.GetComponent<Renderer>().material = Materials[0];
 
         }
-        noOfParts = state.node.Count;
+        noOfParts = state.Node.Count;
         mainCamera.orthographicSize = SaveManager.levelSize + 1;
         return 1;   
     }

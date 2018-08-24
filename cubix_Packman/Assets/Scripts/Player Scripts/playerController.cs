@@ -188,7 +188,6 @@ public class playerController : MonoBehaviour
             {
                 if (Vector3.Distance(EndPosition.position, transform.localPosition) <= 0.2f && GameManager.EndState.activeSelf)
                 {
-                    Debug.Log("game won !!!!!!!!!!");
                     GameManager.GameWon();
                     return;
                 }
@@ -504,14 +503,14 @@ public class playerController : MonoBehaviour
         nodes = new System.Collections.Generic.List<Node>();
         PartsTypes = new System.Collections.Generic.List<PrefabType>();
         Parts = new System.Collections.Generic.List<GameObject>();
-        for (int i = 0; i < state.node.Count; i++)
+        for (int i = 0; i < state.Node.Count; i++)
         {
-            nodes.Add(state.node[i].ConvertToNode());
+            nodes.Add(state.Node[i].ConvertToNode());
         }
-        MazeSize = state.levelSize;
+        MazeSize = state.LevelSize;
         MazeOffset = MazeSize / 2;
         DownStep = MazeOffset / MazeSize;
-        SaveManager.levelSize = state.levelSize;
+        SaveManager.levelSize = state.LevelSize;
 
         var keyFlag = false;
         var guardianFlag = false;
@@ -520,7 +519,8 @@ public class playerController : MonoBehaviour
 
         GameObject tempObj = new GameObject();
 
-        for (var i = 0; i < state.node.Count; i++)
+        int coinIndex = 0;
+        for (var i = 0; i < state.Node.Count; i++)
         {
             var startEndFlag = false;
             switch (nodes[i].Type)
@@ -552,6 +552,7 @@ public class playerController : MonoBehaviour
                     PartsTypes.Add(PrefabType.Part05);
                     break;
                 case PrefabType.Start:
+                    Debug.Log("here");
                     startEndFlag = true;
                     StartPosition = nodes[i].transform;
                     CheckPoint.SetCheckPointTransfrom(StartPosition.localPosition);
@@ -569,9 +570,13 @@ public class playerController : MonoBehaviour
                     preKey = tempObj;
                     NoOfGates++;
                     break;
-                case PrefabType.Points:
-                    tempObj = Instantiate(ListOfParts[7], nodes[i].transform.position, nodes[i].transform.rotation,
-                        Maze.transform);
+                case PrefabType.Coins:
+                    coinIndex++;
+                    if(!state.IndexOfCoinsCollected.Contains(coinIndex))
+                    {
+                        tempObj = Instantiate(ListOfParts[7], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                        tempObj.GetComponent<Points>().Index = coinIndex;
+                    }
                     break;
                 case PrefabType.Spike:
                     tempObj = Instantiate(ListOfParts[8], nodes[i].transform.position, nodes[i].transform.rotation,
@@ -685,7 +690,7 @@ public class playerController : MonoBehaviour
                 }
             }
         }
-        noOfParts = state.node.Count;
+        noOfParts = state.Node.Count;
         maze_body.transform.localScale = new Vector3(SaveManager.levelSize, SaveManager.levelSize, SaveManager.levelSize);
         mainCamera.orthographicSize = SaveManager.levelSize + 7;
         transform.position = StartPosition.localPosition;

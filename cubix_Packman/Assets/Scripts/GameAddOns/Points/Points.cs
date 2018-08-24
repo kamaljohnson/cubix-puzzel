@@ -5,6 +5,7 @@ public class Points : MonoBehaviour
 {
 
     public int value;
+    public int Index;
 
     public void Start()
     {
