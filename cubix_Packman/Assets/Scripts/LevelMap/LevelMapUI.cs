@@ -15,10 +15,9 @@ public class LevelMapUI : MonoBehaviour
 
     public void LoadMap()
     {
-        Debug.Log("called the funtion");   
         string levelName = string.Format("level_{0}_", SeasonManager.CurrentSeason.ToString());
 
-        for (int i = 1; i <= SeasonManager.NumberOfLevelsInSeason; i++)
+        for (int i = 1; i <= SeasonManager.NumberOfLevelsInCurrentSeason; i++)
         {
             InitiateLevelCard(string.Format("level_{0}_{1}", SeasonManager.CurrentSeason.ToString(), i.ToString()));
         }
@@ -26,7 +25,6 @@ public class LevelMapUI : MonoBehaviour
 
     public void InitiateLevelCard(string cardName)
     {
-        Debug.Log("instantiated the card");    
         GameObject tempObj = Instantiate(LevelCardPrefab, LevelCardParentTrasform);
         tempObj.GetComponent<LevelCardButton>().LevelName = cardName;
         AllLevelCards.Add(tempObj);

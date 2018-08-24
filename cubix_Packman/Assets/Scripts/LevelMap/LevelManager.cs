@@ -33,7 +33,7 @@ public class LevelManager : MonoBehaviour
 
         var level = int.Parse(intermediateLevelStringList[1]);
         level++;
-        if (level < SeasonManager.NumberOfLevelsInSeason)
+        if (level < SeasonManager.NumberOfLevelsInCurrentSeason)
         {
             CurrentLevel = string.Format("{0}_{1}_{2}", intermediateLevelStringList[0], intermediateLevelStringList[1], level.ToString());
         }

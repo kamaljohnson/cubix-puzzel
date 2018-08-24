@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
 using UnityEngine.SceneManagement;
@@ -10,7 +12,9 @@ public class SeasonManager : MonoBehaviour
 
     public int NumberOfSeasons = 5;
     public static int CurrentSeason;
-    public static int NumberOfLevelsInSeason;
+    public List<int> NumberOfLevelsInSeason;
+    public static List<int> NumberOfLevelsInSeasons;
+    public static int NumberOfLevelsInCurrentSeason;
 
     public GameObject SeasonCardPrefab;
     public Transform SeasonCardParentTrasform;
@@ -18,6 +22,8 @@ public class SeasonManager : MonoBehaviour
 
     void Awake()
     {
+        NumberOfLevelsInSeasons = NumberOfLevelsInSeason;
+
         if (!_created)
         {
             DontDestroyOnLoad(this.gameObject);
@@ -25,7 +31,6 @@ public class SeasonManager : MonoBehaviour
         }
         for(var season = 1; season <= NumberOfSeasons; season++)
             InitiateSeasonCard(season);
-
     }
 
     public static void SelectSeason()
@@ -33,24 +38,35 @@ public class SeasonManager : MonoBehaviour
 
         var i = 1;
         var levelName = string.Format("level_{0}_", CurrentSeason.ToString());
-        NumberOfLevelsInSeason = 0;
+        NumberOfLevelsInCurrentSeason = 0;
 
-        while (true)
+        if (Application.platform == RuntimePlatform.Android)
         {
-            levelName += i.ToString();
-            Debug.Log(levelName);
-            var directory = string.Format("{0}/Levels/{1}", Application.streamingAssetsPath, levelName);
-            i++;
-            if (System.IO.File.Exists(directory))
-            {
-                NumberOfLevelsInSeason++;
-            }
-            else
-            {
-                break;
-            }
+            NumberOfLevelsInCurrentSeason = NumberOfLevelsInSeasons[CurrentSeason-1];
+        }
+        else
+        {
 
-            levelName = string.Format("level_{0}_", CurrentSeason.ToString());
+
+            while (true)
+            {
+                levelName += i.ToString();
+                i++;
+                var levelfile = string.Format("{0}/Levels/{1}", Application.streamingAssetsPath, levelName);
+
+                FileInfo fileInfo = new FileInfo(levelfile);
+
+                if (fileInfo.Exists == true)
+                {
+                    NumberOfLevelsInCurrentSeason++;
+                }
+                else
+                {
+                    break;
+                }
+
+                levelName = string.Format("level_{0}_", CurrentSeason.ToString());
+            }
         }
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -59,7 +75,7 @@ public class SeasonManager : MonoBehaviour
     public void InitiateSeasonCard(int cardIndex)
     {
         GameObject tempObj = Instantiate(SeasonCardPrefab, SeasonCardParentTrasform);
-        tempObj.GetComponent<SeasonCardButton>().SeasonIndex = cardIndex;
+        tempObj.GetComponent <SeasonCardButton>().SetCardDetails(cardIndex);
         AllSeasonCards.Add(tempObj);
         
     }

@@ -14,11 +14,12 @@ public class GameManager : MonoBehaviour
     public static GameObject EndState;
 
     
-    public static string CurrentLevel;
+    public static string CurrentLevel = "level_1_1";
     
     private void Start()
     {
-        CurrentLevel = LevelManager.CurrentLevel;
+        if(LevelManager.CurrentLevel != "")
+            CurrentLevel = LevelManager.CurrentLevel;
         Play();
     }
 
