@@ -25,6 +25,7 @@ public enum PrefabType  // all the prefabs that goes into the game level is adde
     GoliathWalk,
     GoliathAttackSwitch,
     Chest,
+    Diamonds,
 }
 public class LevelEditor : MonoBehaviour {
 
@@ -242,6 +243,10 @@ public class LevelEditor : MonoBehaviour {
         {
             currentPrefab = PrefabType.Coins;
         }
+        else if (Input.GetKeyDown("d"))
+        {
+            currentPrefab = PrefabType.Diamonds;
+        }
         else if (Input.GetKeyDown("b"))
         {
             IsStart = true;
@@ -344,6 +349,9 @@ public class LevelEditor : MonoBehaviour {
                 break;
             case PrefabType.Chest:
                 currentPart = ListOfParts[16];
+                break;
+            case PrefabType.Diamonds:
+                currentPart = ListOfParts[17];
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -468,6 +476,10 @@ public class LevelEditor : MonoBehaviour {
                         TreasureManager.AddChestToAllTreasures(chest);
                     }                    
                     break;
+                case PrefabType.Diamonds:
+                    tempNode.Type = PrefabType.Diamonds;
+                    tempNode.transform = Parts[i].transform;
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -576,6 +588,10 @@ public class LevelEditor : MonoBehaviour {
                     break;
                 case PrefabType.Chest:
                     tempObj = Instantiate(ListOfParts[16], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    PartsTypes.Add(PrefabType.Chest);
+                    break;
+                case PrefabType.Diamonds:
+                    tempObj = Instantiate(ListOfParts[17], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                     PartsTypes.Add(PrefabType.Chest);
                     break;
                 default:

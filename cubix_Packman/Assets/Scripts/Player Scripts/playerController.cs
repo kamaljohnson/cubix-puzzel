@@ -520,6 +520,7 @@ public class playerController : MonoBehaviour
         GameObject tempObj = new GameObject();
 
         int coinIndex = 0;
+        int diamondIndex = 0;
         for (var i = 0; i < state.Node.Count; i++)
         {
             var startEndFlag = false;
@@ -654,6 +655,14 @@ public class playerController : MonoBehaviour
                         
                     }
 
+                    break;
+                case PrefabType.Diamonds:
+                    diamondIndex++;
+                    if(!state.IndexOfDiamondsCollectd.Contains(diamondIndex))
+                    {
+                        tempObj = Instantiate(ListOfParts[16], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                        tempObj.GetComponent<Diamond>().Index = diamondIndex;
+                    }
                     break;
                 default:
                     break;

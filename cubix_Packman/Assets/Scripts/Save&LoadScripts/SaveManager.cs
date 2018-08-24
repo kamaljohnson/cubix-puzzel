@@ -49,7 +49,6 @@ public class SaveManager : MonoBehaviour
             jsonString = File.ReadAllText(Directory);
         }
         state = JsonUtility.FromJson<SaveState>(jsonString);
-        Debug.Log("---> " + GameManager.IndexOfCoinsCollected.Count.ToString());
         return state;
     }
     public SaveState Load(string levelname)
@@ -70,7 +69,6 @@ public class SaveManager : MonoBehaviour
             jsonString = File.ReadAllText(Directory);
         }
         state = JsonUtility.FromJson<SaveState>(jsonString);
-        Debug.Log("---> " + GameManager.IndexOfCoinsCollected.Count.ToString());
         return state;
     }
 }

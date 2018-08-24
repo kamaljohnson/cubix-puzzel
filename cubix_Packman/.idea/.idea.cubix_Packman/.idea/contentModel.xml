@@ -61,8 +61,14 @@
               </e>
             </e>
             <e p="Points" t="Include">
-              <e p="PlayerCoinTrigger.cs" t="Include" />
-              <e p="Points.cs" t="Include" />
+              <e p="Coins" t="Include">
+                <e p="PlayerCoinTrigger.cs" t="Include" />
+                <e p="Points.cs" t="Include" />
+              </e>
+              <e p="Diamond" t="Include">
+                <e p="Diamond.cs" t="Include" />
+                <e p="DiamondOnPlayerTrigger.cs" t="Include" />
+              </e>
             </e>
           </e>
           <e p="GameManager" t="Include">

@@ -754,6 +754,7 @@ MonoBehaviour:
   - {fileID: 1313341263966518, guid: 448e853a56c61974fab8c617179ba7ae, type: 2}
   - {fileID: 1508332411533892, guid: 801ef0f7cdf26914eb1736c2f5f48079, type: 2}
   - {fileID: 1224332577017726, guid: 3b7a299dbfe84df41846bcd1f8b092fd, type: 2}
+  - {fileID: 1923106346227124, guid: 959a366680db454498a9d51b4fd49d61, type: 2}
   Materials:
   - {fileID: 2100000, guid: aee9359992066c34a87aa63acd7a3c25, type: 2}
   - {fileID: 2100000, guid: 7c092a98e50f4be43afcafa9fc037ac6, type: 2}
@@ -1689,8 +1690,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state:
-    levelSize: 0
-    node: []
+    LevelSize: 0
+    IndexOfCoinsCollected: 
+    IndexOfDiamondsCollectd: 
+    Node: []
 --- !u!1 &910663231
 GameObject:
   m_ObjectHideFlags: 0
