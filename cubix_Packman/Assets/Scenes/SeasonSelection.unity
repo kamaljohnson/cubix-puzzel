@@ -209,8 +209,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NumberOfSeasons: 2
-  NumberOfLevelsInSeason: 0300000001000000
-  SeasonCardPrefab: {fileID: 1743567942384188, guid: 94627e54e0fd1f749bb72ed227169429,
+  NumberOfLevelsInSeason: 0200000003000000
+  SeasonCardPrefab: {fileID: 1320760224231834, guid: 94627e54e0fd1f749bb72ed227169429,
     type: 2}
   SeasonCardParentTrasform: {fileID: 1325529785}
 --- !u!4 &756411743

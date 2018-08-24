@@ -47,9 +47,8 @@ public class GameManager : MonoBehaviour
 
     public static void GameWon()
     {
-        Debug.Log("game won");
         SaveManager sm = new SaveManager();
-        SaveState state = sm.Load();
+        SaveState state = sm.Load(CurrentLevel);
         state.IndexOfCoinsCollected = state.IndexOfCoinsCollected.Union(IndexOfCoinsCollected).ToList();
         state.IndexOfDiamondsCollectd = state.IndexOfDiamondsCollectd.Union(IndexOfDiamondsCollected).ToList();
         sm.Save(state);

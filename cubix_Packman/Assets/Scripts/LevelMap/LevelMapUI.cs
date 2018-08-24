@@ -26,7 +26,7 @@ public class LevelMapUI : MonoBehaviour
     public void InitiateLevelCard(string cardName)
     {
         GameObject tempObj = Instantiate(LevelCardPrefab, LevelCardParentTrasform);
-        tempObj.GetComponent<LevelCardButton>().LevelName = cardName;
+        tempObj.GetComponent<LevelCardButton>().SetDetails(cardName);
         AllLevelCards.Add(tempObj);
         
     }

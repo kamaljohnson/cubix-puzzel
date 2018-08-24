@@ -27,6 +27,11 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void BackButtonOnClick()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
     public static void NextLevel()
     {
         var intermediateLevelStringList = CurrentLevel.Split('_');

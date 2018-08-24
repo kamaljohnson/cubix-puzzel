@@ -28,6 +28,7 @@ public class JigsawManager : MonoBehaviour
     {
         public string Name;
         public System.Collections.Generic.List<int> ListOfJigsaws;
+        public System.Collections.Generic.List<string> ListOfLevels;
     }
     
     public static void Load()

@@ -496,6 +496,7 @@ public class LevelEditor : MonoBehaviour {
             state.Node[i].ConvertToSaveable(nodes[i].Type, nodes[i].transform);
         }
         state.LevelSize = SaveManager.levelSize;
+        state.IsLocked = false;
         sm.Save(state);
         Load();
         isSaving = false;
