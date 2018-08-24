@@ -2,25 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="178f319c-d52c-4c44-9a2e-fab01c966f36" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.cubix_Packman/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.cubix_Packman/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.cubix_Packman/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.cubix_Packman/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LevelMap/LevelCard.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LevelMap/LevelCard.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SeasonSelection.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SeasonSelection.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCardButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCardButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelMapUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelMapUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/LevelEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/LevelEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Story/Jigsaw/JigsawManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Story/Jigsaw/JigsawManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_1_1" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_1_1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_1_2" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_1_2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_1_3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_1_3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_2_1" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Levels/level_2_1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Treasures/TreasureListAll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Treasures/TreasureListAll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Treasures/TreasureListGot" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Treasures/TreasureListGot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Season/SeasonManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Season/SeasonManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cubix_Packman_Data/Managed/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/cubix_Packman_Data/Managed/Assembly-CSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cubix_Packman_Data/StreamingAssets/Levels/level_0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cubix_Packman_Data/StreamingAssets/Levels/level_1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cubix_Packman_Data/StreamingAssets/Levels/level_2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cubix_Packman_Data/globalgamemanagers" beforeDir="false" afterPath="$PROJECT_DIR$/cubix_Packman_Data/globalgamemanagers" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cubix_Packman_Data/globalgamemanagers.assets" beforeDir="false" afterPath="$PROJECT_DIR$/cubix_Packman_Data/globalgamemanagers.assets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cubix_Packman_Data/level0" beforeDir="false" afterPath="$PROJECT_DIR$/cubix_Packman_Data/level0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cubix_Packman_Data/resources.assets" beforeDir="false" afterPath="$PROJECT_DIR$/cubix_Packman_Data/resources.assets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cubix_Packman_Data/sharedassets0.assets" beforeDir="false" afterPath="$PROJECT_DIR$/cubix_Packman_Data/sharedassets0.assets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cubix_Packman_Data/sharedassets0.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/cubix_Packman_Data/sharedassets0.assets.resS" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,27 +42,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SeasonCardButton.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Season/SeasonCardButton.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-              <folding>
-                <marker date="1535108608417" expanded="false" signature="6:100" ph="..." />
-                <marker date="1535108608417" expanded="true" signature="148:1401" ph="{...}" />
-                <marker date="1535108608417" expanded="true" signature="487:570" ph="{...}" />
-                <marker date="1535108608417" expanded="true" signature="645:1399" ph="{...}" />
-                <marker date="1535108608417" expanded="true" signature="997:1220" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameManager.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameManager.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="52" column="111" lean-forward="true" selection-start-line="52" selection-start-column="111" selection-end-line="52" selection-end-column="111" />
+            <state relative-caret-position="855">
+              <caret line="60" column="36" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="36" />
               <folding>
                 <marker date="1535117016443" expanded="false" signature="6:106" ph="..." />
                 <marker date="1535117016443" expanded="true" signature="148:1875" ph="{...}" />
@@ -75,6 +56,20 @@
                 <marker date="1535117016443" expanded="true" signature="954:1149" ph="{...}" />
                 <marker date="1535117016443" expanded="true" signature="1183:1709" ph="{...}" />
                 <marker date="1535117016443" expanded="true" signature="1749:1873" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StartManager.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/StartScreen/StartManager.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
+              <folding>
+                <marker date="1535124291325" expanded="true" signature="6:113" ph="..." />
+                <marker date="1535124291325" expanded="true" signature="157:289" ph="{...}" />
+                <marker date="1535124291325" expanded="true" signature="196:287" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -169,8 +164,8 @@
       <file leaf-file-name="LevelManager.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelManager.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+            <state relative-caret-position="315">
+              <caret line="26" selection-start-line="26" selection-end-line="27" />
               <folding>
                 <marker date="1535114377023" expanded="false" signature="6:146" ph="..." />
                 <marker date="1535114377023" expanded="true" signature="189:1147" ph="{...}" />
@@ -207,15 +202,15 @@
       <file leaf-file-name="SaveState.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveState.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+            <state relative-caret-position="165">
+              <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
               <folding>
-                <marker date="1535113613045" expanded="false" signature="6:66" ph="..." />
-                <marker date="1535113613045" expanded="true" signature="107:334" ph="{...}" />
-                <marker date="1535113613045" expanded="true" signature="353:417" ph="{...}" />
-                <marker date="1535113613045" expanded="true" signature="459:1864" ph="{...}" />
-                <marker date="1535113613045" expanded="true" signature="741:1449" ph="{...}" />
-                <marker date="1535113613045" expanded="true" signature="1481:1862" ph="{...}" />
+                <marker date="1535135227040" expanded="false" signature="6:66" ph="..." />
+                <marker date="1535135227040" expanded="true" signature="107:359" ph="{...}" />
+                <marker date="1535135227040" expanded="true" signature="378:442" ph="{...}" />
+                <marker date="1535135227040" expanded="true" signature="484:1889" ph="{...}" />
+                <marker date="1535135227040" expanded="true" signature="766:1474" ph="{...}" />
+                <marker date="1535135227040" expanded="true" signature="1506:1887" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -224,20 +219,38 @@
       <file leaf-file-name="SeasonManager.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Season/SeasonManager.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="71" column="77" selection-start-line="71" selection-start-column="77" selection-end-line="71" selection-end-column="77" />
+            <state relative-caret-position="180">
+              <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
               <folding>
-                <marker date="1535079674933" expanded="false" signature="6:187" ph="..." />
-                <marker date="1535079674933" expanded="true" signature="231:2312" ph="{...}" />
-                <marker date="1535079674933" expanded="true" signature="668:964" ph="{...}" />
-                <marker date="1535079674933" expanded="true" signature="756:853" ph="{...}" />
-                <marker date="1535079674933" expanded="true" signature="1003:2030" ph="{...}" />
-                <marker date="1535079674933" expanded="true" signature="1213:1319" ph="{...}" />
-                <marker date="1535079674933" expanded="true" signature="1332:1945" ph="{...}" />
-                <marker date="1535079674933" expanded="true" signature="1369:1935" ph="{...}" />
-                <marker date="1535079674933" expanded="true" signature="1664:1753" ph="{...}" />
-                <marker date="1535079674933" expanded="true" signature="1774:1837" ph="{...}" />
-                <marker date="1535079674933" expanded="true" signature="2089:2310" ph="{...}" />
+                <marker date="1535124492243" expanded="false" signature="6:187" ph="..." />
+                <marker date="1535124492243" expanded="true" signature="231:2440" ph="{...}" />
+                <marker date="1535124492243" expanded="true" signature="668:964" ph="{...}" />
+                <marker date="1535124492243" expanded="true" signature="756:853" ph="{...}" />
+                <marker date="1535124492243" expanded="true" signature="1003:2030" ph="{...}" />
+                <marker date="1535124492243" expanded="true" signature="1213:1319" ph="{...}" />
+                <marker date="1535124492243" expanded="true" signature="1332:1945" ph="{...}" />
+                <marker date="1535124492243" expanded="true" signature="1369:1935" ph="{...}" />
+                <marker date="1535124492243" expanded="true" signature="1664:1753" ph="{...}" />
+                <marker date="1535124492243" expanded="true" signature="1774:1837" ph="{...}" />
+                <marker date="1535124492243" expanded="true" signature="2089:2310" ph="{...}" />
+                <marker date="1535124492243" expanded="true" signature="2347:2438" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LevelFileEditor.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Level/LevelFileEditor.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="321">
+              <caret line="31" column="23" lean-forward="true" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+              <folding>
+                <marker date="1535136532457" expanded="true" signature="6:100" ph="..." />
+                <marker date="1535136532457" expanded="true" signature="146:1036" ph="{...}" />
+                <marker date="1535136532457" expanded="true" signature="269:756" ph="{...}" />
+                <marker date="1535136532457" expanded="true" signature="486:541" ph="{...}" />
+                <marker date="1535136532457" expanded="true" signature="554:610" ph="{...}" />
+                <marker date="1535136532457" expanded="true" signature="780:1034" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -246,8 +259,8 @@
       <file leaf-file-name="SaveManager.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveManager.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+            <state relative-caret-position="291">
+              <caret line="56" column="83" selection-start-line="56" selection-start-column="74" selection-end-line="56" selection-end-column="83" />
               <folding>
                 <marker date="1535113643152" expanded="false" signature="6:211" ph="..." />
                 <marker date="1535113643152" expanded="true" signature="253:1863" ph="{...}" />
@@ -276,31 +289,6 @@
                 <marker date="1535114105433" expanded="true" signature="321:427" ph="{...}" />
                 <marker date="1535114105433" expanded="true" signature="341:424" ph="{...}" />
                 <marker date="1535114105433" expanded="true" signature="470:687" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JigsawManager.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Story/Jigsaw/JigsawManager.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="30" column="68" selection-start-line="30" selection-start-column="68" selection-end-line="30" selection-end-column="68" />
-              <folding>
-                <marker date="1535112077812" expanded="false" signature="6:125" ph="..." />
-                <marker date="1535112077812" expanded="true" signature="169:2797" ph="{...}" />
-                <marker date="1535112077812" expanded="true" signature="442:470" ph="{...}" />
-                <marker date="1535112077812" expanded="true" signature="520:605" ph="{...}" />
-                <marker date="1535112077812" expanded="true" signature="654:830" ph="{...}" />
-                <marker date="1535112077812" expanded="true" signature="865:1511" ph="{...}" />
-                <marker date="1535112077812" expanded="true" signature="1055:1331" ph="{...}" />
-                <marker date="1535112077812" expanded="true" signature="1344:1424" ph="{...}" />
-                <marker date="1535112077812" expanded="true" signature="1542:1772" ph="{...}" />
-                <marker date="1535112077812" expanded="true" signature="1851:2145" ph="{...}" />
-                <marker date="1535112077812" expanded="true" signature="2048:2105" ph="{...}" />
-                <marker date="1535112077812" expanded="true" signature="2233:2795" ph="{...}" />
-                <marker date="1535112077812" expanded="true" signature="2556:2760" ph="{...}" />
-                <marker date="1535112077812" expanded="true" signature="2625:2750" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -371,6 +359,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Bosses/Goliath/GoliathPlayerTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelMapUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Level/LevelFileEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ECB5D8E2-0A91-44BC-A4F2-58317D1E56F9/2c/a3ff10e5/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Points/Coins/PlayerCoinTrigger.cs" root0="FORCE_HIGHLIGHTING" />
@@ -379,6 +368,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Points/Diamond/DiamondOnPlayerTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/GUARDIAN/Guardian.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Bosses/Goliath/Animations/GoliathAnimationScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/StartScreen/StartManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Bosses/Goliath/AttackSwitch/GoliathAttackSwitch.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EFD2E540-FF2F-47B1-98C1-4EE0F0329B68/f2/0c994fdd/Behaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Bosses/Goliath/AttackSwitch/GoliathAttackSwitchPlayerTrigger.cs" root0="FORCE_HIGHLIGHTING" />
@@ -389,8 +379,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/LevelMap/ResizeLevelTile.cs" />
-        <option value="$PROJECT_DIR$/Assets/CardDetails.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCard.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelMap/CardDetails.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Points.cs" />
@@ -425,7 +413,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Player Scripts/AnimationScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Season/SeasonCard.cs" />
         <option value="$PROJECT_DIR$/Assets/SeasonCardButton.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Season/SeasonManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Points/Points.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Points/PlayerCoinTrigger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameAddOns/Points/Diamond/Diamond.cs" />
@@ -434,12 +421,15 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Season/SeasonCardButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Story/Jigsaw/JigsawManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelMapUI.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCardButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/LevelEditor.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StartScreen/StartManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Season/SeasonManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Level/LevelFileEditor.cs" />
       </list>
     </option>
   </component>
@@ -496,7 +486,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="levelM&#9;null&#9;null&#10;level&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/LevelMap/LevelManager.cs&#10;save&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Save&amp;LoadScripts/SaveState.cs&#10;evel&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/LevelMap/LevelMapUI.cs&#10;sea&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Season/SeasonManager.cs&#10;leve&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/LevelMap/LevelCardButton.cs&#10;Season&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Season/SeasonManager.cs&#10;jig&#9;null&#9;null&#10;season&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Season/SeasonCardButton.cs&#10;game&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;player&#9;null&#9;null&#10;Point&#9;null&#9;null&#10;card&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Season/SeasonCardButton.cs&#10;ga&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;pla&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;gam&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;Playe&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Points/PlayerCoinTrigger.cs&#10;play&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;Card&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/LevelMap/LevelCardButton.cs&#10;Game&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;animation&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/AnimationScript.cs&#10;Ham&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Enemies/HAMMER/hammerActivateTrigger.cs&#10;PlayerHa&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Enemies/HAMMER/PlayerOnHammerTrigger.cs&#10;editor&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/EditorScripts/EditorUI.cs&#10;Chest&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Chest/ChestOnPlayerTrigger.cs&#10;Che&#9;null&#9;null&#10;playercon&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;trigger&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Points/PlayerCoinTrigger.cs&#10;Tri&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Chest/ChestOnPlayerTrigger.cs&#10;Player&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/Player.cs&#10;chec&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/PlayerCheckpointTrigger.cs&#10;ch&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs&#10;Check&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/PlayerCheckpointTrigger.cs&#10;che&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs&#10;playe&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;C&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs&#10;Chec&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs&#10;Key&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Keys/Key.cs&#10;Goliath&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Bosses/Goliath/AttackSwitch/GoliathAttackSwitch.cs&#10;playerC&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Bosses/Goliath/GoliathPlayerTrigger.cs&#10;maze&#9;null&#9;null&#10;gma&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;pl&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;Gamem&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;save]&#9;null&#9;null&#10;swi&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/SwipeControl.cs&#10;con&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;sw&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/SwipeControl.cs&#10;swipe&#9;null&#9;null&#10;Load&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="save&#9;null&#9;null&#10;levelM&#9;null&#9;null&#10;level&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/LevelMap/LevelManager.cs&#10;evel&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/LevelMap/LevelMapUI.cs&#10;sea&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Season/SeasonManager.cs&#10;leve&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/LevelMap/LevelCardButton.cs&#10;Season&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Season/SeasonManager.cs&#10;jig&#9;null&#9;null&#10;season&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Season/SeasonCardButton.cs&#10;game&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;player&#9;null&#9;null&#10;Point&#9;null&#9;null&#10;card&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Season/SeasonCardButton.cs&#10;ga&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;pla&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;gam&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;Playe&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Points/PlayerCoinTrigger.cs&#10;play&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;Card&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/LevelMap/LevelCardButton.cs&#10;Game&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;animation&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/AnimationScript.cs&#10;Ham&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Enemies/HAMMER/hammerActivateTrigger.cs&#10;PlayerHa&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Enemies/HAMMER/PlayerOnHammerTrigger.cs&#10;editor&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/EditorScripts/EditorUI.cs&#10;Chest&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Chest/ChestOnPlayerTrigger.cs&#10;Che&#9;null&#9;null&#10;playercon&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;trigger&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Points/PlayerCoinTrigger.cs&#10;Tri&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Chest/ChestOnPlayerTrigger.cs&#10;Player&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/Player.cs&#10;chec&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/PlayerCheckpointTrigger.cs&#10;ch&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs&#10;Check&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/PlayerCheckpointTrigger.cs&#10;che&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs&#10;playe&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;C&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs&#10;Chec&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs&#10;Key&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Keys/Key.cs&#10;Goliath&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Bosses/Goliath/AttackSwitch/GoliathAttackSwitch.cs&#10;playerC&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Bosses/Goliath/GoliathPlayerTrigger.cs&#10;maze&#9;null&#9;null&#10;gma&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;pl&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;Gamem&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;save]&#9;null&#9;null&#10;swi&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/SwipeControl.cs&#10;con&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;sw&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/SwipeControl.cs&#10;swipe&#9;null&#9;null&#10;Load&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunDashboard">
@@ -534,12 +524,12 @@
       <workItem from="1534544480091" duration="5686000" />
       <workItem from="1534570745590" duration="4491000" />
       <workItem from="1534591523479" duration="13649000" />
-      <workItem from="1534748846467" duration="106760000" />
+      <workItem from="1534748846467" duration="111589000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="287335000" />
+    <option name="totallyTimeSpent" value="292164000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -592,34 +582,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Obstrecles/Spikes/Spikes.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
-          <folding>
-            <marker date="1534694229841" expanded="true" signature="55:999" ph="{...}" />
-            <marker date="1534694229841" expanded="true" signature="389:850" ph="{...}" />
-            <marker date="1534694229841" expanded="true" signature="611:690" ph="{...}" />
-            <marker date="1534694229841" expanded="true" signature="703:754" ph="{...}" />
-            <marker date="1534694229841" expanded="true" signature="755:844" ph="/* if (_currntIndex == IndexLimit-1) ... */" />
-            <marker date="1534694229841" expanded="true" signature="882:992" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameAddOns/Enemies/HAMMER/Hammer.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="13" column="60" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
-          <folding>
-            <marker date="1534932877954" expanded="false" signature="6:125" ph="..." />
-            <marker date="1534932877954" expanded="true" signature="162:498" ph="{...}" />
-            <marker date="1534932877954" expanded="true" signature="251:496" ph="{...}" />
-            <marker date="1534932877954" expanded="true" signature="329:490" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/EditorScripts/EditorWindowScript.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1263,22 +1225,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Season/SeasonManager.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCardButton.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="71" column="77" selection-start-line="71" selection-start-column="77" selection-end-line="71" selection-end-column="77" />
+        <state relative-caret-position="405">
+          <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
           <folding>
-            <marker date="1535079674933" expanded="false" signature="6:187" ph="..." />
-            <marker date="1535079674933" expanded="true" signature="231:2312" ph="{...}" />
-            <marker date="1535079674933" expanded="true" signature="668:964" ph="{...}" />
-            <marker date="1535079674933" expanded="true" signature="756:853" ph="{...}" />
-            <marker date="1535079674933" expanded="true" signature="1003:2030" ph="{...}" />
-            <marker date="1535079674933" expanded="true" signature="1213:1319" ph="{...}" />
-            <marker date="1535079674933" expanded="true" signature="1332:1945" ph="{...}" />
-            <marker date="1535079674933" expanded="true" signature="1369:1935" ph="{...}" />
-            <marker date="1535079674933" expanded="true" signature="1664:1753" ph="{...}" />
-            <marker date="1535079674933" expanded="true" signature="1774:1837" ph="{...}" />
-            <marker date="1535079674933" expanded="true" signature="2089:2310" ph="{...}" />
+            <marker date="1535114105433" expanded="false" signature="6:117" ph="..." />
+            <marker date="1535114105433" expanded="true" signature="164:689" ph="{...}" />
+            <marker date="1535114105433" expanded="true" signature="286:293" ph="{...}" />
+            <marker date="1535114105433" expanded="true" signature="321:427" ph="{...}" />
+            <marker date="1535114105433" expanded="true" signature="341:424" ph="{...}" />
+            <marker date="1535114105433" expanded="true" signature="470:687" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="60" column="36" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="36" />
+          <folding>
+            <marker date="1535117016443" expanded="false" signature="6:106" ph="..." />
+            <marker date="1535117016443" expanded="true" signature="148:1875" ph="{...}" />
+            <marker date="1535117016443" expanded="true" signature="685:811" ph="{...}" />
+            <marker date="1535117016443" expanded="true" signature="846:867" ph="{...}" />
+            <marker date="1535117016443" expanded="true" signature="902:923" ph="{...}" />
+            <marker date="1535117016443" expanded="true" signature="954:1149" ph="{...}" />
+            <marker date="1535117016443" expanded="true" signature="1183:1709" ph="{...}" />
+            <marker date="1535117016443" expanded="true" signature="1749:1873" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1300,51 +1274,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveManager.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelManager.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+        <state relative-caret-position="315">
+          <caret line="26" selection-start-line="26" selection-end-line="27" />
           <folding>
-            <marker date="1535113643152" expanded="false" signature="6:211" ph="..." />
-            <marker date="1535113643152" expanded="true" signature="253:1863" ph="{...}" />
-            <marker date="1535113643152" expanded="true" signature="436:512" ph="{...}" />
-            <marker date="1535113643152" expanded="true" signature="550:783" ph="{...}" />
-            <marker date="1535113643152" expanded="true" signature="811:1310" ph="{...}" />
-            <marker date="1535113643152" expanded="true" signature="991:1134" ph="{...}" />
-            <marker date="1535113643152" expanded="true" signature="1147:1221" ph="{...}" />
-            <marker date="1535113643152" expanded="true" signature="1354:1861" ph="{...}" />
-            <marker date="1535113643152" expanded="true" signature="1542:1685" ph="{...}" />
-            <marker date="1535113643152" expanded="true" signature="1698:1772" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveState.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-          <folding>
-            <marker date="1535113613045" expanded="false" signature="6:66" ph="..." />
-            <marker date="1535113613045" expanded="true" signature="107:334" ph="{...}" />
-            <marker date="1535113613045" expanded="true" signature="353:417" ph="{...}" />
-            <marker date="1535113613045" expanded="true" signature="459:1864" ph="{...}" />
-            <marker date="1535113613045" expanded="true" signature="741:1449" ph="{...}" />
-            <marker date="1535113613045" expanded="true" signature="1481:1862" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCardButton.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
-          <folding>
-            <marker date="1535114105433" expanded="false" signature="6:117" ph="..." />
-            <marker date="1535114105433" expanded="true" signature="164:689" ph="{...}" />
-            <marker date="1535114105433" expanded="true" signature="286:293" ph="{...}" />
-            <marker date="1535114105433" expanded="true" signature="321:427" ph="{...}" />
-            <marker date="1535114105433" expanded="true" signature="341:424" ph="{...}" />
-            <marker date="1535114105433" expanded="true" signature="470:687" ph="{...}" />
+            <marker date="1535114377023" expanded="false" signature="6:146" ph="..." />
+            <marker date="1535114377023" expanded="true" signature="189:1147" ph="{...}" />
+            <marker date="1535114377023" expanded="true" signature="296:428" ph="{...}" />
+            <marker date="1535114377023" expanded="true" signature="325:422" ph="{...}" />
+            <marker date="1535114377023" expanded="true" signature="472:611" ph="{...}" />
+            <marker date="1535114377023" expanded="true" signature="648:738" ph="{...}" />
+            <marker date="1535114377023" expanded="true" signature="774:1141" ph="{...}" />
+            <marker date="1535114377023" expanded="true" signature="976:1135" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1433,36 +1375,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelManager.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Season/SeasonManager.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+        <state relative-caret-position="180">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
           <folding>
-            <marker date="1535114377023" expanded="false" signature="6:146" ph="..." />
-            <marker date="1535114377023" expanded="true" signature="189:1147" ph="{...}" />
-            <marker date="1535114377023" expanded="true" signature="296:428" ph="{...}" />
-            <marker date="1535114377023" expanded="true" signature="325:422" ph="{...}" />
-            <marker date="1535114377023" expanded="true" signature="472:611" ph="{...}" />
-            <marker date="1535114377023" expanded="true" signature="648:738" ph="{...}" />
-            <marker date="1535114377023" expanded="true" signature="774:1141" ph="{...}" />
-            <marker date="1535114377023" expanded="true" signature="976:1135" ph="{...}" />
+            <marker date="1535124492243" expanded="false" signature="6:187" ph="..." />
+            <marker date="1535124492243" expanded="true" signature="231:2440" ph="{...}" />
+            <marker date="1535124492243" expanded="true" signature="668:964" ph="{...}" />
+            <marker date="1535124492243" expanded="true" signature="756:853" ph="{...}" />
+            <marker date="1535124492243" expanded="true" signature="1003:2030" ph="{...}" />
+            <marker date="1535124492243" expanded="true" signature="1213:1319" ph="{...}" />
+            <marker date="1535124492243" expanded="true" signature="1332:1945" ph="{...}" />
+            <marker date="1535124492243" expanded="true" signature="1369:1935" ph="{...}" />
+            <marker date="1535124492243" expanded="true" signature="1664:1753" ph="{...}" />
+            <marker date="1535124492243" expanded="true" signature="1774:1837" ph="{...}" />
+            <marker date="1535124492243" expanded="true" signature="2089:2310" ph="{...}" />
+            <marker date="1535124492243" expanded="true" signature="2347:2438" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveManager.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="52" column="111" lean-forward="true" selection-start-line="52" selection-start-column="111" selection-end-line="52" selection-end-column="111" />
+        <state relative-caret-position="291">
+          <caret line="56" column="83" selection-start-line="56" selection-start-column="74" selection-end-line="56" selection-end-column="83" />
           <folding>
-            <marker date="1535117016443" expanded="false" signature="6:106" ph="..." />
-            <marker date="1535117016443" expanded="true" signature="148:1875" ph="{...}" />
-            <marker date="1535117016443" expanded="true" signature="685:811" ph="{...}" />
-            <marker date="1535117016443" expanded="true" signature="846:867" ph="{...}" />
-            <marker date="1535117016443" expanded="true" signature="902:923" ph="{...}" />
-            <marker date="1535117016443" expanded="true" signature="954:1149" ph="{...}" />
-            <marker date="1535117016443" expanded="true" signature="1183:1709" ph="{...}" />
-            <marker date="1535117016443" expanded="true" signature="1749:1873" ph="{...}" />
+            <marker date="1535113643152" expanded="false" signature="6:211" ph="..." />
+            <marker date="1535113643152" expanded="true" signature="253:1863" ph="{...}" />
+            <marker date="1535113643152" expanded="true" signature="436:512" ph="{...}" />
+            <marker date="1535113643152" expanded="true" signature="550:783" ph="{...}" />
+            <marker date="1535113643152" expanded="true" signature="811:1310" ph="{...}" />
+            <marker date="1535113643152" expanded="true" signature="991:1134" ph="{...}" />
+            <marker date="1535113643152" expanded="true" signature="1147:1221" ph="{...}" />
+            <marker date="1535113643152" expanded="true" signature="1354:1861" ph="{...}" />
+            <marker date="1535113643152" expanded="true" signature="1542:1685" ph="{...}" />
+            <marker date="1535113643152" expanded="true" signature="1698:1772" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveState.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+          <folding>
+            <marker date="1535135227040" expanded="false" signature="6:66" ph="..." />
+            <marker date="1535135227040" expanded="true" signature="107:359" ph="{...}" />
+            <marker date="1535135227040" expanded="true" signature="378:442" ph="{...}" />
+            <marker date="1535135227040" expanded="true" signature="484:1889" ph="{...}" />
+            <marker date="1535135227040" expanded="true" signature="766:1474" ph="{...}" />
+            <marker date="1535135227040" expanded="true" signature="1506:1887" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/StartScreen/StartManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <marker date="1535124291325" expanded="true" signature="6:113" ph="..." />
+            <marker date="1535124291325" expanded="true" signature="157:289" ph="{...}" />
+            <marker date="1535124291325" expanded="true" signature="196:287" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Level/LevelFileEditor.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="31" column="23" lean-forward="true" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+          <folding>
+            <marker date="1535136532457" expanded="true" signature="6:100" ph="..." />
+            <marker date="1535136532457" expanded="true" signature="146:1036" ph="{...}" />
+            <marker date="1535136532457" expanded="true" signature="269:756" ph="{...}" />
+            <marker date="1535136532457" expanded="true" signature="486:541" ph="{...}" />
+            <marker date="1535136532457" expanded="true" signature="554:610" ph="{...}" />
+            <marker date="1535136532457" expanded="true" signature="780:1034" ph="{...}" />
           </folding>
         </state>
       </provider>

@@ -79,4 +79,10 @@ public class SeasonManager : MonoBehaviour
         AllSeasonCards.Add(tempObj);
         
     }
+
+    public void OnBackButtonClick()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+
+    }
 }

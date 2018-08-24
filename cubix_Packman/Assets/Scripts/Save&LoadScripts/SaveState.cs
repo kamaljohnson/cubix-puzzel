@@ -8,6 +8,7 @@ public class SaveState {
 
     public float LevelSize;
     public bool IsLocked = true;
+    public int MaxTries;
     public List<int> IndexOfCoinsCollected = new List<int>();
     public List<int> IndexOfDiamondsCollectd = new List<int>();
     public List<SaveavleNode> Node;
