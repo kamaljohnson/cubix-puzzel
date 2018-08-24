@@ -17,11 +17,15 @@ public class LevelCardButton : MonoBehaviour {
 
 	public void OnCardClick()
 	{
-		if (!IsLocked)
+		LevelManager lm = new LevelManager();
+		
+		lm.ShowLevelDetailsPannel();
+		
+		/*if (!IsLocked)
 		{
 			LevelManager.CurrentLevel = LevelName;
 			LevelManager.ActivateLevel();
-		}
+		}*/
 	}
 
 	public void SetDetails(string levelname)

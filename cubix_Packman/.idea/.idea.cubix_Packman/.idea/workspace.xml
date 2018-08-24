@@ -2,22 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="178f319c-d52c-4c44-9a2e-fab01c966f36" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.cubix_Packman/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.cubix_Packman/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.cubix_Packman/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.cubix_Packman/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SeasonSelection.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SeasonSelection.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Season/SeasonManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Season/SeasonManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cubix_Packman_Data/Managed/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/cubix_Packman_Data/Managed/Assembly-CSharp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cubix_Packman_Data/StreamingAssets/Levels/level_0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cubix_Packman_Data/StreamingAssets/Levels/level_1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cubix_Packman_Data/StreamingAssets/Levels/level_2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cubix_Packman_Data/globalgamemanagers" beforeDir="false" afterPath="$PROJECT_DIR$/cubix_Packman_Data/globalgamemanagers" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cubix_Packman_Data/globalgamemanagers.assets" beforeDir="false" afterPath="$PROJECT_DIR$/cubix_Packman_Data/globalgamemanagers.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cubix_Packman_Data/level0" beforeDir="false" afterPath="$PROJECT_DIR$/cubix_Packman_Data/level0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cubix_Packman_Data/resources.assets" beforeDir="false" afterPath="$PROJECT_DIR$/cubix_Packman_Data/resources.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cubix_Packman_Data/sharedassets0.assets" beforeDir="false" afterPath="$PROJECT_DIR$/cubix_Packman_Data/sharedassets0.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cubix_Packman_Data/sharedassets0.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/cubix_Packman_Data/sharedassets0.assets.resS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCardButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCardButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelManager.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -161,20 +148,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LevelManager.cs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LevelManager.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelManager.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="26" selection-start-line="26" selection-end-line="27" />
+            <state relative-caret-position="486">
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
               <folding>
-                <marker date="1535114377023" expanded="false" signature="6:146" ph="..." />
-                <marker date="1535114377023" expanded="true" signature="189:1147" ph="{...}" />
-                <marker date="1535114377023" expanded="true" signature="296:428" ph="{...}" />
-                <marker date="1535114377023" expanded="true" signature="325:422" ph="{...}" />
-                <marker date="1535114377023" expanded="true" signature="472:611" ph="{...}" />
-                <marker date="1535114377023" expanded="true" signature="648:738" ph="{...}" />
-                <marker date="1535114377023" expanded="true" signature="774:1141" ph="{...}" />
-                <marker date="1535114377023" expanded="true" signature="976:1135" ph="{...}" />
+                <marker date="1535137227995" expanded="false" signature="6:146" ph="..." />
+                <marker date="1535137227995" expanded="true" signature="189:1272" ph="{...}" />
+                <marker date="1535137227995" expanded="true" signature="332:464" ph="{...}" />
+                <marker date="1535137227995" expanded="true" signature="361:458" ph="{...}" />
+                <marker date="1535137227995" expanded="true" signature="508:647" ph="{...}" />
+                <marker date="1535137227995" expanded="true" signature="684:774" ph="{...}" />
+                <marker date="1535137227995" expanded="true" signature="810:1177" ph="{...}" />
+                <marker date="1535137227995" expanded="true" signature="1012:1171" ph="{...}" />
+                <marker date="1535137227995" expanded="true" signature="1219:1270" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -239,11 +227,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LevelFileEditor.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LevelFileEditor.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Level/LevelFileEditor.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="31" column="23" lean-forward="true" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+            <state relative-caret-position="201">
+              <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
               <folding>
                 <marker date="1535136532457" expanded="true" signature="6:100" ph="..." />
                 <marker date="1535136532457" expanded="true" signature="146:1036" ph="{...}" />
@@ -280,15 +268,15 @@
       <file leaf-file-name="LevelCardButton.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCardButton.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
+            <state relative-caret-position="255">
+              <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
               <folding>
-                <marker date="1535114105433" expanded="false" signature="6:117" ph="..." />
-                <marker date="1535114105433" expanded="true" signature="164:689" ph="{...}" />
-                <marker date="1535114105433" expanded="true" signature="286:293" ph="{...}" />
-                <marker date="1535114105433" expanded="true" signature="321:427" ph="{...}" />
-                <marker date="1535114105433" expanded="true" signature="341:424" ph="{...}" />
-                <marker date="1535114105433" expanded="true" signature="470:687" ph="{...}" />
+                <marker date="1535137174401" expanded="false" signature="6:117" ph="..." />
+                <marker date="1535137174401" expanded="true" signature="164:770" ph="{...}" />
+                <marker date="1535137174401" expanded="true" signature="286:293" ph="{...}" />
+                <marker date="1535137174401" expanded="true" signature="321:508" ph="{...}" />
+                <marker date="1535137174401" expanded="true" signature="404:505" ph="/* if (!IsLocked) ... */" />
+                <marker date="1535137174401" expanded="true" signature="551:768" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -421,15 +409,15 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Season/SeasonCardButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Story/Jigsaw/JigsawManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelMapUI.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCardButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/LevelEditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StartScreen/StartManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Season/SeasonManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Save&amp;LoadScripts/SaveState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Level/LevelFileEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCardButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelManager.cs" />
       </list>
     </option>
   </component>
@@ -486,7 +474,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="save&#9;null&#9;null&#10;levelM&#9;null&#9;null&#10;level&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/LevelMap/LevelManager.cs&#10;evel&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/LevelMap/LevelMapUI.cs&#10;sea&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Season/SeasonManager.cs&#10;leve&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/LevelMap/LevelCardButton.cs&#10;Season&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Season/SeasonManager.cs&#10;jig&#9;null&#9;null&#10;season&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Season/SeasonCardButton.cs&#10;game&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;player&#9;null&#9;null&#10;Point&#9;null&#9;null&#10;card&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Season/SeasonCardButton.cs&#10;ga&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;pla&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;gam&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;Playe&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Points/PlayerCoinTrigger.cs&#10;play&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;Card&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/LevelMap/LevelCardButton.cs&#10;Game&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;animation&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/AnimationScript.cs&#10;Ham&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Enemies/HAMMER/hammerActivateTrigger.cs&#10;PlayerHa&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Enemies/HAMMER/PlayerOnHammerTrigger.cs&#10;editor&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/EditorScripts/EditorUI.cs&#10;Chest&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Chest/ChestOnPlayerTrigger.cs&#10;Che&#9;null&#9;null&#10;playercon&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;trigger&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Points/PlayerCoinTrigger.cs&#10;Tri&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Chest/ChestOnPlayerTrigger.cs&#10;Player&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/Player.cs&#10;chec&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/PlayerCheckpointTrigger.cs&#10;ch&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs&#10;Check&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/PlayerCheckpointTrigger.cs&#10;che&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs&#10;playe&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;C&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs&#10;Chec&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs&#10;Key&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Keys/Key.cs&#10;Goliath&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Bosses/Goliath/AttackSwitch/GoliathAttackSwitch.cs&#10;playerC&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Bosses/Goliath/GoliathPlayerTrigger.cs&#10;maze&#9;null&#9;null&#10;gma&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;pl&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;Gamem&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;save]&#9;null&#9;null&#10;swi&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/SwipeControl.cs&#10;con&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;sw&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/SwipeControl.cs&#10;swipe&#9;null&#9;null&#10;Load&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="level&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/LevelMap/LevelCardButton.cs&#10;save&#9;null&#9;null&#10;levelM&#9;null&#9;null&#10;evel&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/LevelMap/LevelMapUI.cs&#10;sea&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Season/SeasonManager.cs&#10;leve&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/LevelMap/LevelCardButton.cs&#10;Season&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Season/SeasonManager.cs&#10;jig&#9;null&#9;null&#10;season&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Season/SeasonCardButton.cs&#10;game&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;player&#9;null&#9;null&#10;Point&#9;null&#9;null&#10;card&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Season/SeasonCardButton.cs&#10;ga&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;pla&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;gam&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;Playe&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Points/PlayerCoinTrigger.cs&#10;play&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;Card&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/LevelMap/LevelCardButton.cs&#10;Game&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;animation&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/AnimationScript.cs&#10;Ham&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Enemies/HAMMER/hammerActivateTrigger.cs&#10;PlayerHa&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Enemies/HAMMER/PlayerOnHammerTrigger.cs&#10;editor&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/EditorScripts/EditorUI.cs&#10;Chest&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Chest/ChestOnPlayerTrigger.cs&#10;Che&#9;null&#9;null&#10;playercon&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;trigger&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Points/PlayerCoinTrigger.cs&#10;Tri&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Chest/ChestOnPlayerTrigger.cs&#10;Player&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/Player.cs&#10;chec&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/PlayerCheckpointTrigger.cs&#10;ch&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs&#10;Check&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/PlayerCheckpointTrigger.cs&#10;che&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs&#10;playe&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;C&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs&#10;Chec&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Checkpoints/CheckPoint.cs&#10;Key&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Keys/Key.cs&#10;Goliath&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Bosses/Goliath/AttackSwitch/GoliathAttackSwitch.cs&#10;playerC&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameAddOns/Bosses/Goliath/GoliathPlayerTrigger.cs&#10;maze&#9;null&#9;null&#10;gma&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;pl&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;Gamem&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/GameManager/GameManager.cs&#10;save]&#9;null&#9;null&#10;swi&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/SwipeControl.cs&#10;con&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/playerController.cs&#10;sw&#9;FILE&#9;file://C:/Users/kamal/Desktop/MyGames/github-projects/cubix/cubix_Packman/Assets/Scripts/Player Scripts/SwipeControl.cs&#10;swipe&#9;null&#9;null&#10;Load&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunDashboard">
@@ -524,12 +512,12 @@
       <workItem from="1534544480091" duration="5686000" />
       <workItem from="1534570745590" duration="4491000" />
       <workItem from="1534591523479" duration="13649000" />
-      <workItem from="1534748846467" duration="111589000" />
+      <workItem from="1534748846467" duration="112418000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="292164000" />
+    <option name="totallyTimeSpent" value="292993000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1225,21 +1213,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCardButton.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
-          <folding>
-            <marker date="1535114105433" expanded="false" signature="6:117" ph="..." />
-            <marker date="1535114105433" expanded="true" signature="164:689" ph="{...}" />
-            <marker date="1535114105433" expanded="true" signature="286:293" ph="{...}" />
-            <marker date="1535114105433" expanded="true" signature="321:427" ph="{...}" />
-            <marker date="1535114105433" expanded="true" signature="341:424" ph="{...}" />
-            <marker date="1535114105433" expanded="true" signature="470:687" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="855">
@@ -1270,23 +1243,6 @@
             <marker date="1535113099087" expanded="true" signature="759:970" ph="{...}" />
             <marker date="1535113099087" expanded="true" signature="1004:1177" ph="{...}" />
             <marker date="1535113099087" expanded="true" signature="1064:1123" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelManager.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="26" selection-start-line="26" selection-end-line="27" />
-          <folding>
-            <marker date="1535114377023" expanded="false" signature="6:146" ph="..." />
-            <marker date="1535114377023" expanded="true" signature="189:1147" ph="{...}" />
-            <marker date="1535114377023" expanded="true" signature="296:428" ph="{...}" />
-            <marker date="1535114377023" expanded="true" signature="325:422" ph="{...}" />
-            <marker date="1535114377023" expanded="true" signature="472:611" ph="{...}" />
-            <marker date="1535114377023" expanded="true" signature="648:738" ph="{...}" />
-            <marker date="1535114377023" expanded="true" signature="774:1141" ph="{...}" />
-            <marker date="1535114377023" expanded="true" signature="976:1135" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1444,8 +1400,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Level/LevelFileEditor.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="31" column="23" lean-forward="true" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+        <state relative-caret-position="201">
+          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
           <folding>
             <marker date="1535136532457" expanded="true" signature="6:100" ph="..." />
             <marker date="1535136532457" expanded="true" signature="146:1036" ph="{...}" />
@@ -1453,6 +1409,39 @@
             <marker date="1535136532457" expanded="true" signature="486:541" ph="{...}" />
             <marker date="1535136532457" expanded="true" signature="554:610" ph="{...}" />
             <marker date="1535136532457" expanded="true" signature="780:1034" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelCardButton.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+          <folding>
+            <marker date="1535137174401" expanded="false" signature="6:117" ph="..." />
+            <marker date="1535137174401" expanded="true" signature="164:770" ph="{...}" />
+            <marker date="1535137174401" expanded="true" signature="286:293" ph="{...}" />
+            <marker date="1535137174401" expanded="true" signature="321:508" ph="{...}" />
+            <marker date="1535137174401" expanded="true" signature="404:505" ph="/* if (!IsLocked) ... */" />
+            <marker date="1535137174401" expanded="true" signature="551:768" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/LevelMap/LevelManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <marker date="1535137227995" expanded="false" signature="6:146" ph="..." />
+            <marker date="1535137227995" expanded="true" signature="189:1272" ph="{...}" />
+            <marker date="1535137227995" expanded="true" signature="332:464" ph="{...}" />
+            <marker date="1535137227995" expanded="true" signature="361:458" ph="{...}" />
+            <marker date="1535137227995" expanded="true" signature="508:647" ph="{...}" />
+            <marker date="1535137227995" expanded="true" signature="684:774" ph="{...}" />
+            <marker date="1535137227995" expanded="true" signature="810:1177" ph="{...}" />
+            <marker date="1535137227995" expanded="true" signature="1012:1171" ph="{...}" />
+            <marker date="1535137227995" expanded="true" signature="1219:1270" ph="{...}" />
           </folding>
         </state>
       </provider>

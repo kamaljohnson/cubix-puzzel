@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
 
     public static string CurrentLevel;
     private static bool _created = false;
-
+    public GameObject LevelPlayCard;
     
     void Awake()
     {
@@ -41,5 +41,10 @@ public class LevelManager : MonoBehaviour
         {
             CurrentLevel = string.Format("{0}_{1}_{2}", intermediateLevelStringList[0], intermediateLevelStringList[1], level.ToString());
         }
-    }    
+    }
+
+    public void ShowLevelDetailsPannel()
+    {
+        LevelPlayCard.SetActive(true);
+    }
 }
