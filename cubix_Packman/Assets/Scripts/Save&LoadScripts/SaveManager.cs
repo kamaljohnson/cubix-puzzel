@@ -52,4 +52,25 @@ public class SaveManager : MonoBehaviour
         Debug.Log("---> " + GameManager.IndexOfCoinsCollected.Count.ToString());
         return state;
     }
+    public SaveState Load(string levelname)
+    {
+
+        string Directory = Application.streamingAssetsPath + "/Levels/" + levelname;
+
+        string jsonString;
+        if(Application.platform == RuntimePlatform.Android)
+        {
+            WWW reader = new WWW(Directory);
+            while (!reader.isDone) { }
+
+            jsonString = reader.text;
+        }
+        else
+        {
+            jsonString = File.ReadAllText(Directory);
+        }
+        state = JsonUtility.FromJson<SaveState>(jsonString);
+        Debug.Log("---> " + GameManager.IndexOfCoinsCollected.Count.ToString());
+        return state;
+    }
 }
