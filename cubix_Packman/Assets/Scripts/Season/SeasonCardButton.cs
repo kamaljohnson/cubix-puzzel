@@ -29,14 +29,24 @@ public class SeasonCardButton : MonoBehaviour {
 		NumberOfLevels = SeasonManager.NumberOfLevelsInSeasons[cardIndex - 1];
 		NumberOfLevelsText.text = string.Format("{0} LEVELS", NumberOfLevels.ToString());
 		SeasonNameText.text = string.Format("SEASON {0}", SeasonIndex.ToString());
-		
-		SaveManager sm = new SaveManager();
-		
+				
 		for (int i = 1; i <= NumberOfLevels; i++)
 		{
-			SaveState state = sm.Load(string.Format("level_{0}_{1}", cardIndex.ToString(), i.ToString()));
-			DiamondsCollected += state.IndexOfDiamondsCollectd.Count;
+			LevelStatusSaveState state = new LevelStatusSaveState{
+				LevelName = string.Format("level_{0}_{1}", cardIndex.ToString(), i.ToString())
+			};
+			Debug.Log(state.LevelName);
+
+			/*
+			state.Load();
+			DiamondsCollected += state.IndexOfDiamondsCollected.Count;
 			CoinsCollected += state.IndexOfCoinsCollected.Count;
+			*/
+			CoinsCollected = 0;
+			DiamondsCollected = 0;
+			
+			Debug.Log("c ---> " + CoinsCollected.ToString());
+			Debug.Log("d ---> " + DiamondsCollected.ToString());
 		}
 
 		CoinsCollectedText.text = string.Format("{0} COINS", CoinsCollected.ToString());

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEditor;
 using UnityEngine.UI;
 
 
@@ -376,6 +377,8 @@ public class LevelEditor : MonoBehaviour {
     public void Save()  //saving each node to the file  
     {
         nodes = new List<Node>();
+        int numberOfCoins = 0;
+        int numberOfDiamonds = 0;
         for(int i = 0; i< noOfParts;i++)
         {
             Node tempNode = new Node();
@@ -414,6 +417,7 @@ public class LevelEditor : MonoBehaviour {
                     tempNode.transform = Parts[i].transform;
                     break;
                 case PrefabType.Coins:
+                    numberOfCoins++;
                     tempNode.Type = PrefabType.Coins;
                     tempNode.transform = Parts[i].transform;
                     break;
@@ -477,6 +481,7 @@ public class LevelEditor : MonoBehaviour {
                     }                    
                     break;
                 case PrefabType.Diamonds:
+                    numberOfDiamonds++;
                     tempNode.Type = PrefabType.Diamonds;
                     tempNode.transform = Parts[i].transform;
                     break;
@@ -496,12 +501,24 @@ public class LevelEditor : MonoBehaviour {
             state.Node[i].ConvertToSaveable(nodes[i].Type, nodes[i].transform);
         }
         state.LevelSize = SaveManager.levelSize;
-        state.IsLocked = false;
-        state.MaxTries = -1;
-        state.BestTries = -1;
-        state.Stars = 0;
+        state.MaxTime = 0;
+        state.MaxTries = 0;
+        state.Coins = numberOfCoins; 
+        state.Diamonds = numberOfDiamonds;
         sm.Save(state);
         Load();
+
+        var ls = new LevelStatusSaveState
+        {
+            LevelName = SaveManager.levelName,
+            BestTime = 0,
+            BestTries = 0,
+            IndexOfCoinsCollected = new List<int>(),
+            IndexOfDiamondsCollected = new List<int>(),
+            IsLocked = false,
+            Stars = 0
+        };
+        ls.Save();
         isSaving = false;
 
     }
@@ -596,7 +613,7 @@ public class LevelEditor : MonoBehaviour {
                     break;
                 case PrefabType.Diamonds:
                     tempObj = Instantiate(ListOfParts[17], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
-                    PartsTypes.Add(PrefabType.Chest);
+                    PartsTypes.Add(PrefabType.Diamonds);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

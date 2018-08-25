@@ -27,10 +27,13 @@ public class LevelCardButton : MonoBehaviour {
 	{
 		Debug.Log("here");
 		LevelName = levelname;
-		SaveState state;
-		SaveManager sm = new SaveManager();
-		state = sm.Load(levelname);
+		LevelStatusSaveState state = new LevelStatusSaveState{
+			LevelName	=  levelname,
+		};
+		/*state.Load();
 		IsLocked = state.IsLocked;
+		*/
+		IsLocked = false;
 		Status.text = IsLocked ? "LOCKED" : LevelName;
 	}
 }

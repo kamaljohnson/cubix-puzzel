@@ -21,12 +21,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject LevelTransitionUI;
     
-    public static string CurrentLevel = "level_1_1";
+    public static string CurrentLevel;
     
     private void Start()
     {
-        if(LevelManager.CurrentLevel != "")
-            CurrentLevel = LevelManager.CurrentLevel;
+        CurrentLevel = LevelManager.CurrentLevel;
         Play();
     }
 
@@ -57,12 +56,19 @@ public class GameManager : MonoBehaviour
 
     public static void GameWon()
     {
-        IsGameWon = true;
-        SaveManager sm = new SaveManager();
-        SaveState state = sm.Load(CurrentLevel);
+        /*SaveManager sm = new SaveManager();
+        LevelStatusSaveState state = new LevelStatusSaveState();
+        state.LevelName = CurrentLevel;
+        state.Load();
+        Player.NoOfMoves = IndexOfCoinsCollected.Count;
         state.IndexOfCoinsCollected = state.IndexOfCoinsCollected.Union(IndexOfCoinsCollected).ToList();
-        state.IndexOfDiamondsCollectd = state.IndexOfDiamondsCollectd.Union(IndexOfDiamondsCollected).ToList();
-        sm.Save(state);
+        state.IndexOfDiamondsCollected = state.IndexOfDiamondsCollected.Union(IndexOfDiamondsCollected).ToList();
+        state.Save();
+        state.LevelName = "level_" + CurrentLevel.Split('_')[1] + "_" + (int.Parse(CurrentLevel.Split('_')[1]) + 1).ToString();
+        state.Load();
+        state.IsLocked = false;
+        state.Save();*/
+        IsGameWon = true;
     }
 
     public void LevelTransitionOnRestart()

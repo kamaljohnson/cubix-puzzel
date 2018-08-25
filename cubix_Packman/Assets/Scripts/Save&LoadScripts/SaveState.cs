@@ -1,19 +1,73 @@
 ﻿using System.Collections.Generic;
 using System;
+using System.IO;
 using UnityEngine;
 
+[Serializable]
+public class LevelStatusSaveState
+{
+    public string LevelName;
+    public bool IsLocked;
+    public int Stars;
+    public int BestTries;
+    public int BestTime;
+    public List<int> IndexOfCoinsCollected = new List<int>();
+    public List<int> IndexOfDiamondsCollected = new List<int>();
+
+    public void Load()
+    {
+        var directory = Application.persistentDataPath + "/" + LevelName + ".json";
+
+        string jsonString;
+        
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            WWW reader = new WWW(directory);
+            while (!reader.isDone) {}
+
+            jsonString = reader.text;
+        }
+        else
+        {
+            jsonString = File.ReadAllText(directory);
+
+        }
+
+        var ls = JsonUtility.FromJson<LevelStatusSaveState>(jsonString);
+
+        IsLocked = ls.IsLocked;
+        Stars = ls.Stars;
+        BestTime = ls.BestTime;
+        BestTries = ls.BestTries;
+        IndexOfCoinsCollected = ls.IndexOfCoinsCollected;
+        IndexOfDiamondsCollected = ls.IndexOfDiamondsCollected;
+    }
+
+    public void Save()
+    {
+        var directory = Application.persistentDataPath + "/" + LevelName + ".json";
+
+        var jsonString = JsonUtility.ToJson(this);
+        
+        File.WriteAllText(directory, jsonString);
+        Debug.Log("here**");
+    }
+}
 
 [Serializable]
 public class SaveState {
-
+    
     public float LevelSize;
-    public bool IsLocked = true;
+    
+    // 3 Starts factors 
     public int MaxTries;
-    public int BestTries;
-    public int Stars;
-    public List<int> IndexOfCoinsCollected = new List<int>();
-    public List<int> IndexOfDiamondsCollectd = new List<int>();
+    public int MaxTime;
+    public int Coins;
+
+    public int Diamonds;
+    
     public List<SaveavleNode> Node;
+    
 }
 
 public class Node

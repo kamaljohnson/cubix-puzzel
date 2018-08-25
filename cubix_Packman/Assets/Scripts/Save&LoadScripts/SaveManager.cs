@@ -25,11 +25,21 @@ public class SaveManager : MonoBehaviour
     {
 
         string Directory = Application.streamingAssetsPath + "/Levels/" + levelName;
+
         
         string jsonString;
 
         jsonString = JsonUtility.ToJson(state);
-        File.WriteAllText(Directory, jsonString);
+        File.WriteAllText(Directory, jsonString);    
+    }
+    public void Save(SaveState state, string LevelName)
+    {
+        string Directory = Application.streamingAssetsPath + "/Levels/" + LevelName;
+     
+        string jsonString;
+
+        jsonString = JsonUtility.ToJson(state);
+        File.WriteAllText(Directory, jsonString); 
     }
     public SaveState Load()
     {
@@ -51,11 +61,11 @@ public class SaveManager : MonoBehaviour
         state = JsonUtility.FromJson<SaveState>(jsonString);
         return state;
     }
-    public SaveState Load(string levelname)
+    public SaveState Load(string LevelName)
     {
         
-        string Directory = Application.streamingAssetsPath + "/Levels/" + levelname;
-
+        string Directory = Application.streamingAssetsPath + "/Levels/" + LevelName;
+ 
         string jsonString;
         if(Application.platform == RuntimePlatform.Android)
         {

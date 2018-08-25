@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
 
-    public static string CurrentLevel;
+    public static string CurrentLevel = "";
     private static bool _created = false;
     public GameObject LevelPlayCard;
     
