@@ -16,7 +16,7 @@ public class LevelStatusSaveState
 
     public void Load()
     {
-        var directory = Application.persistentDataPath + "/" + LevelName + ".json";
+        var directory = Application.persistentDataPath + "/" + LevelName;
 
         string jsonString;
         
@@ -45,12 +45,15 @@ public class LevelStatusSaveState
 
     public void Save()
     {
-        var directory = Application.persistentDataPath + "/" + LevelName + ".json";
+        
+        var directory = Application.persistentDataPath + "/" + LevelName;
 
         var jsonString = JsonUtility.ToJson(this);
         
+        File.Create(directory).Close();
+
         File.WriteAllText(directory, jsonString);
-        Debug.Log("here**");
+        
     }
 }
 

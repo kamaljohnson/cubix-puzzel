@@ -25,15 +25,40 @@ public class LevelCardButton : MonoBehaviour {
 
 	public void SetDetails(string levelname)
 	{
-		Debug.Log("here");
 		LevelName = levelname;
+		/*
 		LevelStatusSaveState state = new LevelStatusSaveState{
 			LevelName	=  levelname,
 		};
-		/*state.Load();
+		state.Load();
 		IsLocked = state.IsLocked;
 		*/
-		IsLocked = false;
+
+		var levelIndex = 0;
+		var flag = false;
+		for (var i = 1; i <= SeasonManager.NumberOfLevelsInSeasons.Count; i++)
+		{
+			for (var j = 1; j <= SeasonManager.NumberOfLevelsInSeasons[i - 1]; j++)
+			{
+				Debug.Log("*" + i.ToString());
+				
+				levelIndex += 1;
+				if (LevelName == string.Format("level_{0}_{1}", i.ToString(), j.ToString()))
+				{
+					flag = true;
+					break;
+				}
+			}
+
+			if (flag)
+				break;
+		}
+		if(levelIndex > PlayerPrefs.GetInt("levelIndex"))
+			IsLocked = true;
+		else
+		{
+			IsLocked = false;
+		}
 		Status.text = IsLocked ? "LOCKED" : LevelName;
 	}
 }

@@ -1519,6 +1519,8 @@ MonoBehaviour:
     m_Options:
     - m_Text: 0
       m_Image: {fileID: 0}
+    - m_Text: 2
+      m_Image: {fileID: 0}
     - m_Text: 3
       m_Image: {fileID: 0}
     - m_Text: 4
@@ -1691,8 +1693,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state:
     LevelSize: 0
-    IndexOfCoinsCollected: 
-    IndexOfDiamondsCollectd: 
+    MaxTries: 0
+    MaxTime: 0
+    Coins: 0
+    Diamonds: 0
     Node: []
 --- !u!1 &910663231
 GameObject:

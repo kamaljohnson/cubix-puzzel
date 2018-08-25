@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<SwipeControl>().Reset();
         FindObjectOfType<playerController>().Reset();
         FindObjectOfType<playerController>().Load();
+        IsGameWon = false;
         IsPlaying = true;
     }
 
@@ -69,6 +70,8 @@ public class GameManager : MonoBehaviour
         state.IsLocked = false;
         state.Save();*/
         IsGameWon = true;
+        IsPlaying = false;
+        PlayerPrefs.SetInt("levelIndex", PlayerPrefs.GetInt("levelIndex") + 1);
     }
 
     public void LevelTransitionOnRestart()

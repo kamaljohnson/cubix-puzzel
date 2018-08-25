@@ -37,16 +37,15 @@ public class SeasonCardButton : MonoBehaviour {
 			};
 			Debug.Log(state.LevelName);
 
-			/*
+/*
 			state.Load();
+
 			DiamondsCollected += state.IndexOfDiamondsCollected.Count;
 			CoinsCollected += state.IndexOfCoinsCollected.Count;
-			*/
+*/
 			CoinsCollected = 0;
 			DiamondsCollected = 0;
 			
-			Debug.Log("c ---> " + CoinsCollected.ToString());
-			Debug.Log("d ---> " + DiamondsCollected.ToString());
 		}
 
 		CoinsCollectedText.text = string.Format("{0} COINS", CoinsCollected.ToString());

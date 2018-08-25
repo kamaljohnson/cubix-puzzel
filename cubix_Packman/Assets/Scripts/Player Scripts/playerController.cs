@@ -169,7 +169,7 @@ public class playerController : MonoBehaviour
 	private void FixedUpdate ()
     {
 
-        if (GameManager.IsPlaying)
+        if (GameManager.IsPlaying && !GameManager.IsGameWon)
         {
             WallCollisionCheck();
             EdgeDetection();
