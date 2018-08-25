@@ -597,7 +597,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1280457416}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1751757798}
+        m_MethodName: ActivateLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1280457416
@@ -797,7 +808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4a09f36e890f94eb2ffc2ce056cb76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelCardPrefab: {fileID: 1669279766329548, guid: cabc1b8a56c63a247b5c756cc2e7a9b0,
+  LevelCardPrefab: {fileID: 1412657183866532, guid: cabc1b8a56c63a247b5c756cc2e7a9b0,
     type: 2}
   LevelCardParentTrasform: {fileID: 1632780865}
   AllLevelCards: []
@@ -1053,7 +1064,8 @@ MonoBehaviour:
   m_Script: {fileID: 1367256648, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Content: {fileID: 1632780865}
+  m_Content: {fileID: 224366854205874098, guid: cabc1b8a56c63a247b5c756cc2e7a9b0,
+    type: 2}
   m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1

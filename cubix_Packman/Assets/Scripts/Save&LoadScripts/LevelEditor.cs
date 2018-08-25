@@ -497,6 +497,9 @@ public class LevelEditor : MonoBehaviour {
         }
         state.LevelSize = SaveManager.levelSize;
         state.IsLocked = false;
+        state.MaxTries = -1;
+        state.BestTries = -1;
+        state.Stars = 0;
         sm.Save(state);
         Load();
         isSaving = false;

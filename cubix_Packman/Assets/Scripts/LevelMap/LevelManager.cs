@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour
             _created = true;
         }
     }
-    
+
     public static void ActivateLevel()
     {
         GameManager.CurrentLevel = CurrentLevel;
@@ -35,16 +35,18 @@ public class LevelManager : MonoBehaviour
     public static void NextLevel()
     {
         var intermediateLevelStringList = CurrentLevel.Split('_');
-
-        var level = int.Parse(intermediateLevelStringList[2]);
-        if (level < SeasonManager.NumberOfLevelsInCurrentSeason)
+        
+        var level = int.Parse(intermediateLevelStringList[2]) + 1;
+        if (level > SeasonManager.NumberOfLevelsInCurrentSeason)
+        {
+            Debug.Log("No Level To Load");    
+        }
+        else
         {
             CurrentLevel = string.Format("{0}_{1}_{2}", intermediateLevelStringList[0], intermediateLevelStringList[1], level.ToString());
+            GameManager.CurrentLevel = CurrentLevel;
+            GameManager.Play();
         }
     }
 
-    public void ShowLevelDetailsPannel()
-    {
-        LevelPlayCard.SetActive(true);
-    }
 }
