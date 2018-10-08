@@ -16,7 +16,7 @@ public class LevelStatusSaveState
 
     public void Load()
     {
-        var directory = Application.persistentDataPath + "/" + LevelName;
+        var directory = Application.streamingAssetsPath + "/Levels/" + LevelName;
 
         string jsonString;
         
@@ -46,7 +46,7 @@ public class LevelStatusSaveState
     public void Save()
     {
         
-        var directory = Application.persistentDataPath + "/" + LevelName;
+        var directory = Application.streamingAssetsPath + "/Levels/" + LevelName;
 
         var jsonString = JsonUtility.ToJson(this);
         

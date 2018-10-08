@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2ab92f1db0c2440b133a7a9021fb9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfLevelsInSeasons: 0200000003000000
+  NumberOfLevelsInSeasons: 0300000003000000
 --- !u!4 &805752160
 Transform:
   m_ObjectHideFlags: 0

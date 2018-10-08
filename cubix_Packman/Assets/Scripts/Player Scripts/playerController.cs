@@ -493,10 +493,10 @@ public class playerController : MonoBehaviour
     }
     public int Load()
     {
-        PointsCollected = 0;/*
+        PointsCollected = 0;
         LevelStatusSaveState StatusState = new LevelStatusSaveState();
         StatusState.LevelName = GameManager.CurrentLevel;
-        StatusState.Load();*/
+        StatusState.Load();
         SaveManager.levelName = GameManager.CurrentLevel;
         for(int i = 0; i < Parts.Count; i++)
         {
@@ -575,12 +575,12 @@ public class playerController : MonoBehaviour
                     NoOfGates++;
                     break;
                 case PrefabType.Coins:
-                    /*coinIndex++;
+                    coinIndex++;
                     if(!StatusState.IndexOfCoinsCollected.Contains(coinIndex))
                     {
                         tempObj = Instantiate(ListOfParts[7], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                         tempObj.GetComponent<Points>().Index = coinIndex;
-                    }*/
+                    }
                     break;
                 case PrefabType.Spike:
                     tempObj = Instantiate(ListOfParts[8], nodes[i].transform.position, nodes[i].transform.rotation,
@@ -660,12 +660,12 @@ public class playerController : MonoBehaviour
 
                     break;
                 case PrefabType.Diamonds:
-                    /*diamondIndex++;
+                    diamondIndex++;
                     if(!StatusState.IndexOfDiamondsCollected.Contains(diamondIndex))
                     {
                         tempObj = Instantiate(ListOfParts[16], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
                         tempObj.GetComponent<Diamond>().Index = diamondIndex;
-                    }*/
+                    }
                     break;
                 default:
                     break;

@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     public static void GameWon()
     {
-        /*SaveManager sm = new SaveManager();
+        SaveManager sm = new SaveManager();
         LevelStatusSaveState state = new LevelStatusSaveState();
         state.LevelName = CurrentLevel;
         state.Load();
@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
         state.LevelName = "level_" + CurrentLevel.Split('_')[1] + "_" + (int.Parse(CurrentLevel.Split('_')[1]) + 1).ToString();
         state.Load();
         state.IsLocked = false;
-        state.Save();*/
+        state.Save();
         IsGameWon = true;
         IsPlaying = false;
         PlayerPrefs.SetInt("levelIndex", PlayerPrefs.GetInt("levelIndex") + 1);

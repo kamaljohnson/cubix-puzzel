@@ -40,6 +40,8 @@ public class Goliath : MonoBehaviour
 
     private void Start()
     {
+        
+        gameObject.SetActive(true);
         GameManager.EndState.SetActive(false);
         health = MaxHealth;
         anim = GoliathMesh.GetComponent<GoliathAnimationScript>();
