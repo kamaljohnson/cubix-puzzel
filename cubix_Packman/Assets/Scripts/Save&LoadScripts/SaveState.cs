@@ -16,27 +16,34 @@ public class LevelStatusSaveState
 
     public void Load()
     {
-        string Directory;
+        string directory;
         if (LevelName.Split('_')[3] == "s")
         {
-            Directory = Application.persistentDataPath + "/" + LevelName;
+            directory = Application.persistentDataPath + "/" + LevelName;
         }
         else
         {
-            Directory = Application.streamingAssetsPath + "/Levels/" + LevelName;
+            directory = Application.streamingAssetsPath + "/Levels/" + LevelName;
         }
         string jsonString;
         
         if (Application.platform == RuntimePlatform.Android)
         {
-            WWW reader = new WWW(Directory);
+            Debug.Log("here !! reading from " + directory);
+/*
+            WWW reader = new WWW(directory);
             while (!reader.isDone) {}
+*/
+            jsonString = File.ReadAllText(directory);
 
+/*
             jsonString = reader.text;
+*/
+            Debug.Log("done reading!!");
         }
         else
         {
-            jsonString = File.ReadAllText(Directory);
+            jsonString = File.ReadAllText(directory);
 
         }
 
@@ -53,26 +60,25 @@ public class LevelStatusSaveState
     public void Save()
     {
      
-        string Directory;
+        string directory;
         if (LevelName.Split('_')[3] == "s")
         {
-            Directory = Application.persistentDataPath + "/" + LevelName;
+            directory = Application.persistentDataPath + "/" + LevelName;
         }
         else
         {
-            Directory = Application.streamingAssetsPath + "/" + LevelName;
+            directory = Application.streamingAssetsPath + "/" + LevelName;
         }
 
         var jsonString = JsonUtility.ToJson(this);
 
-        StreamWriter file;
-        string fullPath = Directory;
+        var fullPath = directory;
         try
         {
             if (!File.Exists(fullPath))
             {
                 Debug.Log("creating file");
-                file = File.CreateText(fullPath);
+                var file = File.CreateText(fullPath);
                 file.WriteLine(jsonString);
                 file.Close();
             }
