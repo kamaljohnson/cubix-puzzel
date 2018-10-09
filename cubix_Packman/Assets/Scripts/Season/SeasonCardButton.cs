@@ -33,7 +33,7 @@ public class SeasonCardButton : MonoBehaviour {
 		for (int i = 1; i <= NumberOfLevels; i++)
 		{
 			LevelStatusSaveState state = new LevelStatusSaveState{
-				LevelName = string.Format("level_{0}_{1}", cardIndex.ToString(), i.ToString())
+				LevelName = string.Format("level_{0}_{1}_{2}", cardIndex.ToString(), i.ToString(), "L")
 			};
 			Debug.Log(state.LevelName);
 

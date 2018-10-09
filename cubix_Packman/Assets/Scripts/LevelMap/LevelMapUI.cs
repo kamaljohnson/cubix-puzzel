@@ -19,7 +19,7 @@ public class LevelMapUI : MonoBehaviour
 
         for (int i = 1; i <= SeasonManager.NumberOfLevelsInCurrentSeason; i++)
         {
-            InitiateLevelCard(string.Format("level_{0}_{1}", SeasonManager.CurrentSeason.ToString(), i.ToString()));
+            InitiateLevelCard(string.Format("level_{0}_{1}_{2}", SeasonManager.CurrentSeason.ToString(), i.ToString(), "L"));
         }
     }
 

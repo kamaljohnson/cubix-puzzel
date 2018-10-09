@@ -16,20 +16,27 @@ public class LevelStatusSaveState
 
     public void Load()
     {
-        var directory = Application.streamingAssetsPath + "/Levels/" + LevelName;
-
+        string Directory;
+        if (LevelName.Split('_')[3] == "s")
+        {
+            Directory = Application.persistentDataPath + "/" + LevelName;
+        }
+        else
+        {
+            Directory = Application.streamingAssetsPath + "/Levels/" + LevelName;
+        }
         string jsonString;
         
         if (Application.platform == RuntimePlatform.Android)
         {
-            WWW reader = new WWW(directory);
+            WWW reader = new WWW(Directory);
             while (!reader.isDone) {}
 
             jsonString = reader.text;
         }
         else
         {
-            jsonString = File.ReadAllText(directory);
+            jsonString = File.ReadAllText(Directory);
 
         }
 
@@ -45,15 +52,48 @@ public class LevelStatusSaveState
 
     public void Save()
     {
-        
-        var directory = Application.streamingAssetsPath + "/Levels/" + LevelName;
+     
+        string Directory;
+        if (LevelName.Split('_')[3] == "s")
+        {
+            Directory = Application.persistentDataPath + "/" + LevelName;
+        }
+        else
+        {
+            Directory = Application.streamingAssetsPath + "/" + LevelName;
+        }
 
         var jsonString = JsonUtility.ToJson(this);
-        
-        File.Create(directory).Close();
 
-        File.WriteAllText(directory, jsonString);
+        StreamWriter file;
+        string fullPath = Directory;
+        try
+        {
+            if (!File.Exists(fullPath))
+            {
+                Debug.Log("creating file");
+                file = File.CreateText(fullPath);
+                file.WriteLine(jsonString);
+                file.Close();
+            }
+            else
+            {
+                Debug.Log("file exists in " + fullPath);
+                File.WriteAllText(fullPath, jsonString);
+            }
+ 
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
         
+/*        Debug.Log("creating folder ");
+        File.Create(Directory).Close();
+        Debug.Log("created folder");
+        Debug.Log("saving to folder");
+        File.WriteAllText(Directory, jsonString);
+        Debug.Log("saved");*/
     }
 }
 

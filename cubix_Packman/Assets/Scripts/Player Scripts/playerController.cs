@@ -495,8 +495,10 @@ public class playerController : MonoBehaviour
     {
         PointsCollected = 0;
         LevelStatusSaveState StatusState = new LevelStatusSaveState();
-        StatusState.LevelName = GameManager.CurrentLevel;
+        StatusState.LevelName = string.Format("level_{0}_{1}_s", GameManager.CurrentLevel.Split('_')[1], GameManager.CurrentLevel.Split('_')[2]);
         StatusState.Load();
+        GameManager.IndexOfCoinsCollected = StatusState.IndexOfCoinsCollected;
+        GameManager.IndexOfDiamondsCollected = StatusState.IndexOfDiamondsCollected;
         SaveManager.levelName = GameManager.CurrentLevel;
         for(int i = 0; i < Parts.Count; i++)
         {

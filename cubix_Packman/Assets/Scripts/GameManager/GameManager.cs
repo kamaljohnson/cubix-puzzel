@@ -45,6 +45,8 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<SwipeControl>().Reset();
         FindObjectOfType<playerController>().Reset();
         FindObjectOfType<playerController>().Load();
+        Debug.Log("THE LEVEL IS : " + CurrentLevel);
+        
         IsGameWon = false;
         IsPlaying = true;
     }
@@ -57,15 +59,16 @@ public class GameManager : MonoBehaviour
 
     public static void GameWon()
     {
+        Debug.Log("won the game");
         SaveManager sm = new SaveManager();
         LevelStatusSaveState state = new LevelStatusSaveState();
-        state.LevelName = CurrentLevel;
+        state.LevelName =string.Format("level_{0}_{1}_" + "s", CurrentLevel.Split('_')[1], (int.Parse(CurrentLevel.Split('_')[2])).ToString());
         state.Load();
         Player.NoOfMoves = IndexOfCoinsCollected.Count;
         state.IndexOfCoinsCollected = state.IndexOfCoinsCollected.Union(IndexOfCoinsCollected).ToList();
         state.IndexOfDiamondsCollected = state.IndexOfDiamondsCollected.Union(IndexOfDiamondsCollected).ToList();
         state.Save();
-        state.LevelName = "level_" + CurrentLevel.Split('_')[1] + "_" + (int.Parse(CurrentLevel.Split('_')[1]) + 1).ToString();
+        state.LevelName = string.Format("level_{0}_{1}_" + "s", CurrentLevel.Split('_')[1], (int.Parse(CurrentLevel.Split('_')[2]) + 1).ToString());
         state.Load();
         state.IsLocked = false;
         state.Save();

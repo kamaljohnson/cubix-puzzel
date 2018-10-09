@@ -510,7 +510,7 @@ public class LevelEditor : MonoBehaviour {
 
         var ls = new LevelStatusSaveState
         {
-            LevelName = SaveManager.levelName,
+            LevelName = string.Format("level_{0}_{1}_s", SaveManager.levelName.Split('_')[1], SaveManager.levelName.Split('_')[2]),
             BestTime = 0,
             BestTries = 0,
             IndexOfCoinsCollected = new List<int>(),

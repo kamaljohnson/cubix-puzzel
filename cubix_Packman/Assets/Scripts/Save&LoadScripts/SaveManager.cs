@@ -21,11 +21,20 @@ public class SaveManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         Instance = this;
     }
+
     public void Save(SaveState state)
     {
 
-        string Directory = Application.streamingAssetsPath + "/Levels/" + levelName;
-
+        Debug.Log("saving level 2 " + levelName);
+        string Directory;
+        if (levelName.Split('_')[3] == "s")
+        {
+            Directory = Application.persistentDataPath + "/" + levelName;
+        }
+        else
+        {
+            Directory = Application.streamingAssetsPath + "/Levels/" + levelName;
+        }
         
         string jsonString;
 
@@ -34,8 +43,16 @@ public class SaveManager : MonoBehaviour
     }
     public void Save(SaveState state, string LevelName)
     {
-        string Directory = Application.streamingAssetsPath + "/Levels/" + LevelName;
-     
+        Debug.Log("saving level 1");
+        string Directory;
+        if (levelName.Split('_')[3] == "s")
+        {
+            Directory = Application.persistentDataPath + "/" + levelName;
+        }
+        else
+        {
+            Directory = Application.streamingAssetsPath + "/Levels/" + levelName;
+        }     
         string jsonString;
 
         jsonString = JsonUtility.ToJson(state);
@@ -43,9 +60,16 @@ public class SaveManager : MonoBehaviour
     }
     public SaveState Load()
     {
-
-        string Directory = Application.streamingAssetsPath + "/Levels/" + levelName;
-
+        Debug.Log("loading level 1" + levelName);
+        string Directory;
+        if (levelName.Split('_')[3] == "s")
+        {
+            Directory = Application.persistentDataPath + "/" + levelName;
+        }
+        else
+        {
+            Directory = Application.streamingAssetsPath + "/Levels/" + levelName;
+        }
         string jsonString;
         if(Application.platform == RuntimePlatform.Android)
         {
@@ -64,8 +88,16 @@ public class SaveManager : MonoBehaviour
     public SaveState Load(string LevelName)
     {
         
-        string Directory = Application.streamingAssetsPath + "/Levels/" + LevelName;
- 
+        Debug.Log("loading level 2");
+        string Directory;
+        if (levelName.Split('_')[3] == "s")
+        {
+            Directory = Application.persistentDataPath + "/" + levelName;
+        }
+        else
+        {
+            Directory = Application.streamingAssetsPath + "/Levels/" + levelName;
+        } 
         string jsonString;
         if(Application.platform == RuntimePlatform.Android)
         {

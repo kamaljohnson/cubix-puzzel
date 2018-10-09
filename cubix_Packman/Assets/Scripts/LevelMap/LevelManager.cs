@@ -24,6 +24,7 @@ public class LevelManager : MonoBehaviour
     public static void ActivateLevel()
     {
         GameManager.CurrentLevel = CurrentLevel;
+        Debug.Log("level : " + CurrentLevel);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -43,7 +44,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            CurrentLevel = string.Format("{0}_{1}_{2}", intermediateLevelStringList[0], intermediateLevelStringList[1], level.ToString());
+            CurrentLevel = string.Format("{0}_{1}_{2}_{3}", intermediateLevelStringList[0], intermediateLevelStringList[1], level.ToString(), "L");
             GameManager.CurrentLevel = CurrentLevel;
             GameManager.Play();
         }

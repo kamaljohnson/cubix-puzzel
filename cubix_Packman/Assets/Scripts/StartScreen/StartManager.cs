@@ -24,7 +24,7 @@ public class StartManager : MonoBehaviour
             {
                 for (int j = 1; j <= NumberOfLevelsInSeasons[i-1]; j ++)
                 {
-                    string filename = string.Format("level_{0}_{1}", i.ToString(), j.ToString());
+                    string filename = string.Format("level_{0}_{1}_{2}", i.ToString(), j.ToString(), "s");
                     LevelStatusSaveState state = new LevelStatusSaveState
                     {
                         LevelName =  filename,
@@ -34,9 +34,10 @@ public class StartManager : MonoBehaviour
                         BestTime = 0,
                         BestTries = 0,
                     };
-/*
+                    Debug.Log("saving status of level");
                     state.Save();
-*/
+                    Debug.Log("saved status");
+                    
                 }
             }
         }

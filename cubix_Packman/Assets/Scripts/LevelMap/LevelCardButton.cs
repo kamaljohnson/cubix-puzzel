@@ -43,7 +43,7 @@ public class LevelCardButton : MonoBehaviour {
 				Debug.Log("*" + i.ToString());
 				
 				levelIndex += 1;
-				if (LevelName == string.Format("level_{0}_{1}", i.ToString(), j.ToString()))
+				if (LevelName == string.Format("level_{0}_{1}_{2}", i.ToString(), j.ToString(), "L"))
 				{
 					flag = true;
 					break;
