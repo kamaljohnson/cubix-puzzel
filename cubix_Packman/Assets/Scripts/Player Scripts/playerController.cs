@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
+using System.Collections.Generic;
+
 /*
  * 1. script to direct the camara to move (HINT make the camara move over to the corners of am imaginary cube over the main maze cube)
  * 2. move the camera to the next position by using the direction of movement of the player and the current position of the camera  
@@ -15,7 +17,7 @@ public class playerController : MonoBehaviour
     /* TODO : make the script get the size of the maze from code
      */
     private float MazeOffset;
-
+    
     //components for the player rotaration (the ground trigger items)
     //all the colliders are set to isTrigger
     public GameObject Right;
@@ -23,6 +25,9 @@ public class playerController : MonoBehaviour
     public GameObject Forward;
     public GameObject Back;
     public GameObject Down;
+    
+    public List<Material> ListOfMaterials;
+    private int NoOfGates;
 
     RayCastScript rightRay;
     RayCastScript leftRay;
@@ -36,6 +41,8 @@ public class playerController : MonoBehaviour
     public GameObject MazeBody;
     MazeBodyRotation mazeRotation;
 
+    public Transform playerMesh;
+    
     bool canMoveRight = false;
     bool canMoveLeft = false;
     bool canMoveForward = false;
@@ -90,101 +97,136 @@ public class playerController : MonoBehaviour
 
     SaveManager sm = new SaveManager();
     SaveState state = new SaveState();
-    List<Node> nodes = new List<Node>();
-    List<GameObject> Parts = new List<GameObject>();
-    List<PrefabType> PartsTypes = new List<PrefabType>();
+    System.Collections.Generic.List<Node> nodes = new System.Collections.Generic.List<Node>();
+    System.Collections.Generic.List<GameObject> Parts = new System.Collections.Generic.List<GameObject>();
+    System.Collections.Generic.List<PrefabType> PartsTypes = new System.Collections.Generic.List<PrefabType>();
+    
     public GameObject Maze;
-    public GameObject Part01;
-    public GameObject Part02;
-    public GameObject Part03;
-    public GameObject Part04;
-    public GameObject Part05;
-    public Material onMaze;
-    public Camera mainCamera;
 
+    public List<GameObject> ListOfParts;
+    
+    public Camera mainCamera;
+    
     int noOfParts = 0;
 
-    private void Start () {
+    public static Transform EndPosition;
+    public static Transform StartPosition;
 
+    public static int PointsCollected = 0;
+    
+    private void Awake()
+    {
+        
+        Spikes.EditorMode = false;
         Screen.orientation = ScreenOrientation.Portrait;
         swipeInput = GetComponent<SwipeControl>();
-
-        anim = cubeMesh.GetComponent<AnimationScript>();
-        animEdgeFlag = false;
-        isMoving = false;
         
+        anim = cubeMesh.GetComponent<AnimationScript>();
+
         rightRay = Right.GetComponent<RayCastScript>();
         leftRay = Left.GetComponent<RayCastScript>();
         forwardRay = Forward.GetComponent<RayCastScript>();
         backRay = Back.GetComponent<RayCastScript>();
         downRay = Down.GetComponent<RayCastScript>();
 
+                
         RightRotation = Vector3.back;
         LeftRotation = Vector3.forward;
         ForwardRotation = Vector3.right;
         BackRotation = Vector3.left;
+        
+        //destination = transform.localPosition;
+        mazeRotation = MazeBody.GetComponent<MazeBodyRotation>();
 
-        trigFlag = false;
+    }
+
+    public void Reset()
+    {
+        var playerMeshOffset = new Vector3(0, 0.1225f, 0);
+        
+        mazeRotation.rotate = false;
+        mazeRotation.gameObject.transform.eulerAngles = CheckPoint.MazeCurrentCheckPointTransformRotation;
+        transform.eulerAngles = Vector3.zero;
+        isMoving = false;
+        movementDireciton = Direction.Null;
+        tempDirection = Direction.Null;
+        /*trigFlag = false;*/
         rotateFlag = false;
         atEdge = false;
         destinationFlag = true;
-        //destination = transform.localPosition;
-
-        mazeRotation = MazeBody.GetComponent<MazeBodyRotation>();
-
-        Load();
-
+        inJunction = true;
+        tempDirection = Direction.Null;
+        canMoveBack = false;
+        canMoveForward = false;
+        canMoveLeft = false;
+        canMoveRight = false;
+        anim.animationStop = true;
+        transform.localPosition = CheckPoint.PlayerCurrentCheckPointTransformPosition;
+        playerMesh.localPosition = transform.localPosition + playerMeshOffset;
+        playerMesh.eulerAngles = Vector3.zero;
+        destination = CheckPoint.PlayerCurrentCheckPointTransformPosition;
     }
-	
 	private void FixedUpdate ()
     {
-        WallCollisionCheck();
-        EdgeDetection();
-        JunctionDetection();
-        localForward = transform.parent.InverseTransformDirection(transform.forward);
-        localRight = transform.parent.InverseTransformDirection(transform.right);
-        localLeft = localRight * -1;
-        localBack = localForward * -1;
-        localDown = transform.parent.InverseTransformDirection(transform.up) * -1;
 
+        if (GameManager.IsPlaying && !GameManager.IsGameWon)
+        {
+            WallCollisionCheck();
+            EdgeDetection();
+            JunctionDetection();
+            localForward = transform.parent.InverseTransformDirection(transform.forward);
+            localRight = transform.parent.InverseTransformDirection(transform.right);
+            localLeft = localRight * -1;
+            localBack = localForward * -1;
+            localDown = transform.parent.InverseTransformDirection(transform.up) * -1;
 
-        if (animEdgeFlag && mazeRotation.rotate)
-        {
-            anim.animationStop = true;
-        }
-        else if(animEdgeFlag && !mazeRotation.rotate)
-        {
-            switch (movementDireciton)
+            if (animEdgeFlag && mazeRotation.rotate)
             {
-                case Direction.Right:
-                    anim.right = true;
-                    break;
-                case Direction.Left:
-                    anim.left = true;
-                    break;
-                case Direction.Forward:
-                    anim.forward = true;
-                    break;
-                case Direction.Back:
-                    anim.back = true;
-                    break;
+                anim.animationStop = true;
             }
-            animEdgeFlag = false;
+            else if (animEdgeFlag && !mazeRotation.rotate)
+            {
+                if (Vector3.Distance(EndPosition.position, transform.localPosition) <= 0.2f && GameManager.EndState.activeSelf)
+                {
+                    GameManager.GameWon();
+                    return;
+                }
+                switch (movementDireciton)
+                {
+                    case Direction.Right:
+                        anim.right = true;
+                        break;
+                    case Direction.Left:
+                        anim.left = true;
+                        break;
+                    case Direction.Forward:
+                        anim.forward = true;
+                        break;
+                    case Direction.Back:
+                        anim.back = true;
+                        break;
+                }
+
+                animEdgeFlag = false;
+            }
+
+            if (inJunction)
+            {
+                anim.animationStop = true;
+
+            }
+
+            if (!atEdge)
+            {
+                Move();
+            }
+
+            if (atEdge)
+            {
+                animEdgeFlag = true;
+                ChangePlane();
+            }
         }
-        if (inJunction)
-        {
-            anim.animationStop = true;
-        }
-        if (!atEdge)
-        {
-            Move();
-        }
-        if(atEdge)
-        {
-            animEdgeFlag = true;
-            ChangePlane();
-        }
-               
     }
     void JunctionDetection()
     {
@@ -218,15 +260,15 @@ public class playerController : MonoBehaviour
         }
     }
     void Move() //controls the movement of the player 
-    {
+    {   
         if (((Input.GetAxis("Horizontal") > 0  || swipeInput.Right)&& !mazeRotation.rotate)|| tempDirection == Direction.Right)
         {
-            swipeInput.Right = false;
             if (canMoveRight)
             {
                 tempDirection = Direction.Right;
                 if (destinationFlag)
                 {
+                    swipeInput.Right = false;
                     isMoving = true;
                     destinationFlag = false;
                     movementDireciton = Direction.Right;
@@ -237,12 +279,12 @@ public class playerController : MonoBehaviour
         }
         if(((Input.GetAxis("Horizontal") < 0 || swipeInput.Left) && !mazeRotation.rotate) || tempDirection == Direction.Left)
         {
-            swipeInput.Left = false;
             if (canMoveLeft)
             {
                 tempDirection = Direction.Left;
                 if (destinationFlag)
                 {
+                    swipeInput.Left = false;
                     isMoving = true;
                     destinationFlag = false;
                     movementDireciton = Direction.Left;
@@ -253,12 +295,12 @@ public class playerController : MonoBehaviour
         }
         if(((Input.GetAxis("Vertical") > 0 || swipeInput.Forward) && !mazeRotation.rotate) || tempDirection == Direction.Forward)
         {
-            swipeInput.Forward = false;
             if (canMoveForward)
             {
                 tempDirection = Direction.Forward;
                 if (destinationFlag)
                 {
+                    swipeInput.Forward = false;
                     isMoving = true;
                     destinationFlag = false;
                     movementDireciton = Direction.Forward;
@@ -269,12 +311,12 @@ public class playerController : MonoBehaviour
         }
         if(((Input.GetAxis("Vertical") < 0 || swipeInput.Back)&& !mazeRotation.rotate) || tempDirection == Direction.Back)
         {
-            swipeInput.Back = false;
             if (canMoveBack)
             {
                 tempDirection = Direction.Back;
                 if (destinationFlag)
                 {
+                    swipeInput.Back = false;
                     isMoving = true;
                     destinationFlag = false;
                     movementDireciton = Direction.Back;
@@ -283,11 +325,14 @@ public class playerController : MonoBehaviour
                 }
             }
         }
-        
+
         if (transform.localPosition == destination)
         {
-            transform.localPosition = destination;
-
+            if (Vector3.Distance(EndPosition.position, transform.localPosition) <= 0.2f && GameManager.EndState.activeSelf)
+            {
+                GameManager.GameWon();
+                return;
+            }
             destinationFlag = true;
             if (inJunction)
             {
@@ -342,41 +387,8 @@ public class playerController : MonoBehaviour
     }
     void EdgeDetection()
     {
-        /*float overShoot = 0.1f;
-        if(transform.localPosition.x > MazeOffset + overShoot)
-        {
-            atEdge = true;
-            transform.localPosition = new Vector3(MazeOffset, transform.localPosition.y, transform.localPosition.z);
-        }
-        else if (transform.localPosition.y > MazeOffset + overShoot)
-        {
-            atEdge = true;
-            transform.localPosition = new Vector3(transform.localPosition.x, MazeOffset, transform.localPosition.z);
-        }
-        else if (transform.localPosition.z > MazeOffset + overShoot)
-        {
-            atEdge = true;
-            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, MazeOffset);
-        }
-        else if (transform.localPosition.x < -(MazeOffset + overShoot))
-        {
-            atEdge = true;
-            transform.localPosition = new Vector3(-MazeOffset, transform.localPosition.y, transform.localPosition.z);
-        }
-        else if (transform.localPosition.y < -(MazeOffset + overShoot))
-        {
-            atEdge = true;
-            transform.localPosition = new Vector3(transform.localPosition.x, -MazeOffset, transform.localPosition.z);
-        }
-        else if (transform.localPosition.z < -(MazeOffset + overShoot))
-        {
-            atEdge = true;
-            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, -MazeOffset);
-        }*/
-
         if(!downRay.hittingWall)
         {
-            Debug.Log("moving down");
             atEdge = true;
         }
         
@@ -481,58 +493,227 @@ public class playerController : MonoBehaviour
     }
     public int Load()
     {
-        SaveManager.levelName = "Level01";
-        state = sm.Load();
-        nodes = new List<Node>();
-        PartsTypes = new List<PrefabType>();
-        Parts = new List<GameObject>();
-        for (int i = 0; i < state.node.Count; i++)
+        PointsCollected = 0;
+        LevelStatusSaveState StatusState = new LevelStatusSaveState();
+        StatusState.LevelName = string.Format("level_{0}_{1}_s", GameManager.CurrentLevel.Split('_')[1], GameManager.CurrentLevel.Split('_')[2]);
+        Debug.Log("loading state");
+        StatusState.Load();
+        Debug.Log("loaded state");
+        Debug.Log("loading level");
+        GameManager.IndexOfCoinsCollected = StatusState.IndexOfCoinsCollected;
+        GameManager.IndexOfDiamondsCollected = StatusState.IndexOfDiamondsCollected;
+        SaveManager.levelName = GameManager.CurrentLevel;
+        for(int i = 0; i < Parts.Count; i++)
         {
-            nodes.Add(state.node[i].ConvertToNode());
+            Destroy(Parts[i]);
         }
-        MazeSize = state.levelSize;
+        state = sm.Load();
+        Debug.Log("loaded level");
+        nodes = new System.Collections.Generic.List<Node>();
+        PartsTypes = new System.Collections.Generic.List<PrefabType>();
+        Parts = new System.Collections.Generic.List<GameObject>();
+        for (int i = 0; i < state.Node.Count; i++)
+        {
+            nodes.Add(state.Node[i].ConvertToNode());
+        }
+        MazeSize = state.LevelSize;
         MazeOffset = MazeSize / 2;
         DownStep = MazeOffset / MazeSize;
-        SaveManager.levelSize = state.levelSize;
-        for (int i = 0; i < state.node.Count; i++)
+        SaveManager.levelSize = state.LevelSize;
+
+        var keyFlag = false;
+        var guardianFlag = false;
+        
+        GameObject preKey = new GameObject();
+
+        GameObject tempObj = new GameObject();
+
+        int coinIndex = 0;
+        int diamondIndex = 0;
+        for (var i = 0; i < state.Node.Count; i++)
         {
-            GameObject tempObj = new GameObject();
+            var startEndFlag = false;
             switch (nodes[i].Type)
             {
 
                 case (PrefabType.Part01):
-                    tempObj = Instantiate(Part01, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[0], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
                     PartsTypes.Add(PrefabType.Part01);
                     break;
                 case (PrefabType.Part02):
-                    tempObj = Instantiate(Part02, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[1], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
                     PartsTypes.Add(PrefabType.Part02);
                     break;
                 case (PrefabType.Part03):
-                    tempObj = Instantiate(Part03, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[2], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
                     PartsTypes.Add(PrefabType.Part03);
                     break;
                 case (PrefabType.Part04):
-                    tempObj = Instantiate(Part04, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[3], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
                     PartsTypes.Add(PrefabType.Part04);
                     break;
                 case (PrefabType.Part05):
-                    tempObj = Instantiate(Part05, nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                    tempObj = Instantiate(ListOfParts[4], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
                     PartsTypes.Add(PrefabType.Part05);
                     break;
-            }
-            tempObj.GetComponent<Renderer>().material = onMaze;
-            Parts.Add(tempObj);
+                case PrefabType.Start:
+                    Debug.Log("here");
+                    startEndFlag = true;
+                    StartPosition = nodes[i].transform;
+                    CheckPoint.SetCheckPointTransfrom(StartPosition.localPosition);
+                    break;
+                case PrefabType.End:
+                    tempObj = Instantiate(ListOfParts[5], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
+                    EndPosition = nodes[i].transform;
+                    GameManager.EndState = tempObj;
+                    break;
+                case PrefabType.KeyWall:
+                    keyFlag = true;
+                    tempObj = Instantiate(ListOfParts[6], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
+                    preKey = tempObj;
+                    NoOfGates++;
+                    break;
+                case PrefabType.Coins:
+                    coinIndex++;
+                    if(!StatusState.IndexOfCoinsCollected.Contains(coinIndex))
+                    {
+                        tempObj = Instantiate(ListOfParts[7], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                        tempObj.GetComponent<Points>().Index = coinIndex;
+                    }
+                    break;
+                case PrefabType.Spike:
+                    tempObj = Instantiate(ListOfParts[8], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
+                    tempObj.GetComponent<Spikes>().LocalTimerIndex = Spikes.CurrentFlagIndex++;
+                    Spikes.SpikeInitializeFlag = true;
+                    break;
+                case PrefabType.KeyPortal:
+                    break;
+                case PrefabType.CheckPoint:
+                    tempObj = Instantiate(ListOfParts[9], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
+                    break;
+                case PrefabType.Guardian:
+                    if (guardianFlag == false)
+                    {
+                        tempObj = Instantiate(ListOfParts[10], nodes[i].transform.position, nodes[i].transform.rotation,
+                            Maze.transform);
+                        tempObj.GetComponent<Guardian>().GuardianPath
+                            .Add(nodes[i].transform.transform); // added initial position of the guardian
 
+                    }
+                    else
+                    {
+                        tempObj.GetComponent<Guardian>().GuardianPath.Add(nodes[i].transform.transform);
+                    }
+
+                    guardianFlag = true;
+
+                    break;
+                case PrefabType.Hammer:
+                    tempObj = Instantiate(ListOfParts[11], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
+                    break;
+                case PrefabType.GoliathWalk:
+                    tempObj = Instantiate(ListOfParts[12], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
+                    Goliath.PossiblePositions.Add(tempObj.transform);
+                    break;
+                case PrefabType.Goliath:
+                    tempObj = Instantiate(ListOfParts[13], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
+                    Goliath.InitialPosition = tempObj.transform.localPosition;
+                    break;
+                case PrefabType.GoliathAttackSwitch:
+                    tempObj = Instantiate(ListOfParts[14], nodes[i].transform.position, nodes[i].transform.rotation,
+                        Maze.transform);
+                    GoliathAttackSwitch.SwitchLists.Add(tempObj);
+                    break;
+                case PrefabType.Chest:
+                    var flag = false;
+                    foreach (var chest in TreasureManager.TreasureListGot.Treasures)
+                    {
+                        if (chest.LevelName == GameManager.CurrentLevel)
+                        {
+                            Debug.Log("chest is already taken");
+                            flag = true;
+                            break;
+                        }
+                    }
+
+                    if (!flag)
+                    {
+                        tempObj = Instantiate(ListOfParts[15], nodes[i].transform.position, nodes[i].transform.rotation,
+                            Maze.transform);
+                        
+                        foreach (var chest in TreasureManager.TreasureListAll.Treasures)
+                        {
+                            if (chest.LevelName == GameManager.CurrentLevel)
+                            {
+                                Chest.CurrentChest = chest;
+                                break;
+                            }
+                        }
+                        
+                    }
+
+                    break;
+                case PrefabType.Diamonds:
+                    diamondIndex++;
+                    if(!StatusState.IndexOfDiamondsCollected.Contains(diamondIndex))
+                    {
+                        tempObj = Instantiate(ListOfParts[16], nodes[i].transform.position, nodes[i].transform.rotation, Maze.transform);
+                        tempObj.GetComponent<Diamond>().Index = diamondIndex;
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            if (nodes[i].Type != PrefabType.Guardian)
+            {
+                guardianFlag = false;
+            }
+            if (nodes[i].Type != PrefabType.Spike || i == nodes.Count-1)
+            {
+                if (Spikes.SpikeInitializeFlag)
+                {
+                    Spikes.SpikeInitializeFlag = false;
+                    for (var j = 1; j < Spikes.CurrentFlagIndex + 1; j++)
+                    {
+                        Parts[Parts.Count - j].GetComponent<Spikes>().IndexLimit = Spikes.CurrentFlagIndex + 1;
+                    }
+                }
+                Spikes.CurrentFlagIndex = 0;
+            }
+            
+            if (startEndFlag) continue;
+            tempObj.GetComponent<Renderer>().material = ListOfMaterials[0];
+            Parts.Add(tempObj);
+            
+            if (keyFlag && nodes[i].Type != PrefabType.KeyWall)
+            {
+                keyFlag = false;
+                preKey.GetComponentInChildren<Key>().Lock = Parts[Parts.Count - 1];
+                Parts[Parts.Count - 1].GetComponent<Renderer>().material = ListOfMaterials[NoOfGates];
+                foreach (Transform child in Parts[Parts.Count - 2].transform) {
+                    child.GetComponent<Renderer>().material = ListOfMaterials[NoOfGates];
+                }
+            }
         }
-        noOfParts = state.node.Count;
+        noOfParts = state.Node.Count;
         maze_body.transform.localScale = new Vector3(SaveManager.levelSize, SaveManager.levelSize, SaveManager.levelSize);
         mainCamera.orthographicSize = SaveManager.levelSize + 7;
-        if(MazeSize%2 == 0)
-            transform.localPosition = new Vector3(1.5f, SaveManager.levelSize/2, 1.5f);
-        else
-            transform.localPosition = new Vector3(1.0f, SaveManager.levelSize/2, 1.0f);
-        destination = transform.localPosition;
+        transform.position = StartPosition.localPosition;
+        transform.eulerAngles = Vector3.zero;
+        destination = transform.position;
         return 1;
     }
 }

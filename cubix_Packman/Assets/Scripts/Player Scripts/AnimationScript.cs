@@ -7,6 +7,7 @@ public class AnimationScript : MonoBehaviour {
     // Use this for initialization
     Animator anim;
     public bool right, left, forward, back;    //triggers for each direciton 
+    public bool levelEntry, levelExit;
     public bool animationStop;
     void Start () {
         anim = GetComponent<Animator>();
@@ -19,22 +20,26 @@ public class AnimationScript : MonoBehaviour {
             if (right)
             {
                 anim.Play("RightRolling", -1, 0f);
-                Debug.Log("Right");
             }
             else if (left)
             {
                 anim.Play("LeftRolling", -1, 0f);
-                Debug.Log("Left");
             }
             else if (forward)
             {
                 anim.Play("ForwardRolling", -1, 0f);
-                Debug.Log("Forward");
             }
             else if (back)
             {
                 anim.Play("BackRolling", -1, 0f);
-                Debug.Log("Back");
+            }
+            else if(levelExit)
+            {
+                anim.Play("levelExit", -1, 0f);
+            }
+            else if(levelEntry)
+            {
+                anim.Play("levelEntry", -1, 0f);
             }
         }
         else
@@ -45,6 +50,8 @@ public class AnimationScript : MonoBehaviour {
         left = false;
         forward = false;
         back = false;
+        levelEntry = false;
+        levelExit = false;
 
     }
 }

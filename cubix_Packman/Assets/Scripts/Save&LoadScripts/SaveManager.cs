@@ -10,7 +10,6 @@ public class SaveManager : MonoBehaviour
 {
 
     public static SaveManager Instance { set; get; }
-    public object JsonMapper { get; private set; }
 
     public SaveState state;
 
@@ -22,34 +21,55 @@ public class SaveManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         Instance = this;
     }
+
     public void Save(SaveState state)
     {
-        //string s = Helper.Serialize(state);
-        //XmlSerializer serializer = new XmlSerializer(typeof(SaveState));
-        //FileStream stream = new FileStream(Application.persistentDataPath +"/Levels/"+ levelName, FileMode.Create);
-        //serializer.Serialize(stream, state);
-        //Debug.Log(Application.persistentDataPath + "/Levels/" + levelName);
-        //stream.Close();
 
-
-        string Directory = Application.streamingAssetsPath + "/Levels/" + levelName;
-        //BinaryFormatter BF = new BinaryFormatter();
+        Debug.Log("saving level 2 " + levelName);
+        string Directory;
+        if (levelName.Split('_')[3] == "s")
+        {
+            Directory = Application.persistentDataPath + "/" + levelName;
+        }
+        else
+        {
+            Directory = Application.streamingAssetsPath + "/Levels/" + levelName;
+        }
         
         string jsonString;
 
         jsonString = JsonUtility.ToJson(state);
-        File.WriteAllText(Directory, jsonString);
+        File.WriteAllText(Directory, jsonString);    
+    }
+    public void Save(SaveState state, string LevelName)
+    {
+        Debug.Log("saving level 1");
+        string Directory;
+        if (levelName.Split('_')[3] == "s")
+        {
+            Directory = Application.persistentDataPath + "/" + levelName;
+        }
+        else
+        {
+            Directory = Application.streamingAssetsPath + "/Levels/" + levelName;
+        }     
+        string jsonString;
+
+        jsonString = JsonUtility.ToJson(state);
+        File.WriteAllText(Directory, jsonString); 
     }
     public SaveState Load()
     {
-        //XmlSerializer serializer = new XmlSerializer(typeof(SaveState));
-        //FileStream stream = new FileStream(Application.persistentDataPath + "/Levels/" + levelName, FileMode.Open);
-        //Debug.Log(Application.persistentDataPath + "/Levels/" + levelName);
-        //state = (SaveState)serializer.Deserialize(stream);
-
-
-        string Directory = Application.streamingAssetsPath + "/Levels/" + levelName;
-        //BinaryFormatter BF = new BinaryFormatter();
+        Debug.Log("loading level 1" + levelName);
+        string Directory;
+        if (levelName.Split('_')[3] == "s")
+        {
+            Directory = Application.persistentDataPath + "/" + levelName;
+        }
+        else
+        {
+            Directory = Application.streamingAssetsPath + "/Levels/" + levelName;
+        }
         string jsonString;
         if(Application.platform == RuntimePlatform.Android)
         {
@@ -63,25 +83,34 @@ public class SaveManager : MonoBehaviour
             jsonString = File.ReadAllText(Directory);
         }
         state = JsonUtility.FromJson<SaveState>(jsonString);
-        /*if (File.Exists(Directory))
+        return state;
+    }
+    public SaveState Load(string LevelName)
+    {
+        
+        Debug.Log("loading level 2");
+        string Directory;
+        if (levelName.Split('_')[3] == "s")
         {
+            Directory = Application.persistentDataPath + "/" + levelName;
+        }
+        else
+        {
+            Directory = Application.streamingAssetsPath + "/Levels/" + levelName;
+        } 
+        string jsonString;
+        if(Application.platform == RuntimePlatform.Android)
+        {
+            WWW reader = new WWW(Directory);
+            while (!reader.isDone) { }
 
-            Debug.Log("File Exits");
-
-            WWW linkstream;
-
-            linkstream = new WWW("file://" + Directory);
-
-
-
-            while (!linkstream.isDone) { }
-
-            MemoryStream MySaveFile = new MemoryStream(linkstream.bytes);
-
-            state = (SaveState)BF.Deserialize(MySaveFile);
-            MySaveFile.Close();
-
-        }*/
+            jsonString = reader.text;
+        }
+        else
+        {
+            jsonString = File.ReadAllText(Directory);
+        }
+        state = JsonUtility.FromJson<SaveState>(jsonString);
         return state;
     }
 }

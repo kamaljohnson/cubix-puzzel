@@ -116,7 +116,7 @@ public class EditorUI : MonoBehaviour {
     {
         mainCamera.orthographicSize = index + 3;
         editorCamera.orthographicSize = index + 3;
-        editorScript.MazeSize = index + 2;
+        editorScript.MazeSize = index + 1;
         editorScript.ChangeMazeSize();
         editorScript.firstTime = false;
         SaveManager.levelSize = editorScript.MazeSize;

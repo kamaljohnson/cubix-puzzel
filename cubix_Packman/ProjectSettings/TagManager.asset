@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
+  - Point
+  - Key
+  - Diamond
   layers:
   - Default
   - TransparentFX
