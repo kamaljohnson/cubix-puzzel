@@ -15,30 +15,41 @@ public class StartManager : MonoBehaviour
     {
         SeasonManager.NumberOfLevelsInSeasons = NumberOfLevelsInSeasons;
         
-        PlayerPrefs.SetString("gameStatus", "NotSet");
-        if (PlayerPrefs.GetString("gameStatus") == "NotSet")
+        for (int i = 1; i <= NumberOfLevelsInSeasons.Count; i++)
         {
-            PlayerPrefs.SetString("gameStaus", "Set");
-            // set all the level status to initial values
-            for (int i = 1; i <= NumberOfLevelsInSeasons.Count; i++)
+            for (int j = 1; j <= NumberOfLevelsInSeasons[i-1]; j ++)
             {
-                for (int j = 1; j <= NumberOfLevelsInSeasons[i-1]; j ++)
+                string filename = string.Format("level_{0}_{1}_{2}", i.ToString(), j.ToString(), "s");
+                
+                string directory;
+                if (filename.Split('_')[3] == "s")
                 {
-                    string filename = string.Format("level_{0}_{1}_{2}", i.ToString(), j.ToString(), "s");
+                    directory = Application.persistentDataPath + "/" + filename;
+                }
+                else
+                {
+                    directory = Application.streamingAssetsPath + "/" + filename;
+                }
+                
+                if (!File.Exists(directory))
+                {
+                    Debug.Log("creating file");
                     LevelStatusSaveState state = new LevelStatusSaveState
                     {
-                        LevelName =  filename,
+                        LevelName = filename ,
                         IsLocked = false,
                         IndexOfCoinsCollected = new List<int>(),
                         IndexOfDiamondsCollected = new List<int>(),
                         BestTime = 0,
                         BestTries = 0,
                     };
-                    Debug.Log("saving status of level");
-                    state.Save();
-                    Debug.Log("saved status");
-                    
+                
+                    var file = File.CreateText(directory);
+                    var jsonString = JsonUtility.ToJson(state);
+                    file.WriteLine(jsonString);
+                    file.Close();
                 }
+                
             }
         }
 

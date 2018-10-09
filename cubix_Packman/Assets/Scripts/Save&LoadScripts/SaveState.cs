@@ -25,27 +25,8 @@ public class LevelStatusSaveState
         {
             directory = Application.streamingAssetsPath + "/Levels/" + LevelName;
         }
-        string jsonString;
-        
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            Debug.Log("here !! reading from " + directory);
-/*
-            WWW reader = new WWW(directory);
-            while (!reader.isDone) {}
-*/
-            jsonString = File.ReadAllText(directory);
 
-/*
-            jsonString = reader.text;
-*/
-            Debug.Log("done reading!!");
-        }
-        else
-        {
-            jsonString = File.ReadAllText(directory);
-
-        }
+        var jsonString = File.ReadAllText(directory);
 
         var ls = JsonUtility.FromJson<LevelStatusSaveState>(jsonString);
 
@@ -78,7 +59,18 @@ public class LevelStatusSaveState
             if (!File.Exists(fullPath))
             {
                 Debug.Log("creating file");
+                LevelStatusSaveState state = new LevelStatusSaveState
+                {
+                    LevelName = LevelName ,
+                    IsLocked = false,
+                    IndexOfCoinsCollected = new List<int>(),
+                    IndexOfDiamondsCollected = new List<int>(),
+                    BestTime = 0,
+                    BestTries = 0,
+                };
+                
                 var file = File.CreateText(fullPath);
+                jsonString = JsonUtility.ToJson(state);
                 file.WriteLine(jsonString);
                 file.Close();
             }
@@ -94,12 +86,6 @@ public class LevelStatusSaveState
             Debug.Log(e);
         }
         
-/*        Debug.Log("creating folder ");
-        File.Create(Directory).Close();
-        Debug.Log("created folder");
-        Debug.Log("saving to folder");
-        File.WriteAllText(Directory, jsonString);
-        Debug.Log("saved");*/
     }
 }
 
