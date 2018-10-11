@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
         state.IndexOfCoinsCollected = state.IndexOfCoinsCollected.Union(IndexOfCoinsCollected).ToList();
         state.IndexOfDiamondsCollected = state.IndexOfDiamondsCollected.Union(IndexOfDiamondsCollected).ToList();
         state.Save();
+                
         if(LevelManager.NextLevelPresent)
         {
             state.LevelName = string.Format("level_{0}_{1}_" + "s", CurrentLevel.Split('_')[1], (int.Parse(CurrentLevel.Split('_')[2]) + 1).ToString());

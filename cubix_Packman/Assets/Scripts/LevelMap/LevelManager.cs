@@ -55,18 +55,19 @@ public class LevelManager : MonoBehaviour
     public static void NextLevel()
     {
         var intermediateLevelStringList = CurrentLevel.Split('_');
+        var level = int.Parse(intermediateLevelStringList[2]);
         
-        var level = int.Parse(intermediateLevelStringList[2]) + 1;
-        if (level > SeasonManager.NumberOfLevelsInCurrentSeason)
+        level += 1;
+        CurrentLevel = string.Format("{0}_{1}_{2}_{3}", intermediateLevelStringList[0], intermediateLevelStringList[1], level.ToString(), "L");
+        GameManager.CurrentLevel = CurrentLevel;
+        GameManager.Play();
+        
+        if (level == SeasonManager.NumberOfLevelsInCurrentSeason)
         {
+            Debug.Log("No Next Level");
             NextLevelPresent = false;
         }
-        else
-        {
-            CurrentLevel = string.Format("{0}_{1}_{2}_{3}", intermediateLevelStringList[0], intermediateLevelStringList[1], level.ToString(), "L");
-            GameManager.CurrentLevel = CurrentLevel;
-            GameManager.Play();
-        }
+        
     }
 
 }
