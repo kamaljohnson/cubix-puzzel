@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     public static string CurrentLevel = "";
     private static bool _created = false;
     public GameObject LevelPlayCard;
+    public static bool NextLevelPresent;
     
     void Awake()
     {
@@ -25,6 +26,24 @@ public class LevelManager : MonoBehaviour
     {
         GameManager.CurrentLevel = CurrentLevel;
         Debug.Log("level : " + CurrentLevel);
+        
+        
+        var intermediateLevelStringList = CurrentLevel.Split('_');
+        
+        var level = int.Parse(intermediateLevelStringList[2]) + 1;
+        if (level > SeasonManager.NumberOfLevelsInCurrentSeason)
+        {
+            Debug.Log("NEXT LEVEL NOT PRESENT");
+            NextLevelPresent = false;
+        }
+        else
+        {
+            
+            Debug.Log("NEXT LEVEL PRESENT");
+            NextLevelPresent = true;
+        }
+        
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -40,7 +59,7 @@ public class LevelManager : MonoBehaviour
         var level = int.Parse(intermediateLevelStringList[2]) + 1;
         if (level > SeasonManager.NumberOfLevelsInCurrentSeason)
         {
-            Debug.Log("No Level To Load");    
+            NextLevelPresent = false;
         }
         else
         {

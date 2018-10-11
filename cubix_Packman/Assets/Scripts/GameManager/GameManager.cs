@@ -53,8 +53,17 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(IsGameWon)
-            LevelTransitionUI.SetActive(true);
+        if (IsGameWon)
+        {
+            if (LevelManager.NextLevelPresent)
+            {
+                LevelTransitionUI.SetActive(true);
+            }
+            else
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            }
+        }
     }
 
     public static void GameWon()
@@ -68,13 +77,16 @@ public class GameManager : MonoBehaviour
         state.IndexOfCoinsCollected = state.IndexOfCoinsCollected.Union(IndexOfCoinsCollected).ToList();
         state.IndexOfDiamondsCollected = state.IndexOfDiamondsCollected.Union(IndexOfDiamondsCollected).ToList();
         state.Save();
-        state.LevelName = string.Format("level_{0}_{1}_" + "s", CurrentLevel.Split('_')[1], (int.Parse(CurrentLevel.Split('_')[2]) + 1).ToString());
-        state.Load();
-        state.IsLocked = false;
-        state.Save();
+        if(LevelManager.NextLevelPresent)
+        {
+            state.LevelName = string.Format("level_{0}_{1}_" + "s", CurrentLevel.Split('_')[1], (int.Parse(CurrentLevel.Split('_')[2]) + 1).ToString());
+            state.Load();
+            state.IsLocked = false;
+            state.Save();
+            
+        }
         IsGameWon = true;
         IsPlaying = false;
-        PlayerPrefs.SetInt("levelIndex", PlayerPrefs.GetInt("levelIndex") + 1);
     }
 
     public void LevelTransitionOnRestart()

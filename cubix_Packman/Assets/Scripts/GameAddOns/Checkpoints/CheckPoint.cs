@@ -45,6 +45,5 @@ public class CheckPoint : MonoBehaviour
         
         FindObjectOfType<SwipeControl>().Reset();
         FindObjectOfType<playerController>().Reset();
-        Player.IsAlive = true;
     }
 }

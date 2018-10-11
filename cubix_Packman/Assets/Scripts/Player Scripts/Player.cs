@@ -7,23 +7,35 @@ public class Player : MonoBehaviour
 
     public static bool IsAlive = true;
     public static int NoOfMoves = 0;
-    private bool deathFlag = false;
+    private bool _deathFlag = false;
+
+    private float _respawnTimer = 0;
+    private readonly float _respawnTime = 0.15f;
     public void Update()
     {
-        if (!IsAlive && !deathFlag)
+        if (!IsAlive && !_deathFlag)
         {   
-            deathFlag = true;
+            _deathFlag = true;
             NoOfMoves++;
-            Debug.Log("activating the checkpoint");
             GameManager.IsPlaying = false;
-            CheckPoint.ActivateCheckPoint();
-            Goliath.health = Goliath.MaxHealth;
+            ScreenMaskScript.Trigger = true;
         }
 
-        if (IsAlive)
+        if (_deathFlag)
         {
-            deathFlag = false;
-            GameManager.IsPlaying = true;
+            _respawnTimer += Time.deltaTime;
+            Debug.Log(_respawnTimer.ToString() + " <---- ");
+            if (_respawnTimer > _respawnTime)
+            {
+                _respawnTimer = 0;
+                _deathFlag = false;
+                IsAlive = true;
+                
+                CheckPoint.ActivateCheckPoint();
+                Goliath.health = Goliath.MaxHealth;
+                
+                GameManager.IsPlaying = true;
+            }
         }
     }
 }

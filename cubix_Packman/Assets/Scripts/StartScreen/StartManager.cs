@@ -36,7 +36,7 @@ public class StartManager : MonoBehaviour
                     Debug.Log("creating file");
                     LevelStatusSaveState state = new LevelStatusSaveState
                     {
-                        LevelName = filename ,
+                        LevelName = filename,
                         IsLocked = false,
                         IndexOfCoinsCollected = new List<int>(),
                         IndexOfDiamondsCollected = new List<int>(),
