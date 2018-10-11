@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     public static void Play()
     {
         IsGameWon = false;
+        CheckPoint.ResetToStart();
         FindObjectOfType<SwipeControl>().Reset();
         FindObjectOfType<playerController>().Reset();
         FindObjectOfType<playerController>().Load();

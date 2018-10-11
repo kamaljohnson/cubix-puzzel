@@ -6,6 +6,8 @@ public class CheckPoint : MonoBehaviour
 
     public static Vector3 MazeCurrentCheckPointTransformRotation;
     public static Vector3 PlayerCurrentCheckPointTransformPosition;
+
+    public static Vector3 StartPointPosition;
     
     public static List<GameObject> LocksActive = new List<GameObject>();
     public static List<GameObject> LocksTemp = new List<GameObject>();
@@ -23,6 +25,17 @@ public class CheckPoint : MonoBehaviour
         PlayerCurrentCheckPointTransformPosition = checkpoinPosition;
     }
 
+    public static void ResetToStart()
+    {
+        Debug.Log("checkpoint reset.");
+        LocksActive = new List<GameObject>();
+        LocksTemp = new List<GameObject>();
+        
+        SetCheckPointTransfrom(StartPointPosition);
+        
+        ActivateCheckPoint();
+    }
+    
     public static void ActivateCheckPoint()
     {
         Debug.Log("activated the checkpoint");

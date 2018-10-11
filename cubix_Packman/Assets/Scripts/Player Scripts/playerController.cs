@@ -165,6 +165,7 @@ public class playerController : MonoBehaviour
         playerMesh.localPosition = transform.localPosition + playerMeshOffset;
         playerMesh.eulerAngles = Vector3.zero;
         destination = CheckPoint.PlayerCurrentCheckPointTransformPosition;
+        
     }
 	private void FixedUpdate ()
     {
@@ -496,10 +497,7 @@ public class playerController : MonoBehaviour
         PointsCollected = 0;
         LevelStatusSaveState StatusState = new LevelStatusSaveState();
         StatusState.LevelName = string.Format("level_{0}_{1}_s", GameManager.CurrentLevel.Split('_')[1], GameManager.CurrentLevel.Split('_')[2]);
-        Debug.Log("loading state");
         StatusState.Load();
-        Debug.Log("loaded state");
-        Debug.Log("loading level");
         GameManager.IndexOfCoinsCollected = StatusState.IndexOfCoinsCollected;
         GameManager.IndexOfDiamondsCollected = StatusState.IndexOfDiamondsCollected;
         SaveManager.levelName = GameManager.CurrentLevel;
@@ -508,7 +506,6 @@ public class playerController : MonoBehaviour
             Destroy(Parts[i]);
         }
         state = sm.Load();
-        Debug.Log("loaded level");
         nodes = new System.Collections.Generic.List<Node>();
         PartsTypes = new System.Collections.Generic.List<PrefabType>();
         Parts = new System.Collections.Generic.List<GameObject>();
@@ -565,6 +562,7 @@ public class playerController : MonoBehaviour
                     Debug.Log("here");
                     startEndFlag = true;
                     StartPosition = nodes[i].transform;
+                    CheckPoint.StartPointPosition = StartPosition.localPosition;
                     CheckPoint.SetCheckPointTransfrom(StartPosition.localPosition);
                     break;
                 case PrefabType.End:
